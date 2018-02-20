@@ -62,6 +62,9 @@
                                 <state key="normal" title="Add car">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addCar:" destination="JGr-qO-sPO" eventType="touchUpInside" id="YLW-cC-1Tu"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="BHh-vm-fmO">
                                 <rect key="frame" x="80" y="115" width="215" height="116"/>
@@ -95,6 +98,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cLz-mZ-bf8"/>
                     </view>
+                    <connections>
+                        <outlet property="addCarButton" destination="eXe-uq-ZTM" id="Xlq-xg-fb6"/>
+                        <outlet property="brandTextField" destination="1oL-t5-c2k" id="LXF-dL-aog"/>
+                        <outlet property="modelTextField" destination="gl8-Ny-man" id="dIp-Fr-HDR"/>
+                        <outlet property="productionYearTextField" destination="5Ku-wO-iqg" id="QMH-xj-pKn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8h-m3-NcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

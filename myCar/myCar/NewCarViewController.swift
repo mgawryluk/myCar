@@ -9,7 +9,13 @@
 import UIKit
 
 class NewCarViewController: UIViewController {
-
+    
+    // MARK: Properities
+    
+    @IBOutlet weak var brandTextField: UITextField!
+    @IBOutlet weak var modelTextField: UITextField!
+    @IBOutlet weak var productionYearTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +25,13 @@ class NewCarViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    // MARK: Actions
+    
+    @IBAction func addCar(_ sender: UIButton) {
+    }
+    
+    
 
 }
 
