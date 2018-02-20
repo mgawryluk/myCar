@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NewCarViewController: UIViewController {
+class NewCarViewController: UIViewController, UITextFieldDelegate {
     
-    // MARK: Properities
+    //MARK: Properities
     
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
@@ -18,7 +18,10 @@ class NewCarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        brandTextField.delegate = self
+        modelTextField.delegate = self
+        productionYearTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +29,19 @@ class NewCarViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Actions
+    //MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        
+    }
+    //MARK: Actions
     
     @IBAction func addCar(_ sender: UIButton) {
     }
