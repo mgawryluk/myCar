@@ -12,6 +12,7 @@
 		902E9280203AE69700DD7E0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902E927E203AE69700DD7E0F /* Main.storyboard */; };
 		902E9282203AE69700DD7E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 902E9281203AE69700DD7E0F /* Assets.xcassets */; };
 		902E9285203AE69700DD7E0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902E9283203AE69700DD7E0F /* LaunchScreen.storyboard */; };
+		908AA2EC203DFDD000B102AE /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908AA2EB203DFDD000B102AE /* Car.swift */; };
 		90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		902E9281203AE69700DD7E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		902E9284203AE69700DD7E0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		902E9286203AE69700DD7E0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		908AA2EB203DFDD000B102AE /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 			children = (
 				902E927A203AE69700DD7E0F /* AppDelegate.swift */,
 				902E927C203AE69700DD7E0F /* NewCarViewController.swift */,
+				908AA2EB203DFDD000B102AE /* Car.swift */,
 				90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */,
 				902E927E203AE69700DD7E0F /* Main.storyboard */,
 				902E9281203AE69700DD7E0F /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			files = (
 				902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */,
 				902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */,
+				908AA2EC203DFDD000B102AE /* Car.swift in Sources */,
 				90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
