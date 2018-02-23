@@ -26,6 +26,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="key-WZ-MOD">
+                                            <rect key="frame" x="0.0" y="-12" width="375" height="212"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-P6-lCk">
                                             <rect key="frame" x="16" y="17" width="116" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -55,11 +59,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="di7-1s-cKh">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="dN0-gy-qTo"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh">
-                            <connections>
-                                <segue destination="JGr-qO-sPO" kind="presentation" id="0M2-fR-DgX"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feg-5H-lE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
