@@ -9,7 +9,12 @@
 import UIKit
 
 class CarTableViewCell: UITableViewCell {
-
+    
+    //MARK: Properties
+    
+    @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var modelLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

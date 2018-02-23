@@ -26,15 +26,26 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Car 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myb-gf-kHJ">
-                                            <rect key="frame" x="62" y="49" width="250" height="100"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-P6-lCk">
+                                            <rect key="frame" x="16" y="17" width="116" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-iF-8ef">
+                                            <rect key="frame" x="16" y="40" width="116" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="brandLabel" destination="FXs-P6-lCk" id="02D-21-g7O"/>
+                                    <outlet property="modelLabel" destination="U8i-iF-8ef" id="qBp-Za-w50"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -44,7 +55,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="di7-1s-cKh">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="dN0-gy-qTo"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh">
+                            <connections>
+                                <segue destination="JGr-qO-sPO" kind="presentation" id="0M2-fR-DgX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feg-5H-lE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
