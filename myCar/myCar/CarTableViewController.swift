@@ -26,24 +26,31 @@ class CarTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return cars.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cellIdentifier = "CarTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as? CarTableViewCell else {
+                fatalError("Error")
+        }
+        
+        let car = cars[indexPath.row]
+        
+        cell.brandLabel.text = car.brand
+        cell.modelLabel.text = car.model
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -89,5 +96,7 @@ class CarTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+
 
 }
