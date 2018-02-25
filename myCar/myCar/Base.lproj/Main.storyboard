@@ -18,6 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="ike-bv-adT">
+                            <rect key="frame" x="0.0" y="228" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarTableViewCell" rowHeight="200" id="XvV-dj-RUa" customClass="CarTableViewCell" customModule="myCar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
@@ -59,7 +64,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="di7-1s-cKh">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="dN0-gy-qTo"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh">
+                            <connections>
+                                <segue destination="JGr-qO-sPO" kind="presentation" identifier="AddItem" id="JCB-r7-D1M"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feg-5H-lE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +128,7 @@
                         <viewLayoutGuide key="safeArea" id="cLz-mZ-bf8"/>
                     </view>
                     <connections>
-                        <outlet property="addCarButton" destination="eXe-uq-ZTM" id="Xlq-xg-fb6"/>
+                        <outlet property="addCarButton" destination="eXe-uq-ZTM" id="I4v-iJ-UGi"/>
                         <outlet property="brandTextField" destination="1oL-t5-c2k" id="LXF-dL-aog"/>
                         <outlet property="modelTextField" destination="gl8-Ny-man" id="dIp-Fr-HDR"/>
                         <outlet property="productionYearTextField" destination="5Ku-wO-iqg" id="QMH-xj-pKn"/>

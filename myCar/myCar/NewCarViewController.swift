@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class NewCarViewController: UIViewController, UITextFieldDelegate {
     
@@ -15,6 +16,10 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var productionYearTextField: UITextField!
+    
+    @IBOutlet weak var addCarButton: UIButton!
+    
+    var car: Car?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +46,20 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        
+        
+    }
+    
     //MARK: Actions
     
     @IBAction func addCar(_ sender: UIButton) {
+        
     }
     
     
