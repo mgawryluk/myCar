@@ -59,7 +59,19 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
     //MARK: Actions
     
     @IBAction func addCar(_ sender: UIButton) {
+        let brand = brandTextField.text
+        let model = modelTextField.text
+        let productionYear = productionYearTextField.text
         
+        guard let car = Car(brand: brand, model: model, productionYear: productionYear)  else {
+            
+            return
+        }
+        
+        CarRepository.instance.addNewCar(car: car)
+        
+        dismiss(animated: true, completion: nil)
+    
     }
     
     

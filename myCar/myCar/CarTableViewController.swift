@@ -14,8 +14,14 @@ class CarTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        cars = CarRepository.instance.getAllCars()
+        tableView.reloadData()
+        // New data added to Car array
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +45,7 @@ class CarTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CarTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath) as? CarTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CarTableViewCell else {
                 fatalError("Error")
         }
         

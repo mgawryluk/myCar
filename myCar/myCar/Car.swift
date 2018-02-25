@@ -15,9 +15,14 @@ class Car {
     
     //MARK: Initialization
     
-    init?(brand: String, model: String, productionYear: String) {
+    init?(brand: String?, model: String?, productionYear: String?) {
         
-        guard brand.isEmpty || model.isEmpty || productionYear.isEmpty else {
+        guard let brand = brand, let model = model, let productionYear = productionYear else {
+    
+            return nil
+        }
+        
+        guard !brand.isEmpty && !model.isEmpty && !productionYear.isEmpty else {
             return nil
         }
         
