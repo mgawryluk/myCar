@@ -83,7 +83,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-uq-ZTM">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-uq-ZTM">
                                 <rect key="frame" x="105" y="352" width="165" height="45"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -122,8 +122,10 @@
                         <constraints>
                             <constraint firstItem="BHh-vm-fmO" firstAttribute="leading" secondItem="cLz-mZ-bf8" secondAttribute="leading" constant="80" id="1gW-ub-rVK"/>
                             <constraint firstItem="BHh-vm-fmO" firstAttribute="top" secondItem="cLz-mZ-bf8" secondAttribute="top" constant="95" id="KZA-fu-MjS"/>
+                            <constraint firstItem="eXe-uq-ZTM" firstAttribute="leading" secondItem="cLz-mZ-bf8" secondAttribute="leading" constant="105" id="Rst-JZ-f3b"/>
                             <constraint firstItem="eXe-uq-ZTM" firstAttribute="top" secondItem="BHh-vm-fmO" secondAttribute="bottom" constant="77" id="TXq-ck-fiL"/>
                             <constraint firstItem="cLz-mZ-bf8" firstAttribute="trailing" secondItem="BHh-vm-fmO" secondAttribute="trailing" constant="80" id="ebu-uo-ZNK"/>
+                            <constraint firstItem="cLz-mZ-bf8" firstAttribute="trailing" secondItem="eXe-uq-ZTM" secondAttribute="trailing" constant="105" id="gcz-nm-L4R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cLz-mZ-bf8"/>
                     </view>
