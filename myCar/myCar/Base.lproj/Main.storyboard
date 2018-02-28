@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,21 +36,25 @@
                                             <rect key="frame" x="0.0" y="-12" width="375" height="212"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-P6-lCk">
-                                            <rect key="frame" x="16" y="17" width="116" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-P6-lCk">
+                                            <rect key="frame" x="16" y="17" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-iF-8ef">
-                                            <rect key="frame" x="16" y="40" width="116" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-iF-8ef">
+                                            <rect key="frame" x="16" y="40" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FXs-P6-lCk" firstAttribute="leading" secondItem="FT8-K9-fkp" secondAttribute="leadingMargin" id="7dN-RK-gXk"/>
+                                        <constraint firstItem="FXs-P6-lCk" firstAttribute="top" secondItem="FT8-K9-fkp" secondAttribute="topMargin" constant="6" id="AxK-KJ-zhp"/>
+                                        <constraint firstItem="U8i-iF-8ef" firstAttribute="top" secondItem="FXs-P6-lCk" secondAttribute="bottom" constant="2.5" id="XKN-Pp-Sip"/>
+                                        <constraint firstItem="U8i-iF-8ef" firstAttribute="leading" secondItem="FT8-K9-fkp" secondAttribute="leadingMargin" id="bIe-Nr-l0r"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="brandLabel" destination="FXs-P6-lCk" id="02D-21-g7O"/>
@@ -187,6 +192,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="JCB-r7-D1M"/>
         <segue reference="X7J-zN-oHF"/>
     </inferredMetricsTieBreakers>
 </document>
