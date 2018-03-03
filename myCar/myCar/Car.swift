@@ -7,11 +7,28 @@
 //
 
 import UIKit
+import os.log
 
-class Car {
+class Car: NSObject, NSCoding {
+    
+    //MARK: Properties
+    
     var brand: String
     var model: String
     var productionYear: String
+    
+    //MARK: Archiving Paths
+    
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("cars")
+    
+    //MARK: Types
+    
+    struct PropertyKey {
+        static let brand = "brand"
+        static let model = "model"
+        static let productionYear = "productionYear"
+    }
     
     //MARK: Initialization
     
@@ -29,5 +46,44 @@ class Car {
         self.brand = brand
         self.model = model
         self.productionYear = productionYear
+    }
+    
+   
+    
+    //MARK: NSCoding
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(brand, forKey: PropertyKey.brand)
+        aCoder.encode(model, forKey: PropertyKey.model)
+        aCoder.encode(productionYear, forKey: PropertyKey.productionYear)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let brand = aDecoder.decodeObject(forKey: PropertyKey.brand) as? String
+            else {
+                os_log("Unable to decode the model for a Car object.", log: OSLog.default, type: .debug)
+            
+                return nil
+        }
+        
+        let model = aDecoder.decodeObject(forKey: PropertyKey.model) as? String
+        let productionYear = aDecoder.decodeObject(forKey: PropertyKey.productionYear) as? String
+        
+        self.init(brand: brand, model: model, productionYear: productionYear)
+    }
+    
+    //MARK: Private Methods
+    
+    private func saveCars() {
+        let saveSuccess = NSKeyedArchiver.archiveRootObject(saveCars(), toFile: Car.ArchiveURL.path)
+        
+        if saveSuccess {
+            os_log("Cars successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save cars...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadCars() -> [Car] {
+        return (NSKeyedUnarchiver.unarchiveObject(withFile: Car.ArchiveURL.path) as? [Car])!
     }
 }
