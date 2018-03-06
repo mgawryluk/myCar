@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		902E01F3204EC0D900D471C6 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E01F2204EC0D900D471C6 /* CategoryTableViewController.swift */; };
 		902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927A203AE69700DD7E0F /* AppDelegate.swift */; };
 		902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927C203AE69700DD7E0F /* NewCarViewController.swift */; };
 		902E9280203AE69700DD7E0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902E927E203AE69700DD7E0F /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		902E01F2204EC0D900D471C6 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		902E9277203AE69700DD7E0F /* myCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		902E927A203AE69700DD7E0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		902E927C203AE69700DD7E0F /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		902E9279203AE69700DD7E0F /* myCar */ = {
 			isa = PBXGroup;
 			children = (
+				902E01F2204EC0D900D471C6 /* CategoryTableViewController.swift */,
 				902E927A203AE69700DD7E0F /* AppDelegate.swift */,
 				902E927C203AE69700DD7E0F /* NewCarViewController.swift */,
 				908AA2EB203DFDD000B102AE /* Car.swift */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902E01F3204EC0D900D471C6 /* CategoryTableViewController.swift in Sources */,
 				902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */,
 				902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */,
 				908AA2EE203E092C00B102AE /* CarTableViewController.swift in Sources */,
