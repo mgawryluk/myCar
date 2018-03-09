@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		902E01F3204EC0D900D471C6 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E01F2204EC0D900D471C6 /* CategoryTableViewController.swift */; };
 		902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927A203AE69700DD7E0F /* AppDelegate.swift */; };
 		902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927C203AE69700DD7E0F /* NewCarViewController.swift */; };
 		902E9280203AE69700DD7E0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902E927E203AE69700DD7E0F /* Main.storyboard */; };
@@ -16,11 +15,11 @@
 		908AA2EC203DFDD000B102AE /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908AA2EB203DFDD000B102AE /* Car.swift */; };
 		908AA2EE203E092C00B102AE /* CarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908AA2ED203E092C00B102AE /* CarTableViewController.swift */; };
 		908D871A20432C0B0055EA0B /* CarRepositosory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D871920432C0A0055EA0B /* CarRepositosory.swift */; };
+		909605A720528DF000754C2D /* MileageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909605A620528DF000754C2D /* MileageTableViewController.swift */; };
 		90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		902E01F2204EC0D900D471C6 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		902E9277203AE69700DD7E0F /* myCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		902E927A203AE69700DD7E0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		902E927C203AE69700DD7E0F /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		908AA2EB203DFDD000B102AE /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		908AA2ED203E092C00B102AE /* CarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewController.swift; sourceTree = "<group>"; };
 		908D871920432C0A0055EA0B /* CarRepositosory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRepositosory.swift; sourceTree = "<group>"; };
+		909605A620528DF000754C2D /* MileageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTableViewController.swift; sourceTree = "<group>"; };
 		90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,8 +64,8 @@
 		902E9279203AE69700DD7E0F /* myCar */ = {
 			isa = PBXGroup;
 			children = (
-				902E01F2204EC0D900D471C6 /* CategoryTableViewController.swift */,
 				902E927A203AE69700DD7E0F /* AppDelegate.swift */,
+				909605A620528DF000754C2D /* MileageTableViewController.swift */,
 				902E927C203AE69700DD7E0F /* NewCarViewController.swift */,
 				908AA2EB203DFDD000B102AE /* Car.swift */,
 				908D871920432C0A0055EA0B /* CarRepositosory.swift */,
@@ -151,12 +151,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				902E01F3204EC0D900D471C6 /* CategoryTableViewController.swift in Sources */,
 				902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */,
 				902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */,
 				908AA2EE203E092C00B102AE /* CarTableViewController.swift in Sources */,
 				908AA2EC203DFDD000B102AE /* Car.swift in Sources */,
 				908D871A20432C0B0055EA0B /* CarRepositosory.swift in Sources */,
+				909605A720528DF000754C2D /* MileageTableViewController.swift in Sources */,
 				90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

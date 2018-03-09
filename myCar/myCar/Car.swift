@@ -71,19 +71,4 @@ class Car: NSObject, NSCoding {
         self.init(brand: brand, model: model, productionYear: productionYear)
     }
     
-    //MARK: Private Methods
-    
-    private func saveCars() {
-        let saveSuccess = NSKeyedArchiver.archiveRootObject(saveCars(), toFile: Car.ArchiveURL.path)
-        
-        if saveSuccess {
-            os_log("Cars successfully saved.", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed to save cars...", log: OSLog.default, type: .error)
-        }
-    }
-    
-    private func loadCars() -> [Car] {
-        return (NSKeyedUnarchiver.unarchiveObject(withFile: Car.ArchiveURL.path) as? [Car])!
-    }
 }

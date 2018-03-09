@@ -1,21 +1,20 @@
 //
-//  CategoryTableViewController.swift
+//  MileageTableViewController.swift
 //  myCar
 //
-//  Created by Michał on 06/03/2018.
+//  Created by Michał on 09/03/2018.
 //  Copyright © 2018 Michał Gawryluk. All rights reserved.
 //
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController {
+class MileageTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
+        self.tableView.tableFooterView = UIView()
     
-   
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,16 +30,18 @@ class CategoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,5 +87,9 @@ class CategoryTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func addMileage(_ sender: UIBarButtonItem) {
+    }
+    
 
 }

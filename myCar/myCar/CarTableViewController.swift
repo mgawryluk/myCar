@@ -10,16 +10,11 @@ import UIKit
 
 class CarTableViewController: UITableViewController {
     
-    var cars = [Car]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = editButtonItem
-        
-        if let savedCars = loadCars() {
-            cars += savedCars
-        }
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250
@@ -29,12 +24,8 @@ class CarTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        cars = CarRepository.instance.getAllCars()
         tableView.reloadData()
         // New data added to Car array
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 250
         
     }
 
@@ -52,7 +43,7 @@ class CarTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return cars.count
+        return CarRepository.instance.getAllCars().count
     }
 
     
@@ -63,7 +54,7 @@ class CarTableViewController: UITableViewController {
                 fatalError("Error")
         }
         
-        let car = cars[indexPath.row]
+        let car = CarRepository.instance.getAllCars()[indexPath.row]
         
         cell.brandLabel.text = car.brand
         cell.modelLabel.text = car.model
@@ -86,7 +77,8 @@ class CarTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             
-            cars.remove(at: indexPath.row)
+            CarRepository.instance.deleteCar(indexPath: indexPath.row)
+            CarRepository.instance.saveCars()
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
