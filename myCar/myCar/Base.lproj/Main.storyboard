@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="716" y="160.56971514242881"/>
         </scene>
-        <!--View Controller-->
+        <!--Category View Controller-->
         <scene sceneID="Ahe-mT-P1a">
             <objects>
-                <viewController id="3io-9j-pzQ" sceneMemberID="viewController">
+                <viewController id="3io-9j-pzQ" customClass="CategoryViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T9E-uK-uG1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,7 +161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZgF-lg-7y4">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZgF-lg-7y4" customClass="MileageTableViewCell" customModule="myCar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZgF-lg-7y4" id="3Uy-Bd-CRr">
@@ -198,6 +198,10 @@
                                         <constraint firstItem="ek6-V3-9bQ" firstAttribute="top" secondItem="3Uy-Bd-CRr" secondAttribute="topMargin" id="xM8-QK-2hr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="distance" destination="ek6-V3-9bQ" id="712-kG-XvN"/>
+                                    <outlet property="mileageYear" destination="BXz-Mi-2mc" id="ulM-nm-TKQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -218,16 +222,16 @@
             </objects>
             <point key="canvasLocation" x="2448.8000000000002" y="1717.6911544227887"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Mileage View Controller-->
         <scene sceneID="9KG-oQ-jny">
             <objects>
-                <viewController id="s9s-y7-7QK" sceneMemberID="viewController">
+                <viewController id="s9s-y7-7QK" customClass="AddMileageViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gyy-A5-8sP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="OKx-R9-pdz">
-                                <rect key="frame" x="105" y="167" width="164" height="77"/>
+                                <rect key="frame" x="105" y="123" width="164" height="77"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKQ-zy-xXt">
                                         <rect key="frame" x="33.5" y="0.0" width="97" height="30"/>
@@ -252,7 +256,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIJ-6B-448">
-                                <rect key="frame" x="147" y="277" width="80" height="30"/>
+                                <rect key="frame" x="147" y="233" width="80" height="30"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Gh4-ZQ-FQW"/>
@@ -260,6 +264,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addDistanceButton:" destination="s9s-y7-7QK" eventType="touchUpInside" id="zbt-PV-0Ay"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -277,10 +284,15 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="PoD-qi-LRV"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rJ8-jW-aad"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="distanceTextLabel" destination="Icf-Cf-npl" id="PI4-Gg-xuy"/>
+                        <outlet property="mileageYearTextField" destination="aKQ-zy-xXt" id="hT4-LP-9yT"/>
+                        <outlet property="yearTextField" destination="aKQ-zy-xXt" id="fuk-yI-ijO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIu-eD-m2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4156" y="1466"/>
+            <point key="canvasLocation" x="4127" y="1718"/>
         </scene>
         <!--New Car View Controller-->
         <scene sceneID="uWU-y1-4VS">
@@ -451,11 +463,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1Q-ve-VWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3361" y="2006"/>
+            <point key="canvasLocation" x="3286" y="2206"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NPR-LZ-wx9"/>
+        <segue reference="iNw-Km-j8r"/>
         <segue reference="7UO-Sn-byk"/>
         <segue reference="X7J-zN-oHF"/>
     </inferredMetricsTieBreakers>

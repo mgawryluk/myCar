@@ -15,6 +15,13 @@ class MileageTableViewController: UITableViewController {
         self.tableView.tableFooterView = UIView()
     
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+        // New data added to Car array
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
