@@ -9,6 +9,8 @@
 import UIKit
 
 class AddMileageViewController: UIViewController, UITextFieldDelegate {
+    
+    var car: Car?
 
     
     @IBOutlet weak var mileageYearTextField: UITextField!
@@ -59,17 +61,18 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         let mileageYear = mileageYearTextField.text
         let distance = distanceTextField.text
         
-        /*
-        guard let km = Mileage(mileageYear: mileageYear, distance: distance)  else {
+        
+        guard let km = Mileage(mileageYear: mileageYear, distance: distance, carIdentifier: car?.identifier)  else {
             
             return
         }
         
         MileageRepository.instance.addMileage(km: km)
         MileageRepository.instance.saveMileage()
-        */
         
-        dismiss(animated: true, completion: nil)
+ 
+        
+        navigationController?.popViewController(animated: true)
         
     }
 }

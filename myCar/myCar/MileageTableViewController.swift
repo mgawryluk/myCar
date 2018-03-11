@@ -9,6 +9,8 @@
 import UIKit
 
 class MileageTableViewController: UITableViewController {
+    
+    var car: Car?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class MileageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return MileageRepository.instance.getMileage().count
+        return MileageRepository.instance.getMileageForCar(carIdentifier: car!.identifier).count
     }
     
     
@@ -48,7 +50,7 @@ class MileageTableViewController: UITableViewController {
             fatalError("Error")
         }
         
-        let km = MileageRepository.instance.getMileage()[indexPath.row]
+        let km = MileageRepository.instance.getMileageForCar(carIdentifier: (car?.identifier)!)[indexPath.row]
         
         cell.mileageYearLabel.text = km.mileageYear
         cell.distanceTextLabel.text = km.distance
@@ -59,6 +61,13 @@ class MileageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showAddMileageSegue" {
+            (segue.destination as? AddMileageViewController)?.car = car
+        }
     }
     
     

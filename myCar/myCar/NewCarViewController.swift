@@ -69,7 +69,7 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
         CarRepository.instance.addNewCar(car: car)
         CarRepository.instance.saveCars()
         
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     
     }
     
