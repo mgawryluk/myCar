@@ -12,7 +12,8 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var mileageYearTextField: UITextField!
-    @IBOutlet weak var distanceTextLabel: UITextField!
+    @IBOutlet weak var distanceTextField: UITextField!
+    
     
     var km: Mileage?
     
@@ -21,7 +22,7 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         mileageYearTextField.delegate = self
-        distanceTextLabel.delegate = self
+        distanceTextField.delegate = self
         
     }
 
@@ -43,22 +44,22 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+       super.prepare(for: segue, sender: sender)
     }
-    */
+    
     
     //MARK: Actions
     
     @IBAction func addDistanceButton(_ sender: UIButton) {
         let mileageYear = mileageYearTextField.text
-        let distance = distanceTextLabel.text
+        let distance = distanceTextField.text
         
+        /*
         guard let km = Mileage(mileageYear: mileageYear, distance: distance)  else {
             
             return
@@ -66,6 +67,7 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         
         MileageRepository.instance.addMileage(km: km)
         MileageRepository.instance.saveMileage()
+        */
         
         dismiss(animated: true, completion: nil)
         

@@ -68,7 +68,6 @@
                                 <connections>
                                     <outlet property="brandLabel" destination="FXs-P6-lCk" id="02D-21-g7O"/>
                                     <outlet property="modelLabel" destination="U8i-iF-8ef" id="qBp-Za-w50"/>
-                                    <segue destination="3io-9j-pzQ" kind="show" id="7UO-Sn-byk"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,6 +84,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="3io-9j-pzQ" kind="show" identifier="showCategorySegue" id="VpT-MO-R8T"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feg-5H-lE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,34 +101,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-CG-oSO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksB-hw-EXA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="129.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120.5"/>
                                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Service"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-iv-3KG">
-                                        <rect key="frame" x="0.0" y="129.5" width="375" height="129.5"/>
+                                        <rect key="frame" x="0.0" y="120.5" width="375" height="120.5"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Bills"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4R-9q-OaN">
-                                        <rect key="frame" x="0.0" y="259" width="375" height="129"/>
+                                        <rect key="frame" x="0.0" y="241" width="375" height="121"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Costs"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oud-JN-6wU">
-                                        <rect key="frame" x="0.0" y="388" width="375" height="129.5"/>
+                                        <rect key="frame" x="0.0" y="362" width="375" height="120.5"/>
                                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Repairs"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Un-vj1">
-                                        <rect key="frame" x="0.0" y="517.5" width="375" height="129.5"/>
+                                        <rect key="frame" x="0.0" y="482.5" width="375" height="120.5"/>
                                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Mileage"/>
@@ -161,7 +163,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZgF-lg-7y4" customClass="MileageTableViewCell" customModule="myCar" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MileageTableViewCell" id="ZgF-lg-7y4" customClass="MileageTableViewCell" customModule="myCar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZgF-lg-7y4" id="3Uy-Bd-CRr">
@@ -199,8 +201,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="distance" destination="ek6-V3-9bQ" id="712-kG-XvN"/>
-                                    <outlet property="mileageYear" destination="BXz-Mi-2mc" id="ulM-nm-TKQ"/>
+                                    <outlet property="distanceTextLabel" destination="ek6-V3-9bQ" id="NWt-ab-MHf"/>
+                                    <outlet property="mileageYearLabel" destination="BXz-Mi-2mc" id="pwy-zh-1Kc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -212,8 +214,7 @@
                     <navigationItem key="navigationItem" id="SZh-IG-8k2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xza-hq-Khj">
                             <connections>
-                                <action selector="addMileage:" destination="tsX-wl-1Dl" id="z4q-pi-WCo"/>
-                                <segue destination="s9s-y7-7QK" kind="presentation" id="iNw-Km-j8r"/>
+                                <segue destination="RIi-nb-CXC" kind="presentation" id="Lk3-Rb-Ggt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -231,7 +232,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="OKx-R9-pdz">
-                                <rect key="frame" x="105" y="123" width="164" height="77"/>
+                                <rect key="frame" x="105" y="167" width="164" height="77"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKQ-zy-xXt">
                                         <rect key="frame" x="33.5" y="0.0" width="97" height="30"/>
@@ -256,7 +257,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIJ-6B-448">
-                                <rect key="frame" x="147" y="233" width="80" height="30"/>
+                                <rect key="frame" x="147" y="277" width="80" height="30"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Gh4-ZQ-FQW"/>
@@ -282,12 +283,15 @@
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="pGY-YP-JJe">
                         <barButtonItem key="backBarButtonItem" title="Back" id="PoD-qi-LRV"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rJ8-jW-aad"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rJ8-jW-aad">
+                            <connections>
+                                <segue destination="tsX-wl-1Dl" kind="presentation" id="a2i-YC-9hA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="distanceTextLabel" destination="Icf-Cf-npl" id="PI4-Gg-xuy"/>
+                        <outlet property="distanceTextField" destination="Icf-Cf-npl" id="7xK-vS-aeH"/>
                         <outlet property="mileageYearTextField" destination="aKQ-zy-xXt" id="hT4-LP-9yT"/>
-                        <outlet property="yearTextField" destination="aKQ-zy-xXt" id="fuk-yI-ijO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIu-eD-m2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -467,8 +471,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iNw-Km-j8r"/>
-        <segue reference="7UO-Sn-byk"/>
-        <segue reference="X7J-zN-oHF"/>
+        <segue reference="a2i-YC-9hA"/>
+        <segue reference="VpT-MO-R8T"/>
+        <segue reference="uJY-ln-PMx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,10 +9,13 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
+    
+    var car: Car?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.title = car?.brand
         
     }
 

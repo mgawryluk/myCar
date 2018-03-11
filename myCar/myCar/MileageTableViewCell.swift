@@ -10,8 +10,9 @@ import UIKit
 
 class MileageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var mileageYear: UILabel!
-    @IBOutlet weak var distance: UILabel!
+    
+    @IBOutlet weak var mileageYearLabel: UILabel!
+    @IBOutlet weak var distanceTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

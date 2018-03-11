@@ -10,6 +10,8 @@ import UIKit
 
 class CarTableViewController: UITableViewController {
     
+    var selectedCar: Car?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +88,12 @@ class CarTableViewController: UITableViewController {
         }    
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCar = CarRepository.instance.getAllCars()[indexPath.row]
+        performSegue(withIdentifier: "showCategorySegue", sender: self)
+        
+    }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -102,15 +110,18 @@ class CarTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showCategorySegue" {
+        (segue.destination as? CategoryViewController)?.car = selectedCar
+    
+        }
     }
-    */
+    
     
 
 

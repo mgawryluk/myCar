@@ -16,6 +16,7 @@ class Car: NSObject, NSCoding {
     var brand: String
     var model: String
     var productionYear: String
+    var identifier: String
     
     //MARK: Archiving Paths
     
@@ -28,11 +29,12 @@ class Car: NSObject, NSCoding {
         static let brand = "brand"
         static let model = "model"
         static let productionYear = "productionYear"
+        static let identifier = "identifier"
     }
     
     //MARK: Initialization
     
-    init?(brand: String?, model: String?, productionYear: String?) {
+    init?(brand: String?, model: String?, productionYear: String?, identifier: String? = nil) {
         
         guard let brand = brand, let model = model, let productionYear = productionYear else {
     
@@ -46,6 +48,12 @@ class Car: NSObject, NSCoding {
         self.brand = brand
         self.model = model
         self.productionYear = productionYear
+        
+        if identifier != nil {
+            self.identifier = identifier!
+        } else {
+            self.identifier = UUID().uuidString
+        }
     }
     
    
@@ -55,6 +63,7 @@ class Car: NSObject, NSCoding {
         aCoder.encode(brand, forKey: PropertyKey.brand)
         aCoder.encode(model, forKey: PropertyKey.model)
         aCoder.encode(productionYear, forKey: PropertyKey.productionYear)
+        aCoder.encode(identifier, forKey: PropertyKey.identifier)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -67,8 +76,9 @@ class Car: NSObject, NSCoding {
         
         let model = aDecoder.decodeObject(forKey: PropertyKey.model) as? String
         let productionYear = aDecoder.decodeObject(forKey: PropertyKey.productionYear) as? String
+        let identifier = aDecoder.decodeObject(forKey: PropertyKey.identifier) as? String
         
-        self.init(brand: brand, model: model, productionYear: productionYear)
+        self.init(brand: brand, model: model, productionYear: productionYear, identifier: identifier)
     }
     
 }

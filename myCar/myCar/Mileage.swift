@@ -15,6 +15,7 @@ class Mileage: NSObject, NSCoding {
     
     var mileageYear: String
     var distance: String
+    var carIdentifier: String
     
     //MARK: Archiving Paths
     
@@ -26,13 +27,14 @@ class Mileage: NSObject, NSCoding {
     struct PropertyKey {
         static let mileageYear = "mileageYear"
         static let distance = "distance"
+        static let carIdentifier = "carIdentifier"
     }
     
     //MARK: Initialization
     
-    init?(mileageYear: String?, distance: String?) {
+    init?(mileageYear: String?, distance: String?, carIdentifier: String?) {
         
-        guard let mileageYear = mileageYear, let distance = distance else {
+        guard let mileageYear = mileageYear, let distance = distance, let carIdentifier = carIdentifier else {
             
             return nil
         }
@@ -43,6 +45,7 @@ class Mileage: NSObject, NSCoding {
         
         self.mileageYear = mileageYear
         self.distance = distance
+        self.carIdentifier = carIdentifier
     }
     
     //MARK: NSCoding
@@ -50,19 +53,21 @@ class Mileage: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(mileageYear, forKey: PropertyKey.mileageYear)
         aCoder.encode(distance, forKey: PropertyKey.distance)
+        aCoder.encode(carIdentifier, forKey: PropertyKey.carIdentifier)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let mileageYear = aDecoder.decodeObject(forKey: PropertyKey.mileageYear) as? String
             else {
-                os_log("Unable to decode the model for a Car object.", log: OSLog.default, type: .debug)
+                os_log("Unable to decode the model for a Mileage object.", log: OSLog.default, type: .debug)
                 
                 return nil
         }
         
         let distance = aDecoder.decodeObject(forKey: PropertyKey.distance) as? String
+        let carIdentifier = aDecoder.decodeObject(forKey: PropertyKey.carIdentifier) as? String
         
-        self.init(mileageYear: mileageYear, distance: distance)
+        self.init(mileageYear: mileageYear, distance: distance, carIdentifier: carIdentifier)
     }
     
 
