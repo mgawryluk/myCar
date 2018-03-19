@@ -22,6 +22,8 @@
 		90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */; };
 		90F2FE202053004A0022CBC6 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */; };
 		90F2FE22205301AB0022CBC6 /* AddMileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */; };
+		90FE9A3F205F6B3000874867 /* BillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE9A3E205F6B3000874867 /* BillsTableViewController.swift */; };
+		90FE9A41205F6EE500874867 /* BillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE9A40205F6EE500874867 /* BillsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
 		90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMileageViewController.swift; sourceTree = "<group>"; };
+		90FE9A3E205F6B3000874867 /* BillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewController.swift; sourceTree = "<group>"; };
+		90FE9A40205F6EE500874867 /* BillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,18 +79,20 @@
 			isa = PBXGroup;
 			children = (
 				902E927A203AE69700DD7E0F /* AppDelegate.swift */,
+				908AA2EB203DFDD000B102AE /* Car.swift */,
+				908D871920432C0A0055EA0B /* CarRepositosory.swift */,
+				902E927C203AE69700DD7E0F /* NewCarViewController.swift */,
+				90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */,
+				90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */,
+				908AA2ED203E092C00B102AE /* CarTableViewController.swift */,
+				902E927E203AE69700DD7E0F /* Main.storyboard */,
 				903022E920540A6E009CD7D5 /* Mileage.swift */,
 				903022E520540545009CD7D5 /* MileageRepository.swift */,
 				90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */,
 				903022EB2054121E009CD7D5 /* MileageTableViewCell.swift */,
 				909605A620528DF000754C2D /* MileageTableViewController.swift */,
-				908AA2EB203DFDD000B102AE /* Car.swift */,
-				908D871920432C0A0055EA0B /* CarRepositosory.swift */,
-				902E927C203AE69700DD7E0F /* NewCarViewController.swift */,
-				90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */,
-				902E927E203AE69700DD7E0F /* Main.storyboard */,
-				90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */,
-				908AA2ED203E092C00B102AE /* CarTableViewController.swift */,
+				90FE9A40205F6EE500874867 /* BillsTableViewCell.swift */,
+				90FE9A3E205F6B3000874867 /* BillsTableViewController.swift */,
 				902E9281203AE69700DD7E0F /* Assets.xcassets */,
 				902E9283203AE69700DD7E0F /* LaunchScreen.storyboard */,
 				902E9286203AE69700DD7E0F /* Info.plist */,
@@ -170,10 +176,12 @@
 				902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */,
 				908AA2EE203E092C00B102AE /* CarTableViewController.swift in Sources */,
 				908AA2EC203DFDD000B102AE /* Car.swift in Sources */,
+				90FE9A41205F6EE500874867 /* BillsTableViewCell.swift in Sources */,
 				903022E620540545009CD7D5 /* MileageRepository.swift in Sources */,
 				908D871A20432C0B0055EA0B /* CarRepositosory.swift in Sources */,
 				903022EA20540A6E009CD7D5 /* Mileage.swift in Sources */,
 				90F2FE22205301AB0022CBC6 /* AddMileageViewController.swift in Sources */,
+				90FE9A3F205F6B3000874867 /* BillsTableViewController.swift in Sources */,
 				903022EC2054121E009CD7D5 /* MileageTableViewCell.swift in Sources */,
 				909605A720528DF000754C2D /* MileageTableViewController.swift in Sources */,
 				90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */,
