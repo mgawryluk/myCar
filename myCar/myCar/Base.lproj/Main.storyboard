@@ -115,7 +115,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Bills"/>
                                         <connections>
-                                            <segue destination="tm9-tn-941" kind="show" id="YCF-eC-Rf7"/>
+                                            <segue destination="tm9-tn-941" kind="show" id="5gv-Ct-M13"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4R-9q-OaN">
@@ -218,10 +218,17 @@
                             <outlet property="delegate" destination="tm9-tn-941" id="JZX-vj-B2M"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="dUm-gE-nqx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KZy-d7-Iml">
+                            <connections>
+                                <segue destination="hgh-4X-EqT" kind="show" id="ig9-6R-9jJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6v-oc-7Qo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1592.8" y="1615.1424287856073"/>
+            <point key="canvasLocation" x="1673" y="1614"/>
         </scene>
         <!--Mileage Table View Controller-->
         <scene sceneID="VNG-kh-ph0">
@@ -414,7 +421,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJw-bA-02u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2509.5999999999999" y="1614.2428785607199"/>
+            <point key="canvasLocation" x="2559" y="1615"/>
         </scene>
         <!--New Car View Controller-->
         <scene sceneID="uWU-y1-4VS">
