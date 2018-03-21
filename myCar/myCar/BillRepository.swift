@@ -58,4 +58,6 @@ class BillRepository {
     
     private func loadBills() -> [Bill]? {
         return (NSKeyedUnarchiver.unarchiveObject(withFile: Bill.ArchiveURL.path) as? [Bill])
+    }
+
 }

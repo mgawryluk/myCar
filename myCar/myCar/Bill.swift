@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class Bill: NSObject, NSCoding {
     
@@ -60,7 +61,7 @@ class Bill: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let billType = aDecoder.decodeObject(forKey: PropertyKey.billCode) as? String
+        guard let billType = aDecoder.decodeObject(forKey: PropertyKey.billType) as? String
             else {
                 os_log("Unable to decode the type for a Bill object.", log: OSLog.default, type: .debug)
                 
@@ -68,7 +69,7 @@ class Bill: NSObject, NSCoding {
         }
         
         let billCost = aDecoder.decodeObject(forKey: PropertyKey.billCost) as? String
-        let billDate = aDecoder.decodeObject(value(forKey: PropertyKey.billDate))
+        let billDate = aDecoder.decodeObject(forKey: PropertyKey.billDate) as? String
         let carIdentifier = aDecoder.decodeObject(forKey: PropertyKey.carIdentifier) as? String
         
         self.init(billType: billType, billCost: billCost, billDate: billDate, carIdentifier: carIdentifier)
