@@ -31,13 +31,12 @@ class BillRepository {
                     if item.carIdentifier == carIdentifier {
                         filteredBills.append(item)
                     }
-        
+
                 }
-        
+
                 return filteredBills
     }
-    //        return bills.filter {$0.carIdentifier == carIdentifier}
-
+    
     
     func addBills(newBill: Bill) {
         bills.append(newBill)

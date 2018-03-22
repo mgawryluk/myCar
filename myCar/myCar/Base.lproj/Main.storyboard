@@ -115,7 +115,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Bills"/>
                                         <connections>
-                                            <segue destination="tm9-tn-941" kind="show" id="5gv-Ct-M13"/>
+                                            <segue destination="tm9-tn-941" kind="show" identifier="showBillsSegue" id="5gv-Ct-M13"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4R-9q-OaN">
@@ -157,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="716" y="1616"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Bills Table View Controller-->
         <scene sceneID="GVd-MZ-mIv">
             <objects>
-                <tableViewController id="tm9-tn-941" sceneMemberID="viewController">
+                <tableViewController id="tm9-tn-941" customClass="BillsTableViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y7L-FX-e8X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,7 +221,7 @@
                     <navigationItem key="navigationItem" id="dUm-gE-nqx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KZy-d7-Iml">
                             <connections>
-                                <segue destination="hgh-4X-EqT" kind="show" id="ig9-6R-9jJ"/>
+                                <segue destination="hgh-4X-EqT" kind="show" identifier="showAddBillSegue" id="ig9-6R-9jJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
