@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +17,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--About-->
+        <scene sceneID="ZVQ-7q-Vrg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" id="IjK-tX-gfO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDc-bY-QwP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="-343"/>
+        </scene>
         <!--Car Table View Controller-->
         <scene sceneID="s3V-V6-Nbz">
             <objects>
@@ -77,7 +86,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="di7-1s-cKh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="dN0-gy-qTo"/>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="edit" id="dN0-gy-qTo"/>
+                            <barButtonItem title="About" id="bdz-oV-Ztg">
+                                <connections>
+                                    <segue destination="IjK-tX-gfO" kind="show" id="7Ke-gB-aGe"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh">
                             <connections>
                                 <segue destination="JGr-qO-sPO" kind="show" id="P35-q6-hWi"/>
@@ -91,6 +107,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feg-5H-lE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="716" y="160.56971514242881"/>
+        </scene>
+        <!--Services-->
+        <scene sceneID="ebm-4k-7Nr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Services" id="XFR-JV-ldi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wW-m0-Dzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51" y="1896"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="Ahe-mT-P1a">
@@ -108,6 +132,9 @@
                                         <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Service"/>
+                                        <connections>
+                                            <segue destination="XFR-JV-ldi" kind="show" id="41b-KG-b7k"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-iv-3KG">
                                         <rect key="frame" x="0.0" y="120.5" width="375" height="120.5"/>
