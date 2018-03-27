@@ -132,6 +132,9 @@
                                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Repairs"/>
+                                        <connections>
+                                            <segue destination="Bnf-h1-Ro0" kind="show" identifier="showRepairSegue" id="wHO-Y9-pmu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Un-vj1">
                                         <rect key="frame" x="0.0" y="482.5" width="375" height="120.5"/>
@@ -168,31 +171,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="M3k-bY-ruw">
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="pyO-SJ-ZTY" customClass="CostTableViewCell" customModule="myCar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="pyO-SJ-ZTY" customClass="CostTableViewCell" customModule="myCar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pyO-SJ-ZTY" id="h4A-oU-V4L">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j52-Yn-Wrg">
-                                            <rect key="frame" x="303" y="29" width="42" height="20.5"/>
+                                            <rect key="frame" x="303" y="29" width="42" height="45.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Y-KR-WdD">
-                                            <rect key="frame" x="16" y="11" width="42" height="53"/>
+                                            <rect key="frame" x="16" y="11" width="42" height="78"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7p-yK-azS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="21.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="46.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go3-RH-OKr">
-                                                    <rect key="frame" x="0.0" y="32.5" width="42" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="57.5" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -231,7 +239,176 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLl-Vj-JPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1932" y="2340.1799100449775"/>
+            <point key="canvasLocation" x="1593" y="2339"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Gct-lI-Ly2">
+            <objects>
+                <tableViewController id="Bnf-h1-Ro0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eip-B9-9Zp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="dYp-G5-MY1">
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="2qA-DJ-rHC" customClass="RepairTableViewCell" customModule="myCar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2qA-DJ-rHC" id="qrf-6i-fJs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wO-rh-syx">
+                                            <rect key="frame" x="278" y="39" width="81" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="81" id="4ok-uW-PYe"/>
+                                                <constraint firstAttribute="height" constant="21" id="alD-DQ-12z"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hrJ-pb-2hr">
+                                            <rect key="frame" x="16" y="16" width="45" height="67"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiN-j3-520">
+                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="jhj-Gs-gRb"/>
+                                                        <constraint firstAttribute="width" constant="45" id="uPt-MN-gTg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhM-WG-UBw">
+                                                    <rect key="frame" x="0.0" y="46" width="45" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="ncz-xC-GcK"/>
+                                                        <constraint firstAttribute="width" constant="45" id="v4V-ir-C0x"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="7wO-rh-syx" secondAttribute="bottom" constant="29" id="5qM-Cm-lHs"/>
+                                        <constraint firstItem="7wO-rh-syx" firstAttribute="top" secondItem="qrf-6i-fJs" secondAttribute="topMargin" constant="28" id="6eQ-nU-2QE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hrJ-pb-2hr" secondAttribute="bottom" constant="6" id="DcT-WQ-XqA"/>
+                                        <constraint firstItem="7wO-rh-syx" firstAttribute="trailing" secondItem="qrf-6i-fJs" secondAttribute="trailingMargin" id="M3m-Zg-2js"/>
+                                        <constraint firstItem="hrJ-pb-2hr" firstAttribute="leading" secondItem="qrf-6i-fJs" secondAttribute="leadingMargin" id="eL7-RO-1hI"/>
+                                        <constraint firstItem="hrJ-pb-2hr" firstAttribute="top" secondItem="qrf-6i-fJs" secondAttribute="topMargin" constant="5" id="pOw-Yd-7eH"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="repairCostLabel" destination="7wO-rh-syx" id="8N0-iT-zGG"/>
+                                    <outlet property="repairDateLabel" destination="lhM-WG-UBw" id="K6A-Je-he7"/>
+                                    <outlet property="repairTypeLabel" destination="YiN-j3-520" id="YTU-ro-1li"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bnf-h1-Ro0" id="gsm-BW-dhX"/>
+                            <outlet property="delegate" destination="Bnf-h1-Ro0" id="Lav-fY-Qnr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aVg-RT-M3q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lTS-8D-EpR">
+                            <connections>
+                                <segue destination="iin-hA-Yg8" kind="show" identifier="showAddRepairSegue" id="ROX-7e-OmM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ytx-pH-guA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592.8" y="3098.5007496251878"/>
+        </scene>
+        <!--Add Repair View Controller-->
+        <scene sceneID="yQ9-LW-NjO">
+            <objects>
+                <viewController id="iin-hA-Yg8" customClass="AddRepairViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Mg-DK-yhO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="XTP-qs-Pfr">
+                                <rect key="frame" x="139" y="159" width="100" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repair" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDh-6e-WAA">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0ES-wh-4IF"/>
+                                            <constraint firstAttribute="width" constant="100" id="0s2-IY-In6"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V4o-AF-ENY">
+                                        <rect key="frame" x="0.0" y="45" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="DSp-kB-wBu"/>
+                                            <constraint firstAttribute="width" constant="100" id="PxM-FN-u1X"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repar cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IPL-Vs-W21">
+                                        <rect key="frame" x="0.0" y="90" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="b1P-Jr-0RH"/>
+                                            <constraint firstAttribute="height" constant="30" id="luH-p9-6nU"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9e-wW-aHN">
+                                <rect key="frame" x="139" y="311" width="100" height="30"/>
+                                <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BPu-bY-eo7"/>
+                                    <constraint firstAttribute="width" constant="100" id="keQ-gD-jWa"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addRepairButton:" destination="iin-hA-Yg8" eventType="touchUpInside" id="bLv-GJ-dGK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XTP-qs-Pfr" firstAttribute="leading" secondItem="dRe-J9-e8F" secondAttribute="leading" constant="139" id="0Vb-EK-ua5"/>
+                            <constraint firstItem="V9e-wW-aHN" firstAttribute="top" secondItem="XTP-qs-Pfr" secondAttribute="bottom" constant="32" id="F8l-VV-edd"/>
+                            <constraint firstItem="V9e-wW-aHN" firstAttribute="leading" secondItem="dRe-J9-e8F" secondAttribute="leading" constant="139" id="Gvt-wz-Wh4"/>
+                            <constraint firstItem="XTP-qs-Pfr" firstAttribute="top" secondItem="dRe-J9-e8F" secondAttribute="top" constant="95" id="bqx-kr-HwG"/>
+                            <constraint firstItem="dRe-J9-e8F" firstAttribute="trailing" secondItem="V9e-wW-aHN" secondAttribute="trailing" constant="136" id="hes-e8-7TV"/>
+                            <constraint firstItem="dRe-J9-e8F" firstAttribute="trailing" secondItem="XTP-qs-Pfr" secondAttribute="trailing" constant="136" id="hvM-Va-prC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dRe-J9-e8F"/>
+                    </view>
+                    <connections>
+                        <outlet property="repairCostTextField" destination="IPL-Vs-W21" id="8U0-6J-LdB"/>
+                        <outlet property="repairDateTextField" destination="V4o-AF-ENY" id="WX7-p6-uNI"/>
+                        <outlet property="repairTypeTextField" destination="cDh-6e-WAA" id="QXq-WG-LJ4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYv-Ep-Etw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2529" y="3099"/>
         </scene>
         <!--Add Cost View Controller-->
         <scene sceneID="vNs-kZ-WO4">
@@ -305,7 +482,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIK-PF-Irc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848.8000000000002" y="2339.2803598200903"/>
+            <point key="canvasLocation" x="2510" y="2338"/>
         </scene>
         <!--Bills Table View Controller-->
         <scene sceneID="GVd-MZ-mIv">
@@ -315,6 +492,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Gei-sc-ec8">
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BillsTableViewCell" rowHeight="100" id="FaZ-mF-AdM" customClass="BillsTableViewCell" customModule="myCar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -388,6 +570,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="1f5-wT-GoO">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MileageTableViewCell" id="ZgF-lg-7y4" customClass="MileageTableViewCell" customModule="myCar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>

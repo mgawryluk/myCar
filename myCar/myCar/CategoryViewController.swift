@@ -36,6 +36,8 @@ class CategoryViewController: UIViewController {
             (segue.destination as? BillsTableViewController)?.car = car
         } else if segue.identifier == "showCostsSegue" {
             (segue.destination as? CostsTableViewController)?.car = car
+        } else if segue.identifier == "showRepairsSegue" {
+            (segue.destination as? RepairsTableViewController)?.car = car
         }
     }
     
