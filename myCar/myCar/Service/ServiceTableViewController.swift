@@ -12,12 +12,10 @@ class ServiceTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService))
+        self.tableView.tableFooterView = UIView()
+        self.navigationItem.setRightBarButton(rightButton, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,5 +89,10 @@ class ServiceTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @objc func addService() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondView")
+        self.show(vc!, sender: self)
+    }
 
 }
