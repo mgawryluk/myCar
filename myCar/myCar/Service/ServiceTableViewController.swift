@@ -103,9 +103,9 @@ class ServiceTableViewController: UITableViewController {
 //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondView")
 //        self.show(vc!, sender: self)
         
-        let vc = UIViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-        self.view.backgroundColor = UIColor.white
+        let vc = AddServiceViewController()
+        self.show(vc, sender: self)
+        
 }
     
 }
