@@ -17,9 +17,17 @@ class CarTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = editButtonItem
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250
+        
+        self.tableView.tableFooterView = UIView()
+   
+        self.navigationController?.isToolbarHidden = false
+        var items = [UIBarButtonItem]()
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewCar)))
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        self.toolbarItems = items
     
         
     }
@@ -122,7 +130,9 @@ class CarTableViewController: UITableViewController {
         }
     }
     
+    @objc func addNewCar() {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCarScreen")
+                self.show(vc!, sender: self)
     
-
-
+    }
 }

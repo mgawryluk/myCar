@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,17 +80,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="di7-1s-cKh">
-                        <leftBarButtonItems>
-                            <barButtonItem systemItem="edit" id="dN0-gy-qTo"/>
-                            <barButtonItem title="About" id="bdz-oV-Ztg">
-                                <connections>
-                                    <segue destination="IjK-tX-gfO" kind="show" id="7Ke-gB-aGe"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1D6-Jp-HBh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="dN0-gy-qTo"/>
+                        <barButtonItem key="rightBarButtonItem" title="About" id="bdz-oV-Ztg">
                             <connections>
-                                <segue destination="JGr-qO-sPO" kind="show" id="P35-q6-hWi"/>
+                                <segue destination="IjK-tX-gfO" kind="show" id="7Ke-gB-aGe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -220,13 +212,13 @@
         <!--New Car View Controller-->
         <scene sceneID="uWU-y1-4VS">
             <objects>
-                <viewController id="JGr-qO-sPO" customClass="NewCarViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCarScreen" id="JGr-qO-sPO" customClass="NewCarViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TnJ-WW-ZQi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="BHh-vm-fmO">
-                                <rect key="frame" x="80" y="159" width="215" height="116"/>
+                                <rect key="frame" x="80" y="115" width="215" height="116"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1oL-t5-c2k">
                                         <rect key="frame" x="0.0" y="0.0" width="215" height="30"/>
@@ -252,7 +244,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXe-uq-ZTM">
-                                <rect key="frame" x="128" y="314" width="120" height="39"/>
+                                <rect key="frame" x="128" y="270" width="120" height="39"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="JAH-Pv-l0n"/>

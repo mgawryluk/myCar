@@ -100,8 +100,12 @@ class ServiceTableViewController: UITableViewController {
     */
     
     @objc func addService() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondView")
-        self.show(vc!, sender: self)
-    }
-
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondView")
+//        self.show(vc!, sender: self)
+        
+        let vc = UIViewController()
+        self.navigationController?.show(vc, sender: self)
+        self.view.backgroundColor = UIColor.white
+}
+    
 }
