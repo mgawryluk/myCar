@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="irO-ao-vnM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="YvX-RO-iEn">
+            <objects>
+                <tableViewController id="irO-ao-vnM" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8kW-s7-kKH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="btg-QY-3Ws">
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KMs-Mj-Hke" customClass="RepairTableViewCell" customModule="myCar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KMs-Mj-Hke" id="rcv-Mb-eGv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ark-GR-9tF">
+                                            <rect key="frame" x="278" y="39" width="81" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="81" id="RU2-7c-J3H"/>
+                                                <constraint firstAttribute="height" constant="21" id="ytA-Rg-8yD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="0Dk-Zz-nEY">
+                                            <rect key="frame" x="16" y="16" width="45" height="67"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ4-ON-ywh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="EMc-dy-aEo"/>
+                                                        <constraint firstAttribute="width" constant="45" id="Qb0-Cc-xNR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4H-6N-YLC">
+                                                    <rect key="frame" x="0.0" y="46" width="45" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="6rn-ab-Bae"/>
+                                                        <constraint firstAttribute="height" constant="21" id="e4d-mA-CsG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ark-GR-9tF" secondAttribute="bottom" constant="29" id="3Zh-Sp-DRB"/>
+                                        <constraint firstItem="Ark-GR-9tF" firstAttribute="top" secondItem="rcv-Mb-eGv" secondAttribute="topMargin" constant="28" id="74p-rX-3o7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0Dk-Zz-nEY" secondAttribute="bottom" constant="6" id="Cgy-3Y-WCj"/>
+                                        <constraint firstItem="0Dk-Zz-nEY" firstAttribute="leading" secondItem="rcv-Mb-eGv" secondAttribute="leadingMargin" id="H9Q-tT-Kbh"/>
+                                        <constraint firstItem="Ark-GR-9tF" firstAttribute="trailing" secondItem="rcv-Mb-eGv" secondAttribute="trailingMargin" id="OsI-Un-nS6"/>
+                                        <constraint firstItem="0Dk-Zz-nEY" firstAttribute="top" secondItem="rcv-Mb-eGv" secondAttribute="topMargin" constant="5" id="kh7-aY-BPt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="repairCostLabel" destination="Ark-GR-9tF" id="sWQ-Hb-FrL"/>
+                                    <outlet property="repairDateLabel" destination="f4H-6N-YLC" id="z0p-gG-cw8"/>
+                                    <outlet property="repairTypeLabel" destination="bQ4-ON-ywh" id="eIx-xQ-KQS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="irO-ao-vnM" id="MiJ-Ou-peD"/>
+                            <outlet property="delegate" destination="irO-ao-vnM" id="Bfp-eN-u5V"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="phG-5M-3vt">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Jy-l2-zH6">
+                            <connections>
+                                <segue destination="haU-o2-tXM" kind="show" identifier="showAddRepairSegue" id="AV8-SY-qLf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ZM-QA-Tc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592.8" y="3098.5007496251878"/>
+        </scene>
+        <!--Add Repair View Controller-->
+        <scene sceneID="eKQ-jw-XbM">
+            <objects>
+                <viewController id="haU-o2-tXM" customClass="AddRepairViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kMD-QJ-Nyc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LU6-Rw-0Ic">
+                                <rect key="frame" x="139" y="115" width="100" height="120"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repair" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wev-0b-rdA">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="5xD-Dv-n86"/>
+                                            <constraint firstAttribute="height" constant="30" id="gf9-Ah-vRd"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l2H-xQ-EUj">
+                                        <rect key="frame" x="0.0" y="45" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ibg-Lc-QE8"/>
+                                            <constraint firstAttribute="width" constant="100" id="Sav-HF-d3A"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repar cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRd-BL-r6d">
+                                        <rect key="frame" x="0.0" y="90" width="100" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="9zu-eo-4Ip"/>
+                                            <constraint firstAttribute="width" constant="100" id="SS1-UA-KAO"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDP-eS-6ei">
+                                <rect key="frame" x="139" y="267" width="100" height="30"/>
+                                <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="8qn-qJ-GJG"/>
+                                    <constraint firstAttribute="height" constant="30" id="j5v-WK-fTK"/>
+                                </constraints>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addRepairButton:" destination="haU-o2-tXM" eventType="touchUpInside" id="OgU-4T-rZQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="K4t-OO-1F7" firstAttribute="trailing" secondItem="EDP-eS-6ei" secondAttribute="trailing" constant="136" id="FNr-cX-DRu"/>
+                            <constraint firstItem="EDP-eS-6ei" firstAttribute="leading" secondItem="K4t-OO-1F7" secondAttribute="leading" constant="139" id="NM2-4g-Y3z"/>
+                            <constraint firstItem="K4t-OO-1F7" firstAttribute="trailing" secondItem="LU6-Rw-0Ic" secondAttribute="trailing" constant="136" id="aQl-WW-s5m"/>
+                            <constraint firstItem="LU6-Rw-0Ic" firstAttribute="leading" secondItem="K4t-OO-1F7" secondAttribute="leading" constant="139" id="oMe-HD-Z9e"/>
+                            <constraint firstItem="LU6-Rw-0Ic" firstAttribute="top" secondItem="K4t-OO-1F7" secondAttribute="top" constant="95" id="uhH-OM-eKM"/>
+                            <constraint firstItem="EDP-eS-6ei" firstAttribute="top" secondItem="LU6-Rw-0Ic" secondAttribute="bottom" constant="32" id="y4M-bU-8HU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K4t-OO-1F7"/>
+                    </view>
+                    <connections>
+                        <outlet property="repairCostTextField" destination="lRd-BL-r6d" id="mPI-yE-jWI"/>
+                        <outlet property="repairDateTextField" destination="l2H-xQ-EUj" id="DXb-cZ-Upd"/>
+                        <outlet property="repairTypeTextField" destination="wev-0b-rdA" id="z3P-k1-qYW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TfL-FZ-bmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2529" y="3099"/>
+        </scene>
+    </scenes>
+</document>

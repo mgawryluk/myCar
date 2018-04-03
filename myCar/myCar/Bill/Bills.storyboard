@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oQa-ZM-KZ8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bills Table View Controller-->
+        <scene sceneID="x7Q-P4-dUv">
+            <objects>
+                <tableViewController id="oQa-ZM-KZ8" customClass="BillsTableViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ff7-qW-Kvx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="xaG-Y6-d9l">
+                            <rect key="frame" x="0.0" y="128" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BillsTableViewCell" rowHeight="100" id="dZ9-Xk-2wC" customClass="BillsTableViewCell" customModule="myCar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dZ9-Xk-2wC" id="PHY-hg-971">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL4-mB-58W">
+                                            <rect key="frame" x="301" y="39" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RFk-E4-wy4">
+                                            <rect key="frame" x="16" y="27" width="42" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfp-47-PeH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbv-Zy-MQb">
+                                                    <rect key="frame" x="0.0" y="24.5" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bL4-mB-58W" firstAttribute="top" secondItem="PHY-hg-971" secondAttribute="topMargin" constant="28" id="CkQ-AZ-gtI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bL4-mB-58W" secondAttribute="trailing" constant="16" id="PrY-mT-cbU"/>
+                                        <constraint firstItem="RFk-E4-wy4" firstAttribute="leading" secondItem="PHY-hg-971" secondAttribute="leadingMargin" id="U0Z-3g-yvU"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bL4-mB-58W" secondAttribute="bottom" constant="29" id="cYf-Dq-Ib0"/>
+                                        <constraint firstItem="RFk-E4-wy4" firstAttribute="top" secondItem="PHY-hg-971" secondAttribute="topMargin" constant="16" id="iSr-CH-hbB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="RFk-E4-wy4" secondAttribute="bottom" constant="17" id="rHQ-y8-Brm"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="billTypeLabel" destination="cfp-47-PeH" id="6zD-OJ-ErB"/>
+                                    <outlet property="costLabel" destination="bL4-mB-58W" id="pgN-1r-l76"/>
+                                    <outlet property="dateLabel" destination="hbv-Zy-MQb" id="vZe-WI-7eI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oQa-ZM-KZ8" id="3hr-YA-nHL"/>
+                            <outlet property="delegate" destination="oQa-ZM-KZ8" id="mqq-nd-fKA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9s3-uk-kYo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3ke-fG-kvr">
+                            <connections>
+                                <segue destination="3sR-yo-vEw" kind="show" identifier="showAddBillSegue" id="ZQ9-pd-hiT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8cp-gb-P6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="1614"/>
+        </scene>
+        <!--Add Bill View Controller-->
+        <scene sceneID="Bhu-5w-Auh">
+            <objects>
+                <viewController id="3sR-yo-vEw" customClass="AddBillViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eGT-4q-ceQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="PCW-tl-ufs">
+                                <rect key="frame" x="139" y="111" width="100" height="134"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="1c4-2h-Xp8">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="134"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5pN-4j-YH9">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Eu6-jh-fQ4"/>
+                                                    <constraint firstAttribute="height" constant="30" id="REv-1i-b7N"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g5t-hb-Smy">
+                                                <rect key="frame" x="0.0" y="52" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2gs-3C-9zm"/>
+                                                    <constraint firstAttribute="width" constant="100" id="ndX-Mp-vEh"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-e9-3Dj">
+                                                <rect key="frame" x="0.0" y="104" width="100" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="87u-rp-jHz"/>
+                                                    <constraint firstAttribute="height" constant="30" id="9ef-7R-uPa"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsz-MJ-eAr">
+                                <rect key="frame" x="151" y="307" width="73" height="30"/>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBillButton:" destination="3sR-yo-vEw" eventType="touchUpInside" id="ppx-Yr-6eQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Wrv-mU-VzD" firstAttribute="trailing" secondItem="Qsz-MJ-eAr" secondAttribute="trailing" constant="151" id="EoH-51-hRq"/>
+                            <constraint firstItem="PCW-tl-ufs" firstAttribute="leading" secondItem="Wrv-mU-VzD" secondAttribute="leading" constant="139" id="YOF-fa-KqZ"/>
+                            <constraint firstItem="Qsz-MJ-eAr" firstAttribute="leading" secondItem="Wrv-mU-VzD" secondAttribute="leading" constant="151" id="frN-bO-XXk"/>
+                            <constraint firstItem="Qsz-MJ-eAr" firstAttribute="top" secondItem="PCW-tl-ufs" secondAttribute="bottom" constant="62" id="kvj-nA-mSv"/>
+                            <constraint firstItem="PCW-tl-ufs" firstAttribute="top" secondItem="Wrv-mU-VzD" secondAttribute="top" constant="91" id="kzV-99-oek"/>
+                            <constraint firstItem="Wrv-mU-VzD" firstAttribute="trailing" secondItem="PCW-tl-ufs" secondAttribute="trailing" constant="136" id="lor-Ul-vdC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wrv-mU-VzD"/>
+                    </view>
+                    <connections>
+                        <outlet property="billCostTextField" destination="pK0-e9-3Dj" id="s6q-x3-4af"/>
+                        <outlet property="billDateTextField" destination="g5t-hb-Smy" id="8ZN-ZL-A4K"/>
+                        <outlet property="billTextField" destination="5pN-4j-YH9" id="L2U-Nc-hJs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jN2-ap-WQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2510" y="1613"/>
+        </scene>
+    </scenes>
+</document>

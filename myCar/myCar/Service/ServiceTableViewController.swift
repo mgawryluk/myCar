@@ -13,9 +13,18 @@ class ServiceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService))
         self.tableView.tableFooterView = UIView()
-        self.navigationItem.setRightBarButton(rightButton, animated: true)
+//        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService))
+//        self.navigationItem.setRightBarButton(rightButton, animated: true)
+        
+        self.navigationController?.isToolbarHidden = false
+        var items =  [UIBarButtonItem]()
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService)))
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        self.toolbarItems = items
+//        self.navigationController?.toolbar.items = items
+//        self.navigationController?.setToolbarItems(items, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
