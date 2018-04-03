@@ -104,7 +104,7 @@ class ServiceTableViewController: UITableViewController {
 //        self.show(vc!, sender: self)
         
         let vc = UIViewController()
-        self.navigationController?.show(vc, sender: self)
+        self.navigationController?.pushViewController(vc, animated: true)
         self.view.backgroundColor = UIColor.white
 }
     
