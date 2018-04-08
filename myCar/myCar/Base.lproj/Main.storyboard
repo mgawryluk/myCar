@@ -120,7 +120,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Service"/>
                                         <connections>
-                                            <segue destination="XFR-JV-ldi" kind="show" id="41b-KG-b7k"/>
+                                            <segue destination="XFR-JV-ldi" kind="show" identifier="showServicesSegue" id="41b-KG-b7k"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-iv-3KG">
@@ -129,7 +129,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Bills"/>
                                         <connections>
-                                            <segue destination="WKy-vc-rJJ" kind="show" id="Gwy-2S-Hmb"/>
+                                            <segue destination="WKy-vc-rJJ" kind="show" identifier="showBillsSegue" id="Gwy-2S-Hmb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4R-9q-OaN">
@@ -138,7 +138,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Costs"/>
                                         <connections>
-                                            <segue destination="97m-a1-Gu7" kind="show" id="Au5-CP-9ku"/>
+                                            <segue destination="97m-a1-Gu7" kind="show" identifier="showCostsSegue" id="Au5-CP-9ku"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oud-JN-6wU">
@@ -147,7 +147,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Repairs"/>
                                         <connections>
-                                            <segue destination="qgY-lv-76f" kind="show" identifier="" id="9oY-7F-tc1"/>
+                                            <segue destination="qgY-lv-76f" kind="show" identifier="showRepairsSegue" id="9oY-7F-tc1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Un-vj1">

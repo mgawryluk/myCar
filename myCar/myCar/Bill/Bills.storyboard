@@ -78,11 +78,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="9s3-uk-kYo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3ke-fG-kvr">
-                            <connections>
-                                <segue destination="3sR-yo-vEw" kind="show" identifier="showAddBillSegue" id="ZQ9-pd-hiT"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3ke-fG-kvr"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8cp-gb-P6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,7 +88,7 @@
         <!--Add Bill View Controller-->
         <scene sceneID="Bhu-5w-Auh">
             <objects>
-                <viewController id="3sR-yo-vEw" customClass="AddBillViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewBill" id="3sR-yo-vEw" customClass="AddBillViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eGT-4q-ceQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

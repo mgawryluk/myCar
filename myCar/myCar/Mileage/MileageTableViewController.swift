@@ -15,6 +15,14 @@ class MileageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
+        navigationItem.rightBarButtonItem = editButtonItem
+        
+        self.navigationController?.isToolbarHidden = false
+        var items =  [UIBarButtonItem]()
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewMileage)))
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        self.toolbarItems = items
     
     }
     
@@ -63,13 +71,18 @@ class MileageTableViewController: UITableViewController {
         return true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "showAddMileageSegue" {
+//            (segue.destination as? AddMileageViewController)?.car = car
+//        }
+//    }
+    
+    @objc func addNewMileage() {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage")
+                self.show(vc!, sender: self)
         
-        if segue.identifier == "showAddMileageSegue" {
-            (segue.destination as? AddMileageViewController)?.car = car
-        }
+    
     }
-    
-    
 
 }

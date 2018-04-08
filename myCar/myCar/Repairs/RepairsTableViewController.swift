@@ -14,7 +14,17 @@ class RepairsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
+        
+        
+        self.navigationController?.isToolbarHidden = false
+        var items =  [UIBarButtonItem]()
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewRepair)))
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        self.toolbarItems = items
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,6 +71,12 @@ class RepairsTableViewController: UITableViewController {
         if segue.identifier == "showAddRepairSegue" {
             (segue.destination as? AddRepairViewController)?.car = car
         }
+    }
+    
+    @objc func addNewRepair() {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewRepair")
+                self.show(vc!, sender: self)
+        
     }
 
 

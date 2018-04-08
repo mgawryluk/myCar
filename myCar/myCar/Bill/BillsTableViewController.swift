@@ -14,7 +14,17 @@ class BillsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
+      
+
+        self.navigationController?.isToolbarHidden = false
+        var items =  [UIBarButtonItem]()
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewBill)))
+        items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
+        self.toolbarItems = items
         
     }
     
@@ -22,12 +32,10 @@ class BillsTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         tableView.reloadData()
         
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -64,10 +72,19 @@ class BillsTableViewController: UITableViewController {
         return true
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "showAddBillSegue" {
+//            (segue.destination as? AddBillViewController)?.car = car
+//        }
+//    }
+    
+    @objc func addNewBill() {
         
-        if segue.identifier == "showAddBillSegue" {
-            (segue.destination as? AddBillViewController)?.car = car
-        }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewBill")
+        (vc as? AddBillViewController)?.car = car
+        self.show(vc!, sender: self)
+      
     }
+
 }

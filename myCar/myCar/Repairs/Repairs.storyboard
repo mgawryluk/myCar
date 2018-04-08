@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Repairs Table View Controller-->
         <scene sceneID="YvX-RO-iEn">
             <objects>
-                <tableViewController id="irO-ao-vnM" sceneMemberID="viewController">
+                <tableViewController id="irO-ao-vnM" customClass="RepairsTableViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8kW-s7-kKH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,7 +104,7 @@
         <!--Add Repair View Controller-->
         <scene sceneID="eKQ-jw-XbM">
             <objects>
-                <viewController id="haU-o2-tXM" customClass="AddRepairViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewRepair" id="haU-o2-tXM" customClass="AddRepairViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kMD-QJ-Nyc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

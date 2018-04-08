@@ -15,6 +15,7 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var repairTypeTextField: UITextField!
     @IBOutlet weak var repairDateTextField: UITextField!
     @IBOutlet weak var repairCostTextField: UITextField!
+    
     var costs: Cost?
     
     

@@ -9,10 +9,13 @@
 import UIKit
 
 class ServiceTableViewController: UITableViewController {
+    
+    var car: Car?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
 //        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService))
 //        self.navigationItem.setRightBarButton(rightButton, animated: true)
@@ -105,6 +108,12 @@ class ServiceTableViewController: UITableViewController {
         
         let vc = AddServiceViewController()
         self.show(vc, sender: self)
+        
+//        let storyboard = UIStoryboard(name: "Services", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "AddNewService")
+//        self.present(vc, animated: true, completion: nil)
+        
+       
         
 }
     
