@@ -38,8 +38,18 @@ class MileageRepository {
 //        return filteredMileages
     }
     
+    func getAllMileage() -> [Mileage] {
+        
+        return mileage
+    }
+
+    
     func addMileage(km: Mileage) {
         mileage.append(km)
+    }
+    
+    func deleteMileage(indexPath: Int) {
+        mileage.remove(at: indexPath)
     }
 
     

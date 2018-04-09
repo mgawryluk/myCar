@@ -39,9 +39,19 @@ class BillRepository {
 //                return filteredBills
     }
     
+    func getAllBills() -> [Bill] {
+        
+        return bills
+    }
+
+    
     
     func addBills(newBill: Bill) {
         bills.append(newBill)
+    }
+    
+    func deleteBill(indexPath: Int) {
+        bills.remove(at: indexPath)
     }
     
     

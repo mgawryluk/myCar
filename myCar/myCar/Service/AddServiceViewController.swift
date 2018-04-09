@@ -10,6 +10,7 @@ import UIKit
 
 class AddServiceViewController: UIViewController {
     
+    var car: Car?
     let dateTypeTextField = UITextField()
 
     override func viewDidLoad() {

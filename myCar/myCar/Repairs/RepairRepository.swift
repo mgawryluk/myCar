@@ -37,11 +37,20 @@ class RepairRepository {
         return filteredRepairs
     }
     
+    func getAllRepairs() -> [Repair] {
+        
+        return repairs
+    }
+
+    
     
     func addRepairs(newRepair: Repair) {
         repairs.append(newRepair)
     }
     
+    func deleteRepair(indexPath: Int) {
+        repairs.remove(at: indexPath)
+    }
     
     func saveRepairs() {
         let saveSuccess = NSKeyedArchiver.archiveRootObject(repairs, toFile: Repair.ArchiveURL.path)

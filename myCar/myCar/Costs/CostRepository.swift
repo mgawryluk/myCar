@@ -36,11 +36,21 @@ func getCostsForCar(carIdentifier: String) -> [Cost] {
     
     return filteredCosts
 }
+    
+    func getAllCosts() -> [Cost] {
+        
+        return costs
+    }
+
 
 
 func addCosts(newCost: Cost) {
     costs.append(newCost)
 }
+    
+    func deleteCost(indexPath: Int) {
+        costs.remove(at: indexPath)
+    }
 
 
 func saveCosts() {

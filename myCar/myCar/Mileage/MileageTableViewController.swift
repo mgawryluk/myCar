@@ -71,6 +71,19 @@ class MileageTableViewController: UITableViewController {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            
+            MileageRepository.instance.deleteMileage(indexPath: indexPath.row)
+            MileageRepository.instance.saveMileage()
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        
 //        if segue.identifier == "showAddMileageSegue" {
@@ -79,8 +92,9 @@ class MileageTableViewController: UITableViewController {
 //    }
     
     @objc func addNewMileage() {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage")
-                self.show(vc!, sender: self)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage")
+            (vc as? AddMileageViewController)?.car = car
+            self.show(vc!, sender: self)
         
     
     }

@@ -74,8 +74,9 @@ class RepairsTableViewController: UITableViewController {
     }
     
     @objc func addNewRepair() {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewRepair")
-                self.show(vc!, sender: self)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewRepair")
+        (vc as? AddRepairViewController)?.car = car
+        self.show(vc!, sender: self)
         
     }
 

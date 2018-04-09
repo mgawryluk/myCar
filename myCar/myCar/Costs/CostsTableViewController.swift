@@ -66,6 +66,19 @@ class CostsTableViewController: UITableViewController {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            
+            CostRepository.instance.deleteCost(indexPath: indexPath.row)
+            CostRepository.instance.saveCosts()
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showAddCostSegue" {
@@ -75,6 +88,7 @@ class CostsTableViewController: UITableViewController {
     
     @objc func addNewCost() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewCost")
+        (vc as? AddCostViewController)?.car = car
         self.show(vc!, sender: self)
         
     }

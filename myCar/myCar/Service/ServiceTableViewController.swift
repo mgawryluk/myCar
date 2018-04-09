@@ -107,6 +107,7 @@ class ServiceTableViewController: UITableViewController {
 //        self.show(vc!, sender: self)
         
         let vc = AddServiceViewController()
+        (vc as? AddServiceViewController)?.car = car
         self.show(vc, sender: self)
         
 //        let storyboard = UIStoryboard(name: "Services", bundle: nil)
