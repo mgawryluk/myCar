@@ -103,19 +103,11 @@ class ServiceTableViewController: UITableViewController {
     */
     
     @objc func addService() {
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondView")
-//        self.show(vc!, sender: self)
         
         let vc = AddServiceViewController()
         (vc as? AddServiceViewController)?.car = car
         self.show(vc, sender: self)
         
-//        let storyboard = UIStoryboard(name: "Services", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "AddNewService")
-//        self.present(vc, animated: true, completion: nil)
-        
-       
-        
-}
+        }
     
 }
