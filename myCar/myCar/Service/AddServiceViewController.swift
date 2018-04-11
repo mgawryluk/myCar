@@ -11,16 +11,28 @@ import UIKit
 class AddServiceViewController: UIViewController {
     
     var car: Car?
-    let dateTypeTextField = UITextField()
+    var services: Service?
+    
+    let serviceDateTextField = UITextField()
+    let serviceTypeTextField = UITextField()
+    let serviceCostTextField = UITextField()
+    let serviceDatePickerView = UIDatePicker()
+    let addServiceButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
-        let serviceTypeTextField = UITextField()
         serviceTypeTextField.translatesAutoresizingMaskIntoConstraints = false
+        serviceDateTextField.translatesAutoresizingMaskIntoConstraints = false
+        serviceCostTextField.translatesAutoresizingMaskIntoConstraints = false
+        addServiceButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(serviceTypeTextField)
+        view.addSubview(serviceDateTextField)
+        view.addSubview(serviceCostTextField)
+        view.addSubview(addServiceButton)
+        
         
         serviceTypeTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
         serviceTypeTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -32,41 +44,38 @@ class AddServiceViewController: UIViewController {
         serviceTypeTextField.placeholder = "Service type"
         serviceTypeTextField.font = UIFont.systemFont(ofSize: 17)
         
+        serviceDateTextField.topAnchor.constraint(equalTo: serviceTypeTextField.bottomAnchor, constant: 20).isActive = true
+        serviceDateTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        serviceDateTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        serviceDateTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        dateTypeTextField.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(dateTypeTextField)
-        
-        dateTypeTextField.topAnchor.constraint(equalTo: serviceTypeTextField.bottomAnchor, constant: 20).isActive = true
-        dateTypeTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
-        dateTypeTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
-        dateTypeTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        let serviceDatePickerView = UIDatePicker()
         serviceDatePickerView.datePickerMode = .date
         serviceDatePickerView.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: .valueChanged)
         
-        dateTypeTextField.textAlignment = .left
-        dateTypeTextField.borderStyle = .roundedRect
-        dateTypeTextField.placeholder = "Service date"
-        dateTypeTextField.inputView = serviceDatePickerView
-        dateTypeTextField.font = UIFont.systemFont(ofSize: 17)
-        
-        let serviceCostTextField = UITextField()
-        serviceCostTextField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(serviceCostTextField)
-        
-        serviceCostTextField.topAnchor.constraint(equalTo: dateTypeTextField.bottomAnchor, constant: 20).isActive = true
+        serviceDateTextField.textAlignment = .left
+        serviceDateTextField.borderStyle = .roundedRect
+        serviceDateTextField.placeholder = "Service date"
+        serviceDateTextField.inputView = serviceDatePickerView
+        serviceDateTextField.font = UIFont.systemFont(ofSize: 17)
+    
+        serviceCostTextField.topAnchor.constraint(equalTo: serviceDateTextField.bottomAnchor, constant: 20).isActive = true
         serviceCostTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         serviceCostTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         serviceCostTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        serviceCostTextField.textAlignment = .right
+        serviceCostTextField.textAlignment = .left
         serviceCostTextField.borderStyle = .roundedRect
         serviceCostTextField.placeholder = "Service cost"
         serviceCostTextField.font = UIFont.systemFont(ofSize: 17)
         
-    
+        addServiceButton.topAnchor.constraint(equalTo: serviceCostTextField.bottomAnchor, constant: 30).isActive = true
+        addServiceButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70).isActive = true
+        addServiceButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
+        addServiceButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        addServiceButton.backgroundColor = UIColor.gray
+        addServiceButton.setTitle("Add service", for: .normal)
+        addServiceButton.addTarget(self, action: #selector(addService), for: .touchUpInside)
         
         
     }
@@ -92,8 +101,26 @@ class AddServiceViewController: UIViewController {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         
-        dateTypeTextField.text = dateFormatter.string(from: datePicker.date)
+        serviceDateTextField.text = dateFormatter.string(from: datePicker.date)
         
     }
-
+    
+    @objc func addService(sender: UIButton!) {
+        let serviceType = serviceTypeTextField.text
+        let serviceDate = serviceDateTextField.text
+        let serviceCost = serviceCostTextField.text
+        
+        guard let services = Service(serviceType: serviceType, serviceCost: serviceCost, serviceDate: serviceDate, carIdentifier: car?.identifier)  else {
+            
+            return
+        }
+        
+        ServiceRepository.instance.addService(newService: services)
+        ServiceRepository.instance.saveService()
+        
+        
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
 }
