@@ -12,13 +12,12 @@ class ServiceTableViewController: UITableViewController {
     
     var car: Car?
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
-//        let rightButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService))
-//        self.navigationItem.setRightBarButton(rightButton, animated: true)
         
         self.navigationController?.isToolbarHidden = false
         var items =  [UIBarButtonItem]()
@@ -26,8 +25,11 @@ class ServiceTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService)))
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
-//        self.navigationController?.toolbar.items = items
-//        self.navigationController?.setToolbarItems(items, animated: false)
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
+        
+      
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,19 +46,24 @@ class ServiceTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return ServiceRepository.instance.getServicesForCar(carIdentifier: car!.identifier).count
+        
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTableViewCell", for: indexPath) as? ServiceTableViewCell else {
+            fatalError("Error")
+        }
+        
+        let services = ServiceRepository.instance.getServicesForCar(carIdentifier: (car?.identifier)!)[indexPath.row]
+        
+        cell.serviceTypeLabel.text = services.serviceType
+        cell.serviceDateLabel.text = services.serviceDate
+        cell.serviceCostLabel.text = services.serviceCost
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -66,17 +73,16 @@ class ServiceTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            ServiceRepository.instance.deleteService(indexPath: indexPath.row)
+            ServiceRepository.instance.saveService()
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.

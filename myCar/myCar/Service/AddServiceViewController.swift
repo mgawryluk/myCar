@@ -23,6 +23,8 @@ class AddServiceViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
+    
+        
         serviceTypeTextField.translatesAutoresizingMaskIntoConstraints = false
         serviceDateTextField.translatesAutoresizingMaskIntoConstraints = false
         serviceCostTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +59,8 @@ class AddServiceViewController: UIViewController {
         serviceDateTextField.placeholder = "Service date"
         serviceDateTextField.inputView = serviceDatePickerView
         serviceDateTextField.font = UIFont.systemFont(ofSize: 17)
+        
+        
     
         serviceCostTextField.topAnchor.constraint(equalTo: serviceDateTextField.bottomAnchor, constant: 20).isActive = true
         serviceCostTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -67,6 +71,9 @@ class AddServiceViewController: UIViewController {
         serviceCostTextField.borderStyle = .roundedRect
         serviceCostTextField.placeholder = "Service cost"
         serviceCostTextField.font = UIFont.systemFont(ofSize: 17)
+        self.serviceCostTextField.keyboardType = .numberPad
+        
+        
         
         addServiceButton.topAnchor.constraint(equalTo: serviceCostTextField.bottomAnchor, constant: 30).isActive = true
         addServiceButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70).isActive = true
@@ -104,6 +111,7 @@ class AddServiceViewController: UIViewController {
         serviceDateTextField.text = dateFormatter.string(from: datePicker.date)
         
     }
+    
     
     @objc func addService(sender: UIButton!) {
         let serviceType = serviceTypeTextField.text

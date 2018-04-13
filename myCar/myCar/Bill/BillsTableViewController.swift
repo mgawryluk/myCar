@@ -85,12 +85,6 @@ class BillsTableViewController: UITableViewController {
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "showAddBillSegue" {
-//            (segue.destination as? AddBillViewController)?.car = car
-//        }
-//    }
     
     @objc func addNewBill() {
         

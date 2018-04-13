@@ -66,6 +66,18 @@ class RepairsTableViewController: UITableViewController {
         return true
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            RepairRepository.instance.deleteRepair(indexPath: indexPath.row)
+            RepairRepository.instance.saveRepairs()
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showAddRepairSegue" {
