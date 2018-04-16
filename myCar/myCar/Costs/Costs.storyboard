@@ -97,42 +97,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="uUw-WB-niw">
-                                <rect key="frame" x="139" y="112" width="100" height="138"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uUw-WB-niw">
+                                <rect key="frame" x="50" y="140" width="275" height="130"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUO-5Z-LlJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUO-5Z-LlJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="FS4-M6-Kd5"/>
                                             <constraint firstAttribute="height" constant="30" id="G7D-wC-FzT"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XHc-uE-VOz">
-                                        <rect key="frame" x="0.0" y="54" width="100" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XHc-uE-VOz">
+                                        <rect key="frame" x="0.0" y="50" width="275" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="dHH-7m-TQ2"/>
-                                            <constraint firstAttribute="width" constant="100" id="uzw-3z-9nX"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LqU-UW-vTB">
-                                        <rect key="frame" x="0.0" y="108" width="100" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="wqo-YV-3eD"/>
-                                        </constraints>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LqU-UW-vTB">
+                                        <rect key="frame" x="0.0" y="100" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcv-Zy-lYx">
-                                <rect key="frame" x="142" y="310" width="91" height="30"/>
+                                <rect key="frame" x="70" y="300" width="235" height="30"/>
                                 <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -144,12 +139,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mcv-Zy-lYx" firstAttribute="top" secondItem="uUw-WB-niw" secondAttribute="bottom" constant="60" id="7sK-Z5-YvD"/>
-                            <constraint firstItem="VRd-H5-SEj" firstAttribute="trailing" secondItem="uUw-WB-niw" secondAttribute="trailing" constant="136" id="ExF-rh-aZ9"/>
-                            <constraint firstItem="mcv-Zy-lYx" firstAttribute="leading" secondItem="VRd-H5-SEj" secondAttribute="leading" constant="142" id="GEU-SK-Ejn"/>
-                            <constraint firstItem="uUw-WB-niw" firstAttribute="leading" secondItem="VRd-H5-SEj" secondAttribute="leading" constant="139" id="qrU-Pb-CYs"/>
-                            <constraint firstItem="VRd-H5-SEj" firstAttribute="trailing" secondItem="mcv-Zy-lYx" secondAttribute="trailing" constant="142" id="snT-AO-98o"/>
-                            <constraint firstItem="uUw-WB-niw" firstAttribute="top" secondItem="VRd-H5-SEj" secondAttribute="top" constant="92" id="zln-pW-J3i"/>
+                            <constraint firstItem="mcv-Zy-lYx" firstAttribute="top" secondItem="uUw-WB-niw" secondAttribute="bottom" constant="30" id="7sK-Z5-YvD"/>
+                            <constraint firstItem="VRd-H5-SEj" firstAttribute="trailing" secondItem="uUw-WB-niw" secondAttribute="trailing" constant="50" id="ExF-rh-aZ9"/>
+                            <constraint firstItem="mcv-Zy-lYx" firstAttribute="leading" secondItem="VRd-H5-SEj" secondAttribute="leading" constant="70" id="GEU-SK-Ejn"/>
+                            <constraint firstItem="uUw-WB-niw" firstAttribute="leading" secondItem="VRd-H5-SEj" secondAttribute="leading" constant="50" id="qrU-Pb-CYs"/>
+                            <constraint firstItem="VRd-H5-SEj" firstAttribute="trailing" secondItem="mcv-Zy-lYx" secondAttribute="trailing" constant="70" id="snT-AO-98o"/>
+                            <constraint firstItem="uUw-WB-niw" firstAttribute="top" secondItem="VRd-H5-SEj" secondAttribute="top" constant="120" id="zln-pW-J3i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VRd-H5-SEj"/>
                     </view>

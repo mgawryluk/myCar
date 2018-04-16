@@ -71,7 +71,7 @@ class AddServiceViewController: UIViewController {
         serviceCostTextField.borderStyle = .roundedRect
         serviceCostTextField.placeholder = "Service cost"
         serviceCostTextField.font = UIFont.systemFont(ofSize: 17)
-        self.serviceCostTextField.keyboardType = .numberPad
+        self.serviceCostTextField.keyboardType = .numbersAndPunctuation
         
         
         
