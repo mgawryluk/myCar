@@ -16,6 +16,9 @@ class ServiceTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        
         navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
         
@@ -26,7 +29,7 @@ class ServiceTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
+        tableView.register(ServiceTableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
         
       
 
@@ -41,8 +44,8 @@ class ServiceTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

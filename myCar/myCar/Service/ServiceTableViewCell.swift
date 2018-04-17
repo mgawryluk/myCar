@@ -25,30 +25,35 @@ class ServiceTableViewCell: UITableViewCell {
         contentView.addSubview(serviceCostLabel)
         contentView.addSubview(serviceDateLabel)
         
-        serviceTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120).isActive = true
-        serviceTypeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 100).isActive = true
-        serviceTypeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -100).isActive = true
-        serviceTypeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        serviceTypeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        serviceTypeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
+        serviceTypeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -130).isActive = true
+//        serviceTypeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         serviceTypeLabel.textColor = UIColor.black
         serviceTypeLabel.font = UIFont.systemFont(ofSize: 17)
         serviceTypeLabel.textAlignment = .left
+        serviceTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         
-        serviceDateLabel.topAnchor.constraint(equalTo: serviceTypeLabel.bottomAnchor, constant: 15).isActive = true
-        serviceDateLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 100).isActive = true
-        serviceDateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -100).isActive = true
-        serviceDateLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        serviceDateLabel.topAnchor.constraint(equalTo: serviceTypeLabel.bottomAnchor, constant: 20).isActive = true
+        serviceDateLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
+        serviceDateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -130).isActive = true
+//        serviceDateLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        serviceDateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
         serviceDateLabel.textColor = UIColor.black
         serviceDateLabel.font = UIFont.systemFont(ofSize: 17)
         serviceDateLabel.textAlignment = .left
+        serviceDateLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        serviceCostLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 155).isActive = true
-        serviceCostLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 200).isActive = true
-        serviceCostLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -200).isActive = true
-        serviceCostLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        serviceDateLabel.textColor = UIColor.black
-        serviceDateLabel.font = UIFont.systemFont(ofSize: 17)
-        serviceDateLabel.textAlignment = .left
+        serviceCostLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
+        serviceCostLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
+        serviceCostLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0)
+//        serviceCostLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        serviceCostLabel.textColor = UIColor.black
+        serviceCostLabel.font = UIFont.systemFont(ofSize: 17)
+        serviceCostLabel.textAlignment = .left
+        serviceCostLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         
         
     }

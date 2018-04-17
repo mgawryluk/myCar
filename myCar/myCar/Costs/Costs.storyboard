@@ -25,7 +25,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="zYN-ql-5zB" customClass="CostTableViewCell" customModule="myCar" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CostTableViewCell" rowHeight="100" id="zYN-ql-5zB" customClass="CostTableViewCell" customModule="myCar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zYN-ql-5zB" id="p4x-vY-gSX">
@@ -33,7 +33,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlQ-G3-8Pa">
-                                            <rect key="frame" x="303" y="29" width="42" height="45.5"/>
+                                            <rect key="frame" x="303" y="39.5" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -57,8 +57,7 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="LlQ-G3-8Pa" secondAttribute="bottom" constant="14.5" id="8yZ-AD-Y9R"/>
-                                        <constraint firstItem="LlQ-G3-8Pa" firstAttribute="top" secondItem="p4x-vY-gSX" secondAttribute="topMargin" constant="18" id="MrT-N1-e2q"/>
+                                        <constraint firstItem="LlQ-G3-8Pa" firstAttribute="centerY" secondItem="p4x-vY-gSX" secondAttribute="centerY" id="ATA-kX-IyG"/>
                                         <constraint firstItem="ad2-q7-aaK" firstAttribute="top" secondItem="p4x-vY-gSX" secondAttribute="topMargin" id="QHV-3u-e60"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="LlQ-G3-8Pa" secondAttribute="trailing" constant="14" id="TKQ-XY-gGd"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="ad2-q7-aaK" secondAttribute="bottom" id="VPw-Xm-Xun"/>
@@ -122,7 +121,7 @@
                                         <rect key="frame" x="0.0" y="100" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>

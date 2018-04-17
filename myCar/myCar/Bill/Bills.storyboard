@@ -33,7 +33,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL4-mB-58W">
-                                            <rect key="frame" x="301" y="39" width="42" height="21"/>
+                                            <rect key="frame" x="301" y="39" width="42" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                         <constraint firstItem="bL4-mB-58W" firstAttribute="top" secondItem="PHY-hg-971" secondAttribute="topMargin" constant="28" id="CkQ-AZ-gtI"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="bL4-mB-58W" secondAttribute="trailing" constant="16" id="PrY-mT-cbU"/>
                                         <constraint firstItem="RFk-E4-wy4" firstAttribute="leading" secondItem="PHY-hg-971" secondAttribute="leadingMargin" id="U0Z-3g-yvU"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="bL4-mB-58W" secondAttribute="bottom" constant="29" id="cYf-Dq-Ib0"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bL4-mB-58W" secondAttribute="bottom" constant="28" id="cYf-Dq-Ib0"/>
                                         <constraint firstItem="RFk-E4-wy4" firstAttribute="top" secondItem="PHY-hg-971" secondAttribute="topMargin" constant="16" id="iSr-CH-hbB"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="RFk-E4-wy4" secondAttribute="bottom" constant="17" id="rHQ-y8-Brm"/>
                                     </constraints>
@@ -124,7 +124,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
