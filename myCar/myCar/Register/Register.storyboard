@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="YGl-D4-9qS">
             <objects>
-                <viewController id="Z3s-4q-uOx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z3s-4q-uOx" customClass="RegisterViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5MB-AJ-gfF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

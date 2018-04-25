@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90080CF1208D8A27007A3904 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90080CF0208D8A27007A3904 /* Register.storyboard */; };
+		90080CF3208D8AE2007A3904 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90080CF2208D8AE2007A3904 /* RegisterViewController.swift */; };
+		90080CF6208D8F61007A3904 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90080CF5208D8F61007A3904 /* LogIn.storyboard */; };
+		90080CF8208D8F75007A3904 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90080CF7208D8F75007A3904 /* LogInViewController.swift */; };
 		902BE97E207B168E00418313 /* ServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97D207B168E00418313 /* ServiceRepository.swift */; };
 		902BE980207B16B900418313 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97F207B16B900418313 /* Service.swift */; };
 		902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927A203AE69700DD7E0F /* AppDelegate.swift */; };
@@ -18,6 +22,7 @@
 		903022EA20540A6E009CD7D5 /* Mileage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022E920540A6E009CD7D5 /* Mileage.swift */; };
 		903022EC2054121E009CD7D5 /* MileageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022EB2054121E009CD7D5 /* MileageTableViewCell.swift */; };
 		90438C562060C28200EBD20A /* BillRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90438C552060C28200EBD20A /* BillRepository.swift */; };
+		906EB7A92088455C00676053 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9095C8EE2088425700E27A6C /* GoogleService-Info.plist */; };
 		90764BC52069EA51005DF444 /* Repair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90764BC42069EA51005DF444 /* Repair.swift */; };
 		90764BC72069EBF0005DF444 /* RepairRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90764BC62069EBF0005DF444 /* RepairRepository.swift */; };
 		90764BC92069ED1C005DF444 /* AddRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90764BC82069ED1C005DF444 /* AddRepairViewController.swift */; };
@@ -40,6 +45,8 @@
 		90B7BDBD2064BFEC0030D398 /* CostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7BDBC2064BFEC0030D398 /* CostsTableViewController.swift */; };
 		90B7BDBF2064C0240030D398 /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7BDBE2064C0240030D398 /* CostTableViewCell.swift */; };
 		90B85FFE207C611D00F6707D /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B85FFD207C611D00F6707D /* ServiceTableViewCell.swift */; };
+		90D2BA25208E3E6100BA0ED7 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */; };
+		90D2BA27208E3E7800BA0ED7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D2BA26208E3E7800BA0ED7 /* WelcomeViewController.swift */; };
 		90F2FE202053004A0022CBC6 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */; };
 		90F2FE22205301AB0022CBC6 /* AddMileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */; };
 		90FBFF2F206AA68900110FA0 /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FBFF2E206AA68900110FA0 /* Services.storyboard */; };
@@ -49,9 +56,15 @@
 		90FE9A3F205F6B3000874867 /* BillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE9A3E205F6B3000874867 /* BillsTableViewController.swift */; };
 		90FE9A41205F6EE500874867 /* BillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE9A40205F6EE500874867 /* BillsTableViewCell.swift */; };
 		90FE9A47205F766300874867 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE9A46205F766300874867 /* Bill.swift */; };
+		E05DF24C91F488D3506DED55 /* Pods_myCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F3BD8ECD63C1CAB3611CFC /* Pods_myCar.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41F3BD8ECD63C1CAB3611CFC /* Pods_myCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90080CF0208D8A27007A3904 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		90080CF2208D8AE2007A3904 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		90080CF5208D8F61007A3904 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		90080CF7208D8F75007A3904 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		902BE97D207B168E00418313 /* ServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRepository.swift; sourceTree = "<group>"; };
 		902BE97F207B16B900418313 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		902E9277203AE69700DD7E0F /* myCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +87,7 @@
 		908AA2EB203DFDD000B102AE /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		908AA2ED203E092C00B102AE /* CarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewController.swift; sourceTree = "<group>"; };
 		908D871920432C0A0055EA0B /* CarRepositosory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRepositosory.swift; sourceTree = "<group>"; };
+		9095C8EE2088425700E27A6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		909605A620528DF000754C2D /* MileageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTableViewController.swift; sourceTree = "<group>"; };
 		90978A9920732521000B3643 /* Mileage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mileage.storyboard; sourceTree = "<group>"; };
 		90978A9B20732678000B3643 /* Repairs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repairs.storyboard; sourceTree = "<group>"; };
@@ -87,6 +101,8 @@
 		90B7BDBC2064BFEC0030D398 /* CostsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostsTableViewController.swift; sourceTree = "<group>"; };
 		90B7BDBE2064C0240030D398 /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
 		90B85FFD207C611D00F6707D /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		90D2BA26208E3E7800BA0ED7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMileageViewController.swift; sourceTree = "<group>"; };
 		90FBFF2E206AA68900110FA0 /* Services.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
@@ -96,6 +112,8 @@
 		90FE9A3E205F6B3000874867 /* BillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewController.swift; sourceTree = "<group>"; };
 		90FE9A40205F6EE500874867 /* BillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewCell.swift; sourceTree = "<group>"; };
 		90FE9A46205F766300874867 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		E2815FB90F25F58DEB88E13C /* Pods-myCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myCar.release.xcconfig"; path = "Pods/Target Support Files/Pods-myCar/Pods-myCar.release.xcconfig"; sourceTree = "<group>"; };
+		F849E9D894DEF20FFA9DB1F3 /* Pods-myCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myCar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myCar/Pods-myCar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +121,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05DF24C91F488D3506DED55 /* Pods_myCar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DFA339D3D544629A1E711DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F849E9D894DEF20FFA9DB1F3 /* Pods-myCar.debug.xcconfig */,
+				E2815FB90F25F58DEB88E13C /* Pods-myCar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		90080CEF208D89F2007A3904 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				90080CF0208D8A27007A3904 /* Register.storyboard */,
+				90080CF2208D8AE2007A3904 /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		90080CF4208D8F50007A3904 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				90080CF5208D8F61007A3904 /* LogIn.storyboard */,
+				90080CF7208D8F75007A3904 /* LogInViewController.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
 		9017AEF7206C919C00C94F7E /* Costs */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +186,8 @@
 			children = (
 				902E9279203AE69700DD7E0F /* myCar */,
 				902E9278203AE69700DD7E0F /* Products */,
+				5DFA339D3D544629A1E711DD /* Pods */,
+				B36280472F45193CC9BB850D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +202,9 @@
 		902E9279203AE69700DD7E0F /* myCar */ = {
 			isa = PBXGroup;
 			children = (
+				90D2BA23208E3E5200BA0ED7 /* Welcome */,
+				90080CF4208D8F50007A3904 /* LogIn */,
+				90080CEF208D89F2007A3904 /* Register */,
 				902E927A203AE69700DD7E0F /* AppDelegate.swift */,
 				902E927E203AE69700DD7E0F /* Main.storyboard */,
 				9017AEF8206C91BD00C94F7E /* Repairs */,
@@ -166,8 +217,18 @@
 				902E9281203AE69700DD7E0F /* Assets.xcassets */,
 				902E9283203AE69700DD7E0F /* LaunchScreen.storyboard */,
 				902E9286203AE69700DD7E0F /* Info.plist */,
+				9095C8EE2088425700E27A6C /* GoogleService-Info.plist */,
 			);
 			path = myCar;
+			sourceTree = "<group>";
+		};
+		90D2BA23208E3E5200BA0ED7 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */,
+				90D2BA26208E3E7800BA0ED7 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		90FBFF2A206AA2D300110FA0 /* Mileage */ = {
@@ -231,6 +292,14 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		B36280472F45193CC9BB850D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41F3BD8ECD63C1CAB3611CFC /* Pods_myCar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,9 +307,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 902E9289203AE69700DD7E0F /* Build configuration list for PBXNativeTarget "myCar" */;
 			buildPhases = (
+				78903083CBEC2545CE5E91CE /* [CP] Check Pods Manifest.lock */,
 				902E9273203AE69700DD7E0F /* Sources */,
 				902E9274203AE69700DD7E0F /* Frameworks */,
 				902E9275203AE69700DD7E0F /* Resources */,
+				EF91A54F559B163CE84F576B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,19 +361,72 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90080CF1208D8A27007A3904 /* Register.storyboard in Resources */,
 				90978AA02073279D000B3643 /* Bills.storyboard in Resources */,
 				902E9285203AE69700DD7E0F /* LaunchScreen.storyboard in Resources */,
 				90978A9A20732521000B3643 /* Mileage.storyboard in Resources */,
+				90080CF6208D8F61007A3904 /* LogIn.storyboard in Resources */,
 				90FBFF34206AA8F300110FA0 /* About.storyboard in Resources */,
 				90978A9E2073275E000B3643 /* Costs.storyboard in Resources */,
 				902E9282203AE69700DD7E0F /* Assets.xcassets in Resources */,
 				90FBFF2F206AA68900110FA0 /* Services.storyboard in Resources */,
+				90D2BA25208E3E6100BA0ED7 /* Welcome.storyboard in Resources */,
+				906EB7A92088455C00676053 /* GoogleService-Info.plist in Resources */,
 				90978A9C20732678000B3643 /* Repairs.storyboard in Resources */,
 				902E9280203AE69700DD7E0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78903083CBEC2545CE5E91CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myCar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF91A54F559B163CE84F576B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-myCar/Pods-myCar-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myCar/Pods-myCar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		902E9273203AE69700DD7E0F /* Sources */ = {
@@ -312,10 +436,13 @@
 				90B7BDB72064B72B0030D398 /* Cost.swift in Sources */,
 				90B7BDB92064B8F40030D398 /* CostRepository.swift in Sources */,
 				90FBFF31206AA7C800110FA0 /* ServiceTableViewController.swift in Sources */,
+				90080CF8208D8F75007A3904 /* LogInViewController.swift in Sources */,
 				902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */,
+				90080CF3208D8AE2007A3904 /* RegisterViewController.swift in Sources */,
 				90B85FFE207C611D00F6707D /* ServiceTableViewCell.swift in Sources */,
 				90B7BDBB2064BCA70030D398 /* AddCostViewController.swift in Sources */,
 				902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */,
+				90D2BA27208E3E7800BA0ED7 /* WelcomeViewController.swift in Sources */,
 				90438C562060C28200EBD20A /* BillRepository.swift in Sources */,
 				908AA2EE203E092C00B102AE /* CarTableViewController.swift in Sources */,
 				9079394D20620EDA009167ED /* AddBillViewController.swift in Sources */,
@@ -476,6 +603,7 @@
 		};
 		902E928A203AE69700DD7E0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F849E9D894DEF20FFA9DB1F3 /* Pods-myCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -490,6 +618,7 @@
 		};
 		902E928B203AE69700DD7E0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2815FB90F25F58DEB88E13C /* Pods-myCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

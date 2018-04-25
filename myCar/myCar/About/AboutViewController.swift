@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AboutViewController: UIViewController {
 
@@ -15,7 +16,6 @@ class AboutViewController: UIViewController {
 
         let titleLabel = UILabel()
         titleLabel.text = "myCar"
-     // titleLabel.frame = CGRect(x: 50, y: 50, width: 100, height: 40)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
@@ -39,6 +39,19 @@ class AboutViewController: UIViewController {
         infoLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         infoLabel.numberOfLines = 0
         
+        let logoutButton = UIButton()
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoutButton)
+        
+        logoutButton.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 20).isActive = true
+        logoutButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
+        logoutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
+        logoutButton.backgroundColor = UIColor.gray
+        logoutButton.setTitle("Log out", for: .normal)
+        logoutButton.addTarget(self, action: #selector(logoutUser), for: .touchUpInside)
+        
+    
+        
         
     }
 
@@ -57,5 +70,16 @@ class AboutViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @objc func logoutUser() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+    }
 
 }
