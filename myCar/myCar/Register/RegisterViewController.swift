@@ -12,7 +12,8 @@ import SVProgressHUD
 
 class RegisterViewController: UIViewController {
 
-  
+    var ref: DatabaseReference!
+    
     let nameTextField = UITextField()
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
@@ -20,6 +21,8 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+        
         self.view.backgroundColor = UIColor.white
         
         
@@ -98,6 +101,12 @@ class RegisterViewController: UIViewController {
                     let vc = register.instantiateViewController(withIdentifier: "CarTableView")
                     self.show(vc, sender: self)
             }
+            
+            let userID: String = user!.uid
+            let userEmail: String = self.emailTextField.text!
+            let userPassword: String = self.passwordTextField.text!
+            
+            self.ref.child("Users").child(userID).setValue(["Email": userEmail, "Password": userPassword])
             
         } )
     
