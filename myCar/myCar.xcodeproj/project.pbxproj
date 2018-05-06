@@ -11,8 +11,6 @@
 		90080CF3208D8AE2007A3904 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90080CF2208D8AE2007A3904 /* RegisterViewController.swift */; };
 		90080CF6208D8F61007A3904 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90080CF5208D8F61007A3904 /* LogIn.storyboard */; };
 		90080CF8208D8F75007A3904 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90080CF7208D8F75007A3904 /* LogInViewController.swift */; };
-		901904CD209DE70E00C91323 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901904CC209DE70E00C91323 /* User.swift */; };
-		901904CF209DE72300C91323 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901904CE209DE72300C91323 /* UserRepository.swift */; };
 		902BE97E207B168E00418313 /* ServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97D207B168E00418313 /* ServiceRepository.swift */; };
 		902BE980207B16B900418313 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97F207B16B900418313 /* Service.swift */; };
 		902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927A203AE69700DD7E0F /* AppDelegate.swift */; };
@@ -67,8 +65,6 @@
 		90080CF2208D8AE2007A3904 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		90080CF5208D8F61007A3904 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		90080CF7208D8F75007A3904 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		901904CC209DE70E00C91323 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		901904CE209DE72300C91323 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		902BE97D207B168E00418313 /* ServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRepository.swift; sourceTree = "<group>"; };
 		902BE97F207B16B900418313 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		902E9277203AE69700DD7E0F /* myCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,15 +181,6 @@
 			path = Repairs;
 			sourceTree = "<group>";
 		};
-		901904CB209DE6F700C91323 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				901904CC209DE70E00C91323 /* User.swift */,
-				901904CE209DE72300C91323 /* UserRepository.swift */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		902E926E203AE69700DD7E0F = {
 			isa = PBXGroup;
 			children = (
@@ -215,8 +202,6 @@
 		902E9279203AE69700DD7E0F /* myCar */ = {
 			isa = PBXGroup;
 			children = (
-				901904CB209DE6F700C91323 /* User */,
-				90FBFF2B206AA2FD00110FA0 /* Car */,
 				90D2BA23208E3E5200BA0ED7 /* Welcome */,
 				90080CF4208D8F50007A3904 /* LogIn */,
 				90080CEF208D89F2007A3904 /* Register */,
@@ -227,6 +212,7 @@
 				90FBFF32206AA8E100110FA0 /* About */,
 				90FBFF2D206AA5F000110FA0 /* Service */,
 				90FBFF2C206AA32500110FA0 /* Bill */,
+				90FBFF2B206AA2FD00110FA0 /* Car */,
 				90FBFF2A206AA2D300110FA0 /* Mileage */,
 				902E9281203AE69700DD7E0F /* Assets.xcassets */,
 				902E9283203AE69700DD7E0F /* LaunchScreen.storyboard */,
@@ -343,7 +329,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Michał Gawryluk";
 				TargetAttributes = {
 					902E9276203AE69700DD7E0F = {
@@ -470,7 +456,6 @@
 				908D871A20432C0B0055EA0B /* CarRepositosory.swift in Sources */,
 				903022EA20540A6E009CD7D5 /* Mileage.swift in Sources */,
 				90F2FE22205301AB0022CBC6 /* AddMileageViewController.swift in Sources */,
-				901904CD209DE70E00C91323 /* User.swift in Sources */,
 				90FE9A3F205F6B3000874867 /* BillsTableViewController.swift in Sources */,
 				903022EC2054121E009CD7D5 /* MileageTableViewCell.swift in Sources */,
 				90B7BDBD2064BFEC0030D398 /* CostsTableViewController.swift in Sources */,
@@ -483,7 +468,6 @@
 				90A5E75D206CBBE3007A78BC /* AddServiceViewController.swift in Sources */,
 				90FBFF36206AA98400110FA0 /* AboutViewController.swift in Sources */,
 				90764BCB2069EF22005DF444 /* RepairTableViewCell.swift in Sources */,
-				901904CF209DE72300C91323 /* UserRepository.swift in Sources */,
 				90F2FE202053004A0022CBC6 /* CategoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,7 +508,6 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -532,7 +515,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -583,7 +565,6 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -591,7 +572,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
