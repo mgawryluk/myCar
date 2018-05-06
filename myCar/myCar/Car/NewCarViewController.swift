@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 import os.log
 
 class NewCarViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properities
+    
+    var refCars: DatabaseReference!
     
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
@@ -27,11 +30,13 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
         brandTextField.delegate = self
         modelTextField.delegate = self
         productionYearTextField.delegate = self
+        
+        refCars = Database.database().reference().child("cars")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    
+        
     }
     
     //MARK: UITextFieldDelegate
@@ -57,23 +62,37 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
     //MARK: Actions
     
     @IBAction func addCar(_ sender: UIButton) {
-        let brand = brandTextField.text
-        let model = modelTextField.text
-        let productionYear = productionYearTextField.text
+        addNewCar()
+        //        let brand = brandTextField.text
+        //        let model = modelTextField.text
+        //        let productionYear = productionYearTextField.text
+        //
+        //        guard let car = Car(brand: brand, model: model, productionYear: productionYear)  else {
+        //
+        //            return
+        //        }
+        //
+        //        CarRepository.instance.addNewCar(car: car)
+        //        CarRepository.instance.saveCars()
+        //
+        //        navigationController?.popViewController(animated: true)
         
-        guard let car = Car(brand: brand, model: model, productionYear: productionYear)  else {
-            
-            return
-        }
-        
-        CarRepository.instance.addNewCar(car: car)
-        CarRepository.instance.saveCars()
-        
-        navigationController?.popViewController(animated: true)
+    }
     
+    func addNewCar() {
+        let key = refCars.childByAutoId().key
+        
+        let car = ["id": key,
+                   "carBrand": brandTextField.text! as String,
+                   "carModel": modelTextField.text! as String,
+                   "carYear": productionYearTextField.text! as String]
+        
+        refCars.child(key).setValue(car)
+        navigationController?.popViewController(animated: true)
     }
     
     
-
+    
+    
+    
 }
-
