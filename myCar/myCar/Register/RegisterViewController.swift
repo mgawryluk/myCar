@@ -96,17 +96,18 @@ class RegisterViewController: UIViewController {
                 if error != nil {
                     print(error!)
                 } else {
+                    let userID: String = user!.uid
+                    let userEmail: String = self.emailTextField.text!
+                    let userPassword: String = self.passwordTextField.text!
+                    self.ref.child("Users").child(userID).setValue(["Email": userEmail, "Password": userPassword])
+                    
                     SVProgressHUD.dismiss()
                     let register = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = register.instantiateViewController(withIdentifier: "CarTableView")
+                    let vc = register.instantiateViewController(withIdentifier: "CarTableView") as! CarTableViewController
+                    vc.currentUser = userID
                     self.show(vc, sender: self)
             }
             
-            let userID: String = user!.uid
-            let userEmail: String = self.emailTextField.text!
-            let userPassword: String = self.passwordTextField.text!
-            
-            self.ref.child("Users").child(userID).setValue(["Email": userEmail, "Password": userPassword])
             
         } )
     

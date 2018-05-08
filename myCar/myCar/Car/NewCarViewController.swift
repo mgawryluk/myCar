@@ -15,6 +15,7 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
     //MARK: Properities
     
     var refCars: DatabaseReference!
+    var currentUser: String?
     
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
@@ -31,7 +32,9 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
         modelTextField.delegate = self
         productionYearTextField.delegate = self
         
-        refCars = Database.database().reference().child("cars")
+        refCars = Database.database().reference().child("Users/\(currentUser!)/cars")
+    
+        
     }
     
     override func didReceiveMemoryWarning() {

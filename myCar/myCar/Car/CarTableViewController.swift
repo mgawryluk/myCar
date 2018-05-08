@@ -7,15 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
 class CarTableViewController: UITableViewController {
     
+    var refCars: DatabaseReference!
     var selectedCar: Car?
+    var currentUser: String?
+    var carList = [Car]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refCars = Database.database().reference().child("Users/\(currentUser!)/cars")
+                                                        //("Users/(currentUser!)/cars/\(identifier)/Repairs")
+        refCars.observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.carList.removeAll()
+                for cars in snapshot.children.allObjects as! [DataSnapshot] {
+                    let carObject = cars.value as? [String: AnyObject]
+                    let carBrand = carObject?["carBrand"]
+                    let carModel = carObject?["carModel"]
+                    let carYear = carObject?["carYear"]
+                    let carID = carObject?["id"]
+                    
+                    let car = Car(brand: carBrand as! String?, model: carModel as! String?, productionYear: carYear as! String?, identifier: carID as! String?)
+                    
+                    self.carList.append(car!)
+                
+            }
+                self.tableView.reloadData()
+            }
+
+    })
+        
+            
         navigationItem.leftBarButtonItem = editButtonItem
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 250
@@ -29,6 +56,7 @@ class CarTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
     
+        
         
     }
     
@@ -53,7 +81,7 @@ class CarTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return CarRepository.instance.getAllCars().count
+        return carList.count
     }
 
     
@@ -64,7 +92,7 @@ class CarTableViewController: UITableViewController {
                 fatalError("Error")
         }
         
-        let car = CarRepository.instance.getAllCars()[indexPath.row]
+        let car = carList[indexPath.row]
         
         cell.brandLabel.text = car.brand
         cell.modelLabel.text = car.model
@@ -86,17 +114,17 @@ class CarTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            CarRepository.instance.deleteCar(indexPath: indexPath.row)
-            CarRepository.instance.saveCars()
+            let removeCar = carList[indexPath.row]
             
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            refCars.child(removeCar.identifier).removeValue()
+            
         } else if editingStyle == .insert {
         
         }    
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCar = CarRepository.instance.getAllCars()[indexPath.row]
+        selectedCar = carList[indexPath.row]
         performSegue(withIdentifier: "showCategorySegue", sender: self)
         
     }
@@ -130,8 +158,9 @@ class CarTableViewController: UITableViewController {
     }
     
     @objc func addNewCar() {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCarScreen")
-                self.show(vc!, sender: self)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCarScreen") as! NewCarViewController
+                vc.currentUser = currentUser
+                self.show(vc, sender: self)
     
     }
 }

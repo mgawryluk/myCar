@@ -65,7 +65,8 @@ class WelcomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             let login = UIStoryboard(name: "Main", bundle: nil)
-            let vc = login.instantiateViewController(withIdentifier: "CarTableView")
+            let vc = login.instantiateViewController(withIdentifier: "CarTableView") as! CarTableViewController
+            vc.currentUser = Auth.auth().currentUser?.uid
             self.show(vc, sender: self)
             
             }

@@ -69,9 +69,11 @@ class LogInViewController: UIViewController {
             if error != nil {
                 print(error!)
             } else {
+                let userID: String = user!.uid
                 SVProgressHUD.dismiss()
                 let login = UIStoryboard(name: "Main", bundle: nil)
-                let vc = login.instantiateViewController(withIdentifier: "CarTableView")
+                let vc = login.instantiateViewController(withIdentifier: "CarTableView") as! CarTableViewController
+                vc.currentUser = userID
                 self.show(vc, sender: self)
             }
             
