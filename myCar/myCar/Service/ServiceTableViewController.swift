@@ -35,7 +35,7 @@ class ServiceTableViewController: UITableViewController {
                     
                     let service = Service(serviceType: serviceType as! String?, serviceCost: serviceCost as! String?, serviceDate: serviceDate as! String?, carIdentifier: serviceID as! String?)
                     
-                    self.serviceList.append(repair!)
+                    self.serviceList.append(service!)
                     
                 }
                 self.tableView.reloadData()

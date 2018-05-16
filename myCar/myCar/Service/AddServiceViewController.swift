@@ -26,7 +26,7 @@ class AddServiceViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
-        refServices = Database.database().reference().child("Users/\(currentUser!)cars/\((car.identifier)!)/Services")
+        refServices = Database.database().reference().child("Users/\(currentUser!)cars/\((car?.identifier)!)/Services")
     
         
         serviceTypeTextField.translatesAutoresizingMaskIntoConstraints = false

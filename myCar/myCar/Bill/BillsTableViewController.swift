@@ -118,7 +118,7 @@ class BillsTableViewController: UITableViewController {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewBill") as! AddBillViewController
         vc.currentUser = currentUser
         vc.car = car
-        self.show(vc!, sender: self)
+        self.show(vc, sender: self)
       
     }
 

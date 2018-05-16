@@ -26,12 +26,12 @@ class MileageTableViewController: UITableViewController {
             if snapshot.childrenCount > 0 {
                 self.mileageList.removeAll()
                 for mileages in snapshot.children.allObjects as! [DataSnapshot] {
-                    let mileageObject = mileage.value as? [String: AnyObject]
+                    let mileageObject = mileages.value as? [String: AnyObject]
                     let mileageYear = mileageObject?["mileageYear"]
-                    let distance = mileageObject?["mileageDistance"]
+                    let distance = mileageObject?["distance"]
                     let mileageID = mileageObject?["id"]
                     
-                    let mileage = Mileage(mileageYear: mileageYear as! String, distance: distance as! String, carIdentifier: mileageID as! String)
+                    let mileage = Mileage(mileageYear: mileageYear as! String?, distance: distance as! String?, carIdentifier: mileageID as! String?)
                     
                     self.mileageList.append(mileage!)
                     
@@ -120,7 +120,7 @@ class MileageTableViewController: UITableViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage") as! AddMileageViewController
                 vc.currentUser = currentUser
                 vc.car = car
-            self.show(vc!, sender: self)
+            self.show(vc, sender: self)
         
     
     }
