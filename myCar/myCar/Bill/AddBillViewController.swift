@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class AddBillViewController: UIViewController, UITextFieldDelegate {
     
+    var refBills: DatabaseReference!
+    var currentUser: String?
     var car: Car?
 
     @IBOutlet weak var billTextField: UITextField!
@@ -24,6 +27,8 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         billTextField.delegate = self
         billDateTextField.delegate = self
         billCostTextField.delegate = self
+        
+        refBills = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Bills")
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,21 +59,28 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addBillButton(_ sender: Any) {
-        let billType = billTextField.text
-        let billDate = billDateTextField.text
-        let billCost = billCostTextField.text
+        let key = refBills.childByAutoId().key
         
+        let bill = ["id": key,
+                    "billType": billTextField.text! as String,
+                    "billDate": billDateTextField.text! as String,
+                    "billCost": billCostTextField.text! as String]
         
-        guard let bills = Bill(billType: billType, billCost: billCost, billDate: billDate, carIdentifier: car?.identifier)  else {
-            
-            return
-        }
+        refBills.child(key).setValue(bill)
         
-        BillRepository.instance.addBills(newBill: bills)
-        BillRepository.instance.saveBills()
-        
-        
-        
+//        let billType = billTextField.text
+//        let billDate = billDateTextField.text
+//        let billCost = billCostTextField.text
+//
+//
+//        guard let bills = Bill(billType: billType, billCost: billCost, billDate: billDate, carIdentifier: car?.identifier)  else {
+//
+//            return
+//        }
+//
+//        BillRepository.instance.addBills(newBill: bills)
+//        BillRepository.instance.saveBills()
+    
         navigationController?.popViewController(animated: true)
         
     }

@@ -14,6 +14,7 @@ class CarTableViewController: UITableViewController {
     var refCars: DatabaseReference!
     var selectedCar: Car?
     var currentUser: String?
+    var identifier: String?
     var carList = [Car]()
     
 
@@ -151,8 +152,12 @@ class CarTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        
         if segue.identifier == "showCategorySegue" {
         (segue.destination as? CategoryViewController)?.car = selectedCar
+        (segue.destination as? CategoryViewController)?.currentUser = currentUser
+    
+            
     
         }
     }
@@ -160,6 +165,7 @@ class CarTableViewController: UITableViewController {
     @objc func addNewCar() {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddCarScreen") as! NewCarViewController
                 vc.currentUser = currentUser
+                vc.identifier = identifier
                 self.show(vc, sender: self)
     
     }

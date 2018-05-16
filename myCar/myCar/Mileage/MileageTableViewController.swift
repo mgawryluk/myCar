@@ -7,13 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class MileageTableViewController: UITableViewController {
     
+    var refMileage: DatabaseReference!
+    var selectedMileage: Mileage?
+    var currentUser: String?
+    var mileageList = [Mileage]()
     var car: Car?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refMileage = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Mileage")
+        
+        refMileage.observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.mileageList.removeAll()
+                for mileages in snapshot.children.allObjects as! [DataSnapshot] {
+                    let mileageObject = mileage.value as? [String: AnyObject]
+                    let mileageYear = mileageObject?["mileageYear"]
+                    let distance = mileageObject?["mileageDistance"]
+                    let mileageID = mileageObject?["id"]
+                    
+                    let mileage = Mileage(mileageYear: mileageYear as! String, distance: distance as! String, carIdentifier: mileageID as! String)
+                    
+                    self.mileageList.append(mileage!)
+                    
+                }
+                self.tableView.reloadData()
+            }
+            
+        })
+        
         self.tableView.tableFooterView = UIView()
         navigationItem.rightBarButtonItem = editButtonItem
         
@@ -47,7 +74,7 @@ class MileageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return MileageRepository.instance.getMileageForCar(carIdentifier: car!.identifier).count
+        return mileageList.count
     }
     
     
@@ -58,7 +85,7 @@ class MileageTableViewController: UITableViewController {
             fatalError("Error")
         }
         
-        let km = MileageRepository.instance.getMileageForCar(carIdentifier: (car?.identifier)!)[indexPath.row]
+        let km = mileageList[indexPath.row]
         
         cell.mileageYearLabel.text = km.mileageYear
         cell.distanceTextLabel.text = km.distance
@@ -73,10 +100,8 @@ class MileageTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            
-            MileageRepository.instance.deleteMileage(indexPath: indexPath.row)
-            MileageRepository.instance.saveMileage()
+           let removeMileage = mileageList[indexPath.row]
+            refMileage.child(removeMileage.carIdentifier).removeValue()
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -92,8 +117,9 @@ class MileageTableViewController: UITableViewController {
 //    }
     
     @objc func addNewMileage() {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage")
-            (vc as? AddMileageViewController)?.car = car
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage") as! AddMileageViewController
+                vc.currentUser = currentUser
+                vc.car = car
             self.show(vc!, sender: self)
         
     

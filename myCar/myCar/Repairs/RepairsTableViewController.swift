@@ -7,13 +7,44 @@
 //
 
 import UIKit
+import Firebase
 
 class RepairsTableViewController: UITableViewController {
 
+    var refRepairs: DatabaseReference!
+    var selectedRepair: Repair?
+    var currentUser: String?
+    
+    var repairList = [Repair]()
+    
     var car: Car?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
+        refRepairs = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Repairs")
+        
+        refRepairs.observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.repairList.removeAll()
+                for repairs in snapshot.children.allObjects as! [DataSnapshot] {
+                    let repairObject = repairs.value as? [String: AnyObject]
+                    let repairType = repairObject?["repairType"]
+                    let repairDate = repairObject?["repairDate"]
+                    let repairCost = repairObject?["repairCost"]
+                    let repairID = repairObject?["id"]
+                    
+                    let repair = Repair(repairType: repairType as! String?, repairCost: repairCost as! String?, repairDate: repairDate as! String?, carIdentifier: repairID as! String?)
+                    
+                    self.repairList.append(repair!)
+                    
+                }
+                self.tableView.reloadData()
+            }
+            
+        })
         
         navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
@@ -41,7 +72,7 @@ class RepairsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return RepairRepository.instance.getRepairsForCar(carIdentifier: car!.identifier).count
+        return repairList.count
     }
     
     
@@ -52,7 +83,8 @@ class RepairsTableViewController: UITableViewController {
             fatalError("Error")
         }
         
-        let repairs = RepairRepository.instance.getRepairsForCar(carIdentifier: (car?.identifier)!)[indexPath.row]
+        let repairs = repairList[indexPath.row]
+    
         
         cell.repairTypeLabel.text = repairs.repairType
         cell.repairDateLabel.text = repairs.repairDate
@@ -69,10 +101,10 @@ class RepairsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            RepairRepository.instance.deleteRepair(indexPath: indexPath.row)
-            RepairRepository.instance.saveRepairs()
+            let removeRepair = repairList[indexPath.row]
             
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            refRepairs.child(removeRepair.carIdentifier).removeValue()
+            
         } else if editingStyle == .insert {
             
         }
@@ -81,16 +113,20 @@ class RepairsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showAddRepairSegue" {
-            (segue.destination as? AddRepairViewController)?.car = car
+            (segue.destination as? AddRepairViewController)?.repairs = selectedRepair
         }
     }
     
+   
     @objc func addNewRepair() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewRepair")
-        (vc as? AddRepairViewController)?.car = car
-        self.show(vc!, sender: self)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewRepair") as! AddRepairViewController
+            vc.currentUser = currentUser
+            vc.car = car
+            self.show(vc, sender: self)
+        
         
     }
+
 
 
 }

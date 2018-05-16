@@ -7,14 +7,41 @@
 //
 
 import UIKit
+import Firebase
 
 class ServiceTableViewController: UITableViewController {
     
+    var refServices: DatabaseReference!
+    var selectedService: Service?
+    var currentUser: String?
     var car: Car?
+    var serviceList = [Service]()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refServices = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
+        
+        refServices.observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.serviceList.removeAll()
+                for services in snapshot.children.allObjects as! [DataSnapshot] {
+                    let serviceObject = services.value as? [String: AnyObject]
+                    let serviceType = serviceObject?["serviceType"]
+                    let serviceDate = serviceObject?["serviceDate"]
+                    let serviceCost = serviceObject?["serviceCost"]
+                    let serviceID = serviceObject?["id"]
+                    
+                    let service = Service(serviceType: serviceType as! String?, serviceCost: serviceCost as! String?, serviceDate: serviceDate as! String?, carIdentifier: serviceID as! String?)
+                    
+                    self.serviceList.append(repair!)
+                    
+                }
+                self.tableView.reloadData()
+            }
+            
+        })
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
@@ -50,7 +77,7 @@ class ServiceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return ServiceRepository.instance.getServicesForCar(carIdentifier: car!.identifier).count
+        return serviceList.count
         
     }
 
@@ -59,7 +86,7 @@ class ServiceTableViewController: UITableViewController {
             fatalError("Error")
         }
         
-        let services = ServiceRepository.instance.getServicesForCar(carIdentifier: (car?.identifier)!)[indexPath.row]
+        let services = serviceList[indexPath.row]
         
         cell.serviceTypeLabel.text = services.serviceType
         cell.serviceDateLabel.text = services.serviceDate
@@ -78,8 +105,8 @@ class ServiceTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            ServiceRepository.instance.deleteService(indexPath: indexPath.row)
-            ServiceRepository.instance.saveService()
+            let removeService = serviceList[indexPath.row]
+            refServices.child(removeService.carIdentifier).removeValue()
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -116,6 +143,7 @@ class ServiceTableViewController: UITableViewController {
         
         let vc = AddServiceViewController()
         (vc as? AddServiceViewController)?.car = car
+        vc.currentUser = currentUser
         self.show(vc, sender: self)
         
         }

@@ -7,13 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class CostsTableViewController: UITableViewController {
 
+    var refCosts: DatabaseReference!
+    var selectedCost: Cost?
+    var currentUser: String?
     var car: Car?
+    var costList = [Cost]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
+        
+        refCosts.observe(DataEventType.value, with: { (snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.costList.removeAll()
+                for costs in snapshot.children.allObjects as! [DataSnapshot] {
+                    let costObject = costs.value as? [String: AnyObject]
+                    let costType = costObject?["costType"]
+                    let costDate = costObject?["costDate"]
+                    let costAmount = costObject?["costAmount"]
+                    let costID = costObject?["id"]
+                    
+                    let cost = Cost(costType: costType as! String?, costAmount: costAmount as! String?, costDate: costDate as! String?, carIdentifier: costID as! String?)
+                    
+                    self.costList.append(cost!)
+                    
+                }
+                self.tableView.reloadData()
+            }
+            
+        })
         
         navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
@@ -41,7 +68,7 @@ class CostsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return CostRepository.instance.getCostsForCar(carIdentifier: car!.identifier).count
+        return costList.count
     }
     
     
@@ -52,7 +79,7 @@ class CostsTableViewController: UITableViewController {
             fatalError("Error")
         }
         
-        let costs = CostRepository.instance.getCostsForCar(carIdentifier: (car?.identifier)!)[indexPath.row]
+        let costs = costList[indexPath.row]
         
         cell.costTypeLabel.text = costs.costType
         cell.costDateLabel.text = costs.costDate
@@ -68,10 +95,9 @@ class CostsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
             
-            CostRepository.instance.deleteCost(indexPath: indexPath.row)
-            CostRepository.instance.saveCosts()
+            let removeCost = costList[indexPath.row]
+            refCosts.child(removeCost.carIdentifier).removeValue()
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -82,14 +108,15 @@ class CostsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showAddCostSegue" {
-            (segue.destination as? AddBillViewController)?.car = car
+            (segue.destination as? AddCostViewController)?.costs = selectedCost
         }
     }
     
     @objc func addNewCost() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewCost")
-        (vc as? AddCostViewController)?.car = car
-        self.show(vc!, sender: self)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewCost") as! AddCostViewController
+        vc.currentUser = currentUser
+        vc.car = car
+        self.show(vc, sender: self)
         
     }
 

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class AddCostViewController: UIViewController, UITextFieldDelegate {
     
+    var refCosts: DatabaseReference!
+    var currentUser: String?
     var car: Car?
 
     @IBOutlet weak var costTypeTextField: UITextField!
@@ -24,7 +27,8 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
         costTypeTextField.delegate = self
         costDateTextField.delegate = self
         costAmountTextField.delegate = self
-
+        
+        refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
         
     }
 
@@ -57,24 +61,34 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addCostButton(_ sender: UIButton) {
+        let key = refCosts.childByAutoId().key
         
-        let costType = costTypeTextField.text
-        let costDate = costDateTextField.text
-        let costAmount = costAmountTextField.text
+        let cost = ["id": key,
+                    "costType": costTypeTextField.text! as String,
+                    "costDate": costDateTextField.text! as String,
+                    "costAmount": costAmountTextField.text! as String]
         
-        
-        guard let costs = Cost(costType: costType, costAmount: costAmount, costDate: costDate, carIdentifier: car?.identifier)  else {
-            
-            return
-        }
-        
-        CostRepository.instance.addCosts(newCost: costs)
-        CostRepository.instance.saveCosts()
-        
-        
-        
+        refCosts.child(key).setValue(cost)
         navigationController?.popViewController(animated: true)
         
+        
+//        let costType = costTypeTextField.text
+//        let costDate = costDateTextField.text
+//        let costAmount = costAmountTextField.text
+//
+//
+//        guard let costs = Cost(costType: costType, costAmount: costAmount, costDate: costDate, carIdentifier: car?.identifier)  else {
+//
+//            return
+//        }
+//
+//        CostRepository.instance.addCosts(newCost: costs)
+//        CostRepository.instance.saveCosts()
+//
+//
+//
+//        navigationController?.popViewController(animated: true)
+//
     }
     
 }

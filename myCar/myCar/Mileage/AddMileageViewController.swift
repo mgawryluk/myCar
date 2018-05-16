@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class AddMileageViewController: UIViewController, UITextFieldDelegate {
     
+    var refMileage: DatabaseReference!
+    var currentUser: String?
     var car: Car?
 
     
@@ -25,6 +28,8 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         
         mileageYearTextField.delegate = self
         distanceTextField.delegate = self
+        
+        refMileage = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Mileage")
         
     }
 
@@ -58,15 +63,22 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
     //MARK: Actions
     
     @IBAction func addDistanceButton(_ sender: UIButton) {
-        let mileageYear = mileageYearTextField.text
-        let distance = distanceTextField.text
+        let key = refMileage.childByAutoId().key
+        let mileage = ["id": key,
+                       "mileageYear": mileageYearTextField.text! as String,
+                       "distance": distanceTextField.text! as String]
         
-        guard let km = Mileage(mileageYear: mileageYear, distance: distance, carIdentifier: car?.identifier)  else {
-            return
-        }
+        refMileage.child(key).setValue(mileage)
         
-        MileageRepository.instance.addMileage(km: km)
-        MileageRepository.instance.saveMileage()
+//        let mileageYear = mileageYearTextField.text
+//        let distance = distanceTextField.text
+//
+//        guard let km = Mileage(mileageYear: mileageYear, distance: distance, carIdentifier: car?.identifier)  else {
+//            return
+//        }
+//
+//        MileageRepository.instance.addMileage(km: km)
+//        MileageRepository.instance.saveMileage()
         
         navigationController?.popViewController(animated: true)
         

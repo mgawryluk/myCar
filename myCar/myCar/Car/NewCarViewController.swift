@@ -16,6 +16,7 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
     
     var refCars: DatabaseReference!
     var currentUser: String?
+    var identifier: String?
     
     @IBOutlet weak var brandTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!

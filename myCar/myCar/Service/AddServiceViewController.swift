@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class AddServiceViewController: UIViewController {
     
+    var refServices: DatabaseReference!
+    var currentUser: String?
     var car: Car?
     var services: Service?
     
@@ -23,6 +26,7 @@ class AddServiceViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
+        refServices = Database.database().reference().child("Users/\(currentUser!)cars/\((car.identifier)!)/Services")
     
         
         serviceTypeTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -114,19 +118,26 @@ class AddServiceViewController: UIViewController {
     
     
     @objc func addService(sender: UIButton!) {
-        let serviceType = serviceTypeTextField.text
-        let serviceDate = serviceDateTextField.text
-        let serviceCost = serviceCostTextField.text
+        let key = refServices.childByAutoId().key
         
-        guard let services = Service(serviceType: serviceType, serviceCost: serviceCost, serviceDate: serviceDate, carIdentifier: car?.identifier)  else {
-            
-            return
-        }
+        let service = ["id": key,
+                       "serviceType": serviceTypeTextField.text! as String,
+                       "serviceDate": serviceDateTextField.text! as String,
+                       "serviceCost": serviceCostTextField.text! as String]
         
-        ServiceRepository.instance.addService(newService: services)
-        ServiceRepository.instance.saveService()
+        refServices.child(key).setValue(service)
         
-        
+//        let serviceType = serviceTypeTextField.text
+//        let serviceDate = serviceDateTextField.text
+//        let serviceCost = serviceCostTextField.text
+//
+//        guard let services = Service(serviceType: serviceType, serviceCost: serviceCost, serviceDate: serviceDate, carIdentifier: car?.identifier)  else {
+//
+//            return
+//        }
+//
+//        ServiceRepository.instance.addService(newService: services)
+//        ServiceRepository.instance.saveService()
         
         navigationController?.popViewController(animated: true)
         

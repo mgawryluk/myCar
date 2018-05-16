@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class CategoryViewController: UIViewController {
     
     var car: Car?
+    var currentUser: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +34,19 @@ class CategoryViewController: UIViewController {
         
         if segue.identifier == "showMileageSegue" {
             (segue.destination as? MileageTableViewController)?.car = car
+            (segue.destination as? MileageTableViewController)?.currentUser = currentUser
         } else if segue.identifier == "showBillsSegue" {
             (segue.destination as? BillsTableViewController)?.car = car
+            (segue.destination as? BillsTableViewController)?.currentUser = currentUser
         } else if segue.identifier == "showCostsSegue" {
             (segue.destination as? CostsTableViewController)?.car = car
+            (segue.destination as? CostsTableViewController)?.currentUser = currentUser
         } else if segue.identifier == "showRepairsSegue" {
             (segue.destination as? RepairsTableViewController)?.car = car
+            (segue.destination as? RepairsTableViewController)?.currentUser = currentUser
         } else if segue.identifier == "showServicesSegue" {
             (segue.destination as? ServiceTableViewController)?.car = car
+            (segue.destination as? ServiceTableViewController)?.currentUser = currentUser
         }
     }
     
