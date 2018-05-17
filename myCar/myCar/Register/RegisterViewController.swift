@@ -82,6 +82,13 @@ class RegisterViewController: UIViewController {
         registerButton.addTarget(self, action: #selector(registerUser), for: .touchUpInside)
         
         
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.autocapitalizationType = .none
+        emailTextField.autocapitalizationType = .none
+        nameTextField.autocapitalizationType = .none
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

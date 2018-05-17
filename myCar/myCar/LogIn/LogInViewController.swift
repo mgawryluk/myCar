@@ -58,6 +58,11 @@ class LogInViewController: UIViewController {
         loginButton.backgroundColor = UIColor.gray
         loginButton.setTitle("Log in", for: .normal)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.isSecureTextEntry = true
+        
+        emailTextField.autocapitalizationType = .none
 
         }
     

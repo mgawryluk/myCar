@@ -54,8 +54,10 @@ class ServiceTableViewCell: UITableViewCell {
         serviceCostLabel.textAlignment = .left
         serviceCostLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        
+        serviceCostLabel.numberOfLines = 0
+        serviceDateLabel.numberOfLines = 0
+        serviceTypeLabel.numberOfLines = 0
+    
     }
     
     
