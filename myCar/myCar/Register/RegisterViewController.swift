@@ -38,7 +38,7 @@ class RegisterViewController: UIViewController {
         view.addSubview(registerButton)
         
         
-        nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120).isActive = true
         nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         nameTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true

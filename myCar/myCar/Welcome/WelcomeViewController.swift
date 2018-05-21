@@ -21,7 +21,7 @@ class WelcomeViewController: UIViewController {
         
         view.addSubview(titleLabel)
         
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 64).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true

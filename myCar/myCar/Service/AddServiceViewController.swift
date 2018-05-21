@@ -40,7 +40,7 @@ class AddServiceViewController: UIViewController {
         view.addSubview(addServiceButton)
         
         
-        serviceTypeTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        serviceTypeTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120).isActive = true
         serviceTypeTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         serviceTypeTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         serviceTypeTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
