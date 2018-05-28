@@ -101,7 +101,16 @@ class RegisterViewController: UIViewController {
         SVProgressHUD.show()
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
                 if error != nil {
-                    print(error!)
+                    let nsError = error as NSError?
+                    if nsError?.code == AuthErrorCode.emailAlreadyInUse.rawValue {
+                        let alert = UIAlertController(title: "Ooops!", message: "It looks like this e-mail already exists in our database.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        SVProgressHUD.dismiss()
+                    } else {
+                        print ("Email ok!")
+                    }
+                    
                 } else {
                     let userID: String = user!.uid
                     let userEmail: String = self.emailTextField.text!
@@ -116,8 +125,8 @@ class RegisterViewController: UIViewController {
             }
             
             
+            
         } )
-    
-
-}
+        
+    }
 }

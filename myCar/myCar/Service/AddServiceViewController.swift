@@ -21,11 +21,20 @@ class AddServiceViewController: UIViewController {
     let serviceCostTextField = UITextField()
     let serviceDatePickerView = UIDatePicker()
     let addServiceButton = UIButton()
+    let background = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        //self.view.backgroundColor = UIColor.white
         
+        background.image = #imageLiteral(resourceName: "background1.png")
+        background.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(background)
+        background.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        background.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 0)
+        background.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0)
+        background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+        background.contentMode = .scaleAspectFill
         refServices = Database.database().reference().child("Users/\(currentUser!)cars/\((car?.identifier)!)/Services")
     
         

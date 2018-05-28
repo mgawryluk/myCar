@@ -44,18 +44,18 @@
                                             <rect key="frame" x="0.0" y="-7" width="375" height="213"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8W5-lu-zE9">
-                                            <rect key="frame" x="16" y="17" width="42" height="41"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8W5-lu-zE9">
+                                            <rect key="frame" x="16" y="21" width="48" height="42"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-P6-lCk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-P6-lCk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-iF-8ef">
-                                                    <rect key="frame" x="0.0" y="20.5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-iF-8ef">
+                                                    <rect key="frame" x="0.0" y="26" width="48" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -63,8 +63,8 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="8W5-lu-zE9" firstAttribute="top" secondItem="FT8-K9-fkp" secondAttribute="topMargin" constant="6" id="1oI-bV-SNr"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="8W5-lu-zE9" secondAttribute="bottom" constant="131" id="lri-P6-49o"/>
+                                        <constraint firstItem="8W5-lu-zE9" firstAttribute="top" secondItem="FT8-K9-fkp" secondAttribute="topMargin" constant="10" id="1oI-bV-SNr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="8W5-lu-zE9" secondAttribute="bottom" constant="126" id="lri-P6-49o"/>
                                         <constraint firstItem="8W5-lu-zE9" firstAttribute="leading" secondItem="FT8-K9-fkp" secondAttribute="leadingMargin" id="p3j-0A-aFk"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -217,6 +217,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-d3-o6S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BHh-vm-fmO">
                                 <rect key="frame" x="50" y="120" width="275" height="130"/>
                                 <subviews>
@@ -224,13 +228,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-Ny-man">
                                         <rect key="frame" x="0.0" y="50" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Production year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ku-wO-iqg">
                                         <rect key="frame" x="0.0" y="100" width="275" height="30"/>
@@ -279,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8h-m3-NcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="161"/>
+            <point key="canvasLocation" x="1592.8" y="160.56971514242881"/>
         </scene>
         <!--Add car-->
         <scene sceneID="LOX-fy-laS">
@@ -301,4 +305,7 @@
             <point key="canvasLocation" x="-124" y="161"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background.png" width="853" height="632"/>
+    </resources>
 </document>
