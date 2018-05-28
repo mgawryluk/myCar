@@ -397,7 +397,6 @@
 				902E9274203AE69700DD7E0F /* Frameworks */,
 				902E9275203AE69700DD7E0F /* Resources */,
 				EF91A54F559B163CE84F576B /* [CP] Embed Pods Frameworks */,
-				F25F20998C62B276DB5D9F2D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -417,7 +416,6 @@
 				BC9DE5BD20BC58A90038BB05 /* Frameworks */,
 				BC9DE5BE20BC58A90038BB05 /* Resources */,
 				A04C8EF8D7D66FE052A02E2C /* [CP] Embed Pods Frameworks */,
-				0AAFAB62B7811E5C65987ABC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -438,7 +436,6 @@
 				BCFAA68E20BC5D2B000235B1 /* Frameworks */,
 				BCFAA68F20BC5D2B000235B1 /* Resources */,
 				5727CF94C656F4192BDABEEE /* [CP] Embed Pods Frameworks */,
-				4875825E5B7CA43FD81D14B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -534,36 +531,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AAFAB62B7811E5C65987ABC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myCar-myCarTests/Pods-myCar-myCarTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4875825E5B7CA43FD81D14B6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myCar-myCarUITests/Pods-myCar-myCarUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5727CF94C656F4192BDABEEE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -682,21 +649,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myCar/Pods-myCar-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F25F20998C62B276DB5D9F2D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myCar/Pods-myCar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F368EAEF685CEDE59121FE20 /* [CP] Check Pods Manifest.lock */ = {
