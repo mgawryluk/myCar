@@ -217,10 +217,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="fgQ-d3-o6S">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BHh-vm-fmO">
                                 <rect key="frame" x="50" y="120" width="275" height="130"/>
                                 <subviews>
@@ -305,7 +301,4 @@
             <point key="canvasLocation" x="-124" y="161"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="background.png" width="853" height="632"/>
-    </resources>
 </document>

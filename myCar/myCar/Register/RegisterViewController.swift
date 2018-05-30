@@ -107,6 +107,12 @@ class RegisterViewController: UIViewController {
                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                         self.present(alert, animated: true, completion: nil)
                         SVProgressHUD.dismiss()
+                    } else if nsError?.code == AuthErrorCode.weakPassword.rawValue {
+                        let alert = UIAlertController(title: "Ooops!", message: "It looks like your password is too short. Make it at least 6 characters long.", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                        SVProgressHUD.dismiss()
+                        
                     } else {
                         print ("Email ok!")
                     }
