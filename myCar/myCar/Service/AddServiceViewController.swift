@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class AddServiceViewController: UIViewController {
+class AddServiceViewController: UIViewController, UITextFieldDelegate {
     
     var refServices: DatabaseReference!
     var currentUser: String?
@@ -35,7 +35,7 @@ class AddServiceViewController: UIViewController {
 //        background.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0)
 //        background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
 //        background.contentMode = .scaleAspectFill
-        refServices = Database.database().reference().child("Users/\(currentUser!)cars/\((car?.identifier)!)/Services")
+        refServices = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
     
         
         serviceTypeTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +98,9 @@ class AddServiceViewController: UIViewController {
         addServiceButton.addTarget(self, action: #selector(addService), for: .touchUpInside)
         
         
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -135,6 +138,7 @@ class AddServiceViewController: UIViewController {
                        "serviceCost": serviceCostTextField.text! as String]
         
         refServices.child(key).setValue(service)
+        navigationController?.popViewController(animated: true
         
 //        let serviceType = serviceTypeTextField.text
 //        let serviceDate = serviceDateTextField.text
@@ -148,7 +152,7 @@ class AddServiceViewController: UIViewController {
 //        ServiceRepository.instance.addService(newService: services)
 //        ServiceRepository.instance.saveService()
         
-        navigationController?.popViewController(animated: true)
+        )
         
     }
 }

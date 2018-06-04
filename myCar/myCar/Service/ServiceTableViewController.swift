@@ -56,7 +56,7 @@ class ServiceTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
         
-        tableView.register(ServiceTableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
+//        tableView.register(ServiceTableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
         
       
 
@@ -64,6 +64,7 @@ class ServiceTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        tableView.reloadData()
         // Dispose of any resources that can be recreated.
     }
     
@@ -82,7 +83,9 @@ class ServiceTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceTableViewCell", for: indexPath) as? ServiceTableViewCell else {
+        let cellIdentifier = "ServiceTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ServiceTableViewCell else {
             fatalError("Error")
         }
         
@@ -142,8 +145,8 @@ class ServiceTableViewController: UITableViewController {
     @objc func addService() {
         
         let vc = AddServiceViewController()
-        (vc as? AddServiceViewController)?.car = car
-        vc.currentUser = currentUser
+        (vc as AddServiceViewController).car = car
+        (vc as AddServiceViewController).currentUser = currentUser
         self.show(vc, sender: self)
         
         }
