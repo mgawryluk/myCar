@@ -24,6 +24,13 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let datePicker = UIDatePicker()
+        
+        datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: UIControlEvents.valueChanged)
+        
+        billDateTextField.inputView = datePicker
+        
         billTextField.delegate = self
         billDateTextField.delegate = self
         billCostTextField.delegate = self
@@ -35,6 +42,13 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         
     }
+        
+        @objc func datePickerValueChanged(datePicker: UIDatePicker) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            
+            billDateTextField.text = dateFormatter.string(from: datePicker.date)
     
     //MARK: UITextFieldDelegate
     

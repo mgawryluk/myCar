@@ -14,16 +14,26 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
     var refRepairs: DatabaseReference!
     var currentUser: String?
     var car: Car?
+    let repairDatePickerView = UIDatePicker()
     
     @IBOutlet weak var repairTypeTextField: UITextField!
     @IBOutlet weak var repairDateTextField: UITextField!
     @IBOutlet weak var repairCostTextField: UITextField!
+    
     
     var repairs: Repair?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let datePicker = UIDatePicker()
+        
+        datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: UIControlEvents.valueChanged)
+        
+        repairDateTextField.inputView = datePicker
+        
         
         repairTypeTextField.delegate = self
         repairDateTextField.delegate = self
@@ -36,6 +46,15 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+    }
+    
+    @objc func datePickerValueChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        repairDateTextField.text = dateFormatter.string(from: datePicker.date)
         
     }
     

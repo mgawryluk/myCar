@@ -24,6 +24,13 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let datePicker = UIDatePicker()
+        
+        datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: UIControlEvents.valueChanged)
+        
+        costDateTextField.inputView = datePicker
+        
         costTypeTextField.delegate = self
         costDateTextField.delegate = self
         costAmountTextField.delegate = self
@@ -36,6 +43,13 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
      
     }
+    
+    @objc func datePickerValueChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        costDateTextField.text = dateFormatter.string(from: datePicker.date)
     
 
     //MARK: UITextFieldDelegate
