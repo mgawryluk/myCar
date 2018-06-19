@@ -19,6 +19,7 @@ class MileageTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showTitle()
         
         refMileage = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Mileage")
         
@@ -51,6 +52,13 @@ class MileageTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
     
+    }
+    
+    func showTitle() {
+        let title = UILabel()
+        title.text = "Mileage"
+        self.navigationItem.titleView = title
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

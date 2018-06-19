@@ -49,6 +49,8 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
             dateFormatter.timeStyle = .none
             
             billDateTextField.text = dateFormatter.string(from: datePicker.date)
+            
+    }
     
     //MARK: UITextFieldDelegate
     

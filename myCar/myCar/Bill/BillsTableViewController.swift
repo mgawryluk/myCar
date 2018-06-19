@@ -19,6 +19,7 @@ class BillsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showTitle()
         
         refBills = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Bills")
         
@@ -53,6 +54,13 @@ class BillsTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewBill)))
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
+        
+    }
+    
+    func showTitle() {
+        let title = UILabel()
+        title.text = "Bills"
+        self.navigationItem.titleView = title
         
     }
     

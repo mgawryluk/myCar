@@ -13,6 +13,7 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showTitle()
 
         let titleLabel = UILabel()
         titleLabel.text = "myCar"
@@ -52,6 +53,13 @@ class AboutViewController: UIViewController {
         
     
         
+        
+    }
+    
+    func showTitle() {
+        let title = UILabel()
+        title.text = "About"
+        self.navigationItem.titleView = title
         
     }
 

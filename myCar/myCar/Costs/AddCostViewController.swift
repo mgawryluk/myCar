@@ -50,7 +50,7 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
         dateFormatter.timeStyle = .none
         
         costDateTextField.text = dateFormatter.string(from: datePicker.date)
-    
+    }
 
     //MARK: UITextFieldDelegate
     

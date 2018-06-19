@@ -21,7 +21,7 @@ class RepairsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showTitle()
 
         
         refRepairs = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Repairs")
@@ -56,6 +56,13 @@ class RepairsTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewRepair)))
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
+    }
+    
+    func showTitle() {
+        let title = UILabel()
+        title.text = "Repairs"
+        self.navigationItem.titleView = title
+        
     }
     
     override func didReceiveMemoryWarning() {

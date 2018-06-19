@@ -19,6 +19,7 @@ class CostsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showTitle()
         
         refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
         
@@ -52,6 +53,13 @@ class CostsTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewCost)))
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
+    }
+    
+    func showTitle() {
+        let title = UILabel()
+        title.text = "Costs"
+        self.navigationItem.titleView = title
+        
     }
 
     override func didReceiveMemoryWarning() {

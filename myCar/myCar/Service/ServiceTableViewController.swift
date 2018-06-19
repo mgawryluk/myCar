@@ -20,6 +20,7 @@ class ServiceTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showTitle()
         
         refServices = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
         
@@ -60,6 +61,13 @@ class ServiceTableViewController: UITableViewController {
         
       
 
+    }
+    
+    func showTitle() {
+        let title = UILabel()
+        title.text = "Service"
+        self.navigationItem.titleView = title
+        
     }
 
     override func didReceiveMemoryWarning() {
