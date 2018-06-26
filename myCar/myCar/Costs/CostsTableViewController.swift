@@ -43,6 +43,8 @@ class CostsTableViewController: UITableViewController {
             
         })
         
+        
+        
         navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
         
@@ -57,9 +59,58 @@ class CostsTableViewController: UITableViewController {
     
     func showTitle() {
         let title = UILabel()
-        title.text = "Costs"
+        var sum = 0.0
+        title.text = "\(sum)"
         self.navigationItem.titleView = title
+        title.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        title.textAlignment = .center
         
+        
+//        title.translatesAutoresizingMaskIntoConstraints = false
+//
+//        title.topAnchor.constraint(equalTo: title.superview!.topAnchor, constant: 0).isActive = true
+//        title.leftAnchor.constraint(equalTo: title.superview!.leftAnchor, constant: 0).isActive = true
+//        title.rightAnchor.constraint(equalTo: title.superview!.rightAnchor, constant: 0).isActive = true
+//        title.bottomAnchor.constraint(equalTo: title.superview!.bottomAnchor, constant: 0).isActive = true
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+
+        let userID = Auth.auth().currentUser?.uid
+        let carID = car?.identifier
+
+    ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs").observe(.childAdded, with: { (snapshot) in
+        
+        let costObject = snapshot.value as? [String: AnyObject]
+        let costAmount = costObject?["costAmount"] as! String?
+        if let numericalCost = Double(costAmount!) {
+            sum += numericalCost
+        
+            print(numericalCost)
+            
+        }
+        
+        title.text = "\(sum)"
+        
+        
+        
+
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.addTarget(self, action: #selector(filterData))
+        
+        title.isUserInteractionEnabled = true
+        title.addGestureRecognizer(tapRecognizer)
+        
+        
+    }
+    
+    @objc func filterData() {
+        print("Hello")
     }
 
     override func didReceiveMemoryWarning() {
