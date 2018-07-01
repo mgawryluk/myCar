@@ -23,6 +23,7 @@
 		903022E620540545009CD7D5 /* MileageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022E520540545009CD7D5 /* MileageRepository.swift */; };
 		903022EA20540A6E009CD7D5 /* Mileage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022E920540A6E009CD7D5 /* Mileage.swift */; };
 		903022EC2054121E009CD7D5 /* MileageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022EB2054121E009CD7D5 /* MileageTableViewCell.swift */; };
+		903B2F8820E5DE6200AD493C /* FilterCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903B2F8720E5DE6200AD493C /* FilterCostViewController.swift */; };
 		90438C562060C28200EBD20A /* BillRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90438C552060C28200EBD20A /* BillRepository.swift */; };
 		906EB7A92088455C00676053 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9095C8EE2088425700E27A6C /* GoogleService-Info.plist */; };
 		90764BC52069EA51005DF444 /* Repair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90764BC42069EA51005DF444 /* Repair.swift */; };
@@ -105,6 +106,7 @@
 		903022E520540545009CD7D5 /* MileageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageRepository.swift; sourceTree = "<group>"; };
 		903022E920540A6E009CD7D5 /* Mileage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mileage.swift; sourceTree = "<group>"; };
 		903022EB2054121E009CD7D5 /* MileageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTableViewCell.swift; sourceTree = "<group>"; };
+		903B2F8720E5DE6200AD493C /* FilterCostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCostViewController.swift; sourceTree = "<group>"; };
 		90438C552060C28200EBD20A /* BillRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRepository.swift; sourceTree = "<group>"; };
 		90764BC42069EA51005DF444 /* Repair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repair.swift; sourceTree = "<group>"; };
 		90764BC62069EBF0005DF444 /* RepairRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairRepository.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				90B7BDBA2064BCA70030D398 /* AddCostViewController.swift */,
 				90B7BDBE2064C0240030D398 /* CostTableViewCell.swift */,
 				90B7BDBC2064BFEC0030D398 /* CostsTableViewController.swift */,
+				903B2F8720E5DE6200AD493C /* FilterCostViewController.swift */,
 				90978A9D2073275E000B3643 /* Costs.storyboard */,
 			);
 			path = Costs;
@@ -697,6 +700,7 @@
 				903022E620540545009CD7D5 /* MileageRepository.swift in Sources */,
 				90764BC72069EBF0005DF444 /* RepairRepository.swift in Sources */,
 				908D871A20432C0B0055EA0B /* CarRepositosory.swift in Sources */,
+				903B2F8820E5DE6200AD493C /* FilterCostViewController.swift in Sources */,
 				903022EA20540A6E009CD7D5 /* Mileage.swift in Sources */,
 				90F2FE22205301AB0022CBC6 /* AddMileageViewController.swift in Sources */,
 				90FE9A3F205F6B3000874867 /* BillsTableViewController.swift in Sources */,

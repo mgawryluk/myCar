@@ -65,19 +65,9 @@ class CostsTableViewController: UITableViewController {
         title.widthAnchor.constraint(equalToConstant: 100).isActive = true
         title.textAlignment = .center
         
-        
-//        title.translatesAutoresizingMaskIntoConstraints = false
-//
-//        title.topAnchor.constraint(equalTo: title.superview!.topAnchor, constant: 0).isActive = true
-//        title.leftAnchor.constraint(equalTo: title.superview!.leftAnchor, constant: 0).isActive = true
-//        title.rightAnchor.constraint(equalTo: title.superview!.rightAnchor, constant: 0).isActive = true
-//        title.bottomAnchor.constraint(equalTo: title.superview!.bottomAnchor, constant: 0).isActive = true
-        
         var ref: DatabaseReference!
         ref = Database.database().reference()
 
-        let userID = Auth.auth().currentUser?.uid
-        let carID = car?.identifier
 
     ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs").observe(.childAdded, with: { (snapshot) in
         
@@ -92,9 +82,6 @@ class CostsTableViewController: UITableViewController {
         
         title.text = "\(sum)"
         
-        
-        
-
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -110,7 +97,10 @@ class CostsTableViewController: UITableViewController {
     }
     
     @objc func filterData() {
-        print("Hello")
+        let vc = FilterCostViewController()
+        (vc as FilterCostViewController).car = car
+        (vc as FilterCostViewController).currentUser = currentUser
+        self.show(vc, sender: self)
     }
 
     override func didReceiveMemoryWarning() {

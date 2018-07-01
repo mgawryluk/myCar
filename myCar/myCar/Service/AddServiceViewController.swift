@@ -27,14 +27,6 @@ class AddServiceViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
-//        background.image = #imageLiteral(resourceName: "background1.png")
-//        background.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(background)
-//        background.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
-//        background.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 0)
-//        background.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0)
-//        background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-//        background.contentMode = .scaleAspectFill
         refServices = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
     
         
@@ -139,18 +131,7 @@ class AddServiceViewController: UIViewController, UITextFieldDelegate {
         
         refServices.child(key).setValue(service)
         navigationController?.popViewController(animated: true
-        
-//        let serviceType = serviceTypeTextField.text
-//        let serviceDate = serviceDateTextField.text
-//        let serviceCost = serviceCostTextField.text
-//
-//        guard let services = Service(serviceType: serviceType, serviceCost: serviceCost, serviceDate: serviceDate, carIdentifier: car?.identifier)  else {
-//
-//            return
-//        }
-//
-//        ServiceRepository.instance.addService(newService: services)
-//        ServiceRepository.instance.saveService()
+
         
         )
         
