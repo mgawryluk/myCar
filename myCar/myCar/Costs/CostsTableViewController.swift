@@ -9,16 +9,22 @@
 import UIKit
 import Firebase
 
-class CostsTableViewController: UITableViewController {
+class CostsTableViewController: UITableViewController, FilterCostViewControllerDelegate {
+    func didSelectYear(year: String?) {
+        yearPicked = year
+        
+    }
+    
 
     var refCosts: DatabaseReference!
     var selectedCost: Cost?
     var currentUser: String?
     var car: Car?
     var costList = [Cost]()
+    var yearPicked: String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         showTitle()
         
         refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
@@ -29,19 +35,25 @@ class CostsTableViewController: UITableViewController {
                 for costs in snapshot.children.allObjects as! [DataSnapshot] {
                     let costObject = costs.value as? [String: AnyObject]
                     let costType = costObject?["costType"]
-                    let costDate = costObject?["costDate"]
+                    let costDate = costObject?["costDate"] as! String?
                     let costAmount = costObject?["costAmount"]
                     let costID = costObject?["id"]
                     
                     let cost = Cost(costType: costType as! String?, costAmount: costAmount as! String?, costDate: costDate as! String?, carIdentifier: costID as! String?)
                     
-                    self.costList.append(cost!)
+                    let rangeOfYear = costDate?.suffix(4)
+                    let yearStr = String(rangeOfYear!)
                     
+                    if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                        self.costList.append(cost!)
+                    }
                 }
+                    
                 self.tableView.reloadData()
             }
             
         })
+            
         
         
         
@@ -59,6 +71,7 @@ class CostsTableViewController: UITableViewController {
     
     func showTitle() {
         let title = UILabel()
+        title.translatesAutoresizingMaskIntoConstraints = false
         var sum = 0.0
         title.text = "\(sum)"
         self.navigationItem.titleView = title
@@ -73,9 +86,14 @@ class CostsTableViewController: UITableViewController {
         
         let costObject = snapshot.value as? [String: AnyObject]
         let costAmount = costObject?["costAmount"] as! String?
-        if let numericalCost = Double(costAmount!) {
-            sum += numericalCost
+        let costDate = costObject?["costDate"] as! String?
+        let rangeOfYear = costDate?.suffix(4)
+        let yearStr = String(rangeOfYear!)
         
+        if let numericalCost = Double(costAmount!) {
+            if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                sum += numericalCost
+            }
             print(numericalCost)
             
         }
@@ -101,6 +119,7 @@ class CostsTableViewController: UITableViewController {
         (vc as FilterCostViewController).car = car
         (vc as FilterCostViewController).currentUser = currentUser
         self.show(vc, sender: self)
+        vc.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

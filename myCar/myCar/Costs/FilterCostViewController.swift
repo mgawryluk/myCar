@@ -8,10 +8,13 @@
 
 import UIKit
 import Firebase
+protocol FilterCostViewControllerDelegate: class {
+    func didSelectYear(year: String?)
+}
 
 class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    
+    var delegate: FilterCostViewControllerDelegate?
     
     var refCosts: DatabaseReference!
     var currentUser: String?
@@ -74,7 +77,7 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
     @objc func showYear() {
         var ref: DatabaseReference!
         ref = Database.database().reference()
-        
+        self.pickerData.append("")
         
         ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs").observe(.childAdded, with: { (snapshot) in
             
@@ -83,28 +86,12 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
             let rangeOfYear = costDate?.suffix(4)
             let yearStr = String(rangeOfYear!)
             
-            self.pickerData.append(yearStr)
-           
+            if !self.pickerData.contains(yearStr) {
+                self.pickerData.append(yearStr)
+            }
         })
 
     }
-    
-    func findDuplicates(array: [String]) -> [String] {
-        
-        var set = Set<String>()
-        let result = array.filter {
-            guard !set.contains($0) else {
-                
-                return false
-            }
-            
-            set.insert($0)
-            
-            return true
-        }
-        return result
-    }
-    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -126,6 +113,31 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     @objc func filterYear(sender: UIButton!) {
         
+        delegate?.didSelectYear(year: filterDateTextField.text)
+        navigationController?.popViewController(animated: true)
+//        var ref: DatabaseReference!
+//        ref = Database.database().reference()
+//        var sum = 0.0
+//
+//        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs").observe(.childAdded, with: { (snapshot) in
+//
+//
+//            let costObject = snapshot.value as? [String: AnyObject]
+//            let costDate = costObject?["costDate"] as! String?
+//            let costAmount = costObject?["costAmount"] as! String?
+//
+//            let rangeOfYear = costDate?.suffix(4)
+//            let yearStr = String(rangeOfYear!)
+//
+//
+//            if self.filterDateTextField.text == yearStr {
+//                if let numericalCost = Double(costAmount!) {
+//                    sum += numericalCost
+//
+//
+//                }
+//            }
+//        })
     }
     
 }
