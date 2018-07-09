@@ -17,10 +17,10 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
     var currentUser: String?
     var car: Car?
     var costs: Cost?
-    let pickerData = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"]
+    var pickerData = [String]()
+    let filterYearButton = UIButton()
     
     let filterDateTextField = UITextField()
-   // let filterDatePickerView = UIDatePicker()
     let filterDateView = UIPickerView()
     
     
@@ -32,7 +32,10 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         
         refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
         
+        
         filterDateTextField.translatesAutoresizingMaskIntoConstraints = false
+        filterYearButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(filterYearButton)
         view.addSubview(filterDateTextField)
         
         filterDateTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120).isActive = true
@@ -40,14 +43,24 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         filterDateTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         filterDateTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-//        filterDatePickerView.datePickerMode = .date
-//        filterDatePickerView.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: .valueChanged)
-        
         filterDateTextField.textAlignment = .left
         filterDateTextField.borderStyle = .roundedRect
         filterDateTextField.placeholder = "Pick year"
         filterDateTextField.inputView = filterDateView
         filterDateTextField.font = UIFont.systemFont(ofSize: 17)
+        
+        filterDateView.dataSource?.perform(#selector(showYear))
+
+        
+        
+        filterYearButton.topAnchor.constraint(equalTo: filterDateTextField.bottomAnchor, constant: 30).isActive = true
+        filterYearButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70).isActive = true
+        filterYearButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
+        filterYearButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        filterYearButton.backgroundColor = UIColor.gray
+        filterYearButton.setTitle("Select", for: .normal)
+        filterYearButton.addTarget(self, action: #selector(filterYear), for: .touchUpInside)
      
         
         
@@ -57,6 +70,41 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @objc func showYear() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs").observe(.childAdded, with: { (snapshot) in
+            
+            let costObject = snapshot.value as? [String: AnyObject]
+            let costDate = costObject?["costDate"] as! String?
+            let rangeOfYear = costDate?.suffix(4)
+            let yearStr = String(rangeOfYear!)
+            
+            self.pickerData.append(yearStr)
+           
+        })
+
+    }
+    
+    func findDuplicates(array: [String]) -> [String] {
+        
+        var set = Set<String>()
+        let result = array.filter {
+            guard !set.contains($0) else {
+                
+                return false
+            }
+            
+            set.insert($0)
+            
+            return true
+        }
+        return result
+    }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -74,17 +122,10 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         self.filterDateTextField.text = pickerData[row]
         self.view.endEditing(true)
 
-    
-    
-//    @objc func datePickerValueChanged(datePicker: UIPickerView) {
-//
-//        var yearPicker : [String] {
-//            var years = [String]()
-//            for i in (2000..<2018).reversed() {
-//                years.append("\(i)")
-//            }
-//            return years
-//        }
-//    }
     }
+    
+    @objc func filterYear(sender: UIButton!) {
+        
+    }
+    
 }
