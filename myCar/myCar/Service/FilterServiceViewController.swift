@@ -1,25 +1,25 @@
 //
-//  FilterCostViewController.swift
+//  FilterServiceViewController.swift
 //  myCar
 //
-//  Created by Michał on 29/06/2018.
+//  Created by Michał on 11/07/2018.
 //  Copyright © 2018 Michał Gawryluk. All rights reserved.
 //
 
 import UIKit
 import Firebase
-protocol FilterCostViewControllerDelegate: class {
+protocol FilterServiceViewControllerDelegate: class {
     func didSelectYear(year: String?)
 }
 
-class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    var delegate: FilterCostViewControllerDelegate?
+class FilterServiceViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    var delegate: FilterServiceViewControllerDelegate?
     
     var refCosts: DatabaseReference!
     var currentUser: String?
     var car: Car?
-    var costs: Cost?
+    var service: Service?
     var pickerData = [String]()
     let filterYearButton = UIButton()
     
@@ -33,7 +33,7 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         filterDateView.dataSource = self
         filterDateView.delegate = self
         
-        refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
+        refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
         
         
         filterDateTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         filterDateTextField.font = UIFont.systemFont(ofSize: 17)
         
         filterDateView.dataSource?.perform(#selector(showYear))
-
+        
         
         
         filterYearButton.topAnchor.constraint(equalTo: filterDateTextField.bottomAnchor, constant: 30).isActive = true
@@ -64,7 +64,7 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         filterYearButton.backgroundColor = UIColor.gray
         filterYearButton.setTitle("Select", for: .normal)
         filterYearButton.addTarget(self, action: #selector(filterYear), for: .touchUpInside)
-     
+        
         
         
     }
@@ -79,18 +79,18 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         ref = Database.database().reference()
         self.pickerData.append("")
         
-        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs").observe(.childAdded, with: { (snapshot) in
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services").observe(.childAdded, with: { (snapshot) in
             
-            let costObject = snapshot.value as? [String: AnyObject]
-            let costDate = costObject?["costDate"] as! String?
-            let rangeOfYear = costDate?.suffix(4)
+            let serviceObject = snapshot.value as? [String: AnyObject]
+            let serviceDate = serviceObject?["serviceDate"] as! String?
+            let rangeOfYear = serviceDate?.suffix(4)
             let yearStr = String(rangeOfYear!)
             
             if !self.pickerData.contains(yearStr) {
                 self.pickerData.append(yearStr)
             }
         })
-
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -108,14 +108,14 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.filterDateTextField.text = pickerData[row]
         self.view.endEditing(true)
-
+        
     }
     
     @objc func filterYear(sender: UIButton!) {
         
         delegate?.didSelectYear(year: filterDateTextField.text)
         navigationController?.popViewController(animated: true)
-
+        
     }
-    
+
 }

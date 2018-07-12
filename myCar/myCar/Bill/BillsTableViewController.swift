@@ -9,16 +9,20 @@
 import UIKit
 import Firebase
 
-class BillsTableViewController: UITableViewController {
+class BillsTableViewController: UITableViewController, FilterBillViewControllerDelegate {
+    func didSelectYear(year: String?) {
+        yearPicked = year
+    }
 
     var refBills: DatabaseReference!
     var selectedBill: Bill?
     var currentUser: String?
     var billList = [Bill]()
     var car: Car?
+    var yearPicked: String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidDisappear(_ animated: Bool) {
+     super.viewDidAppear(animated)
         showTitle()
         
         refBills = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Bills")
@@ -29,14 +33,19 @@ class BillsTableViewController: UITableViewController {
                 for bills in snapshot.children.allObjects as! [DataSnapshot] {
                     let billObject = bills.value as? [String: AnyObject]
                     let billType = billObject?["billType"]
-                    let billDate = billObject?["billDate"]
+                    let billDate = billObject?["billDate"] as! String?
                     let billCost = billObject?["billCost"]
                     let billID = billObject?["id"]
                     
                     let bill = Bill(billType: billType as! String?, billCost: billCost as! String?, billDate: billDate as! String?, carIdentifier: billID as! String?)
                     
-                    self.billList.append(bill!)
+                    let rangeOfYear = billDate?.suffix(4)
+                    let yearStr = String(rangeOfYear!)
                     
+                    
+                    if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                    self.billList.append(bill!)
+                    }
                 }
                 self.tableView.reloadData()
             }
@@ -57,13 +66,6 @@ class BillsTableViewController: UITableViewController {
         
     }
     
-    func showTitle() {
-        let title = UILabel()
-        title.text = "Bills"
-        self.navigationItem.titleView = title
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
@@ -75,6 +77,58 @@ class BillsTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    
+    func showTitle() {
+        let title = UILabel()
+        title.translatesAutoresizingMaskIntoConstraints = false
+        var sum = 0.0
+        title.text = "\(sum)"
+        self.navigationItem.titleView = title
+        title.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        title.textAlignment = .center
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Bills").observe(.childAdded, with: { (snapshot) in
+            
+            let billObject = snapshot.value as? [String: AnyObject]
+            let billCost = billObject?["billCost"] as! String?
+            let billDate = billObject?["billDate"] as! String?
+            let rangeOfYear = billDate?.suffix(4)
+            let yearStr = String(rangeOfYear!)
+            
+            if let numericalCost = Double(billCost!) {
+                if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                    sum += numericalCost
+                }
+                print(numericalCost)
+                
+            }
+            
+            title.text = "\(sum)"
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.addTarget(self, action: #selector(filterData))
+        
+        title.isUserInteractionEnabled = true
+        title.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    @objc func filterData() {
+        let vc = FilterBillViewController()
+        (vc as FilterBillViewController).car = car
+        (vc as FilterBillViewController).currentUser = currentUser
+        self.show(vc, sender: self)
+        vc.delegate = self
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         

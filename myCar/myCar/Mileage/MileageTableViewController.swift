@@ -9,16 +9,20 @@
 import UIKit
 import Firebase
 
-class MileageTableViewController: UITableViewController {
+class MileageTableViewController: UITableViewController, FilterMileageViewControllerDelegate {
+    func didSelectYear(year: String?) {
+        yearPicked = year
+    }
     
     var refMileage: DatabaseReference!
     var selectedMileage: Mileage?
     var currentUser: String?
     var mileageList = [Mileage]()
     var car: Car?
+    var yearPicked: String?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         showTitle()
         
         refMileage = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Mileage")
@@ -28,14 +32,18 @@ class MileageTableViewController: UITableViewController {
                 self.mileageList.removeAll()
                 for mileages in snapshot.children.allObjects as! [DataSnapshot] {
                     let mileageObject = mileages.value as? [String: AnyObject]
-                    let mileageYear = mileageObject?["mileageYear"]
+                    let mileageYear = mileageObject?["mileageYear"] as! String?
                     let distance = mileageObject?["distance"]
                     let mileageID = mileageObject?["id"]
                     
                     let mileage = Mileage(mileageYear: mileageYear as! String?, distance: distance as! String?, carIdentifier: mileageID as! String?)
                     
-                    self.mileageList.append(mileage!)
+//                    let rangeOfYear = mileageYear
+                    let yearStr = String(mileageYear!)
                     
+                    if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                    self.mileageList.append(mileage!)
+                    }
                 }
                 self.tableView.reloadData()
             }
@@ -56,9 +64,53 @@ class MileageTableViewController: UITableViewController {
     
     func showTitle() {
         let title = UILabel()
-        title.text = "Mileage"
+        title.translatesAutoresizingMaskIntoConstraints = false
+        var sum = 0.0
+        title.text = "\(sum)"
         self.navigationItem.titleView = title
+        title.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        title.textAlignment = .center
         
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Mileage").observe(.childAdded, with: { (snapshot) in
+            
+            let mileageObject = snapshot.value as? [String: AnyObject]
+            let mileageYear = mileageObject?["mileageYear"] as! String?
+            let distance = mileageObject?["distance"] as! String?
+            let yearStr = String(mileageYear!)
+            
+            if let numericalCost = Double(distance!) {
+                if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                    sum += numericalCost
+                }
+                print(numericalCost)
+                
+            }
+            
+            title.text = "\(sum)"
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.addTarget(self, action: #selector(filterData))
+        
+        title.isUserInteractionEnabled = true
+        title.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    @objc func filterData() {
+        let vc = FilterMileageViewController()
+        (vc as FilterMileageViewController).car = car
+        (vc as FilterMileageViewController).currentUser = currentUser
+        self.show(vc, sender: self)
+        vc.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {

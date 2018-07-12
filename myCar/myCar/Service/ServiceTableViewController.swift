@@ -9,17 +9,21 @@
 import UIKit
 import Firebase
 
-class ServiceTableViewController: UITableViewController {
+class ServiceTableViewController: UITableViewController, FilterServiceViewControllerDelegate {
+    func didSelectYear(year: String?) {
+        yearPicked = year
+    }
     
     var refServices: DatabaseReference!
     var selectedService: Service?
     var currentUser: String?
     var car: Car?
     var serviceList = [Service]()
+    var yearPicked: String?
 
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         showTitle()
         
         refServices = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
@@ -30,14 +34,20 @@ class ServiceTableViewController: UITableViewController {
                 for services in snapshot.children.allObjects as! [DataSnapshot] {
                     let serviceObject = services.value as? [String: AnyObject]
                     let serviceType = serviceObject?["serviceType"]
-                    let serviceDate = serviceObject?["serviceDate"]
+                    let serviceDate = serviceObject?["serviceDate"] as! String?
                     let serviceCost = serviceObject?["serviceCost"]
                     let serviceID = serviceObject?["id"]
                     
                     let service = Service(serviceType: serviceType as! String?, serviceCost: serviceCost as! String?, serviceDate: serviceDate as! String?, carIdentifier: serviceID as! String?)
                     
+                    
+                    let rangeOfYear = serviceDate?.suffix(4)
+                    let yearStr = String(rangeOfYear!)
+                    
+                    if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
                     self.serviceList.append(service!)
                     
+                    }
                 }
                 self.tableView.reloadData()
             }
@@ -63,18 +73,65 @@ class ServiceTableViewController: UITableViewController {
 
     }
     
-    func showTitle() {
-        let title = UILabel()
-        title.text = "Service"
-        self.navigationItem.titleView = title
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         tableView.reloadData()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func showTitle() {
+        let title = UILabel()
+        title.translatesAutoresizingMaskIntoConstraints = false
+        var sum = 0.0
+        title.text = "\(sum)"
+        self.navigationItem.titleView = title
+        title.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        title.textAlignment = .center
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services").observe(.childAdded, with: { (snapshot) in
+            
+            let serviceObject = snapshot.value as? [String: AnyObject]
+            let serviceCost = serviceObject?["serviceCost"] as! String?
+            let serviceDate = serviceObject?["serviceDate"] as! String?
+            let rangeOfYear = serviceDate?.suffix(4)
+            let yearStr = String(rangeOfYear!)
+            
+            if let numericalCost = Double(serviceCost!) {
+                if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                    sum += numericalCost
+                }
+                print(numericalCost)
+                
+            }
+            
+            title.text = "\(sum)"
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.addTarget(self, action: #selector(filterData))
+        
+        title.isUserInteractionEnabled = true
+        title.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    @objc func filterData() {
+        let vc = FilterServiceViewController()
+        (vc as FilterServiceViewController).car = car
+        (vc as FilterServiceViewController).currentUser = currentUser
+        self.show(vc, sender: self)
+        vc.delegate = self
+    }
+
     
 
     // MARK: - Table view data source

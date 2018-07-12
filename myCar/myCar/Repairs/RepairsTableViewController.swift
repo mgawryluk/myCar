@@ -9,18 +9,20 @@
 import UIKit
 import Firebase
 
-class RepairsTableViewController: UITableViewController {
+class RepairsTableViewController: UITableViewController, FilterRepairViewControllerDelegate {
+    func didSelectYear(year: String?) {
+        yearPicked = year
+    }
 
     var refRepairs: DatabaseReference!
     var selectedRepair: Repair?
     var currentUser: String?
-    
     var repairList = [Repair]()
-    
     var car: Car?
+    var yearPicked: String?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         showTitle()
 
         
@@ -32,15 +34,19 @@ class RepairsTableViewController: UITableViewController {
                 for repairs in snapshot.children.allObjects as! [DataSnapshot] {
                     let repairObject = repairs.value as? [String: AnyObject]
                     let repairType = repairObject?["repairType"]
-                    let repairDate = repairObject?["repairDate"]
+                    let repairDate = repairObject?["repairDate"] as! String?
                     let repairCost = repairObject?["repairCost"]
                     let repairID = repairObject?["id"]
                     
                     let repair = Repair(repairType: repairType as! String?, repairCost: repairCost as! String?, repairDate: repairDate as! String?, carIdentifier: repairID as! String?)
                     
-                    self.repairList.append(repair!)
+                    let rangeOfYear = repairDate?.suffix(4)
+                    let yearStr = String(rangeOfYear!)
                     
-                }
+                    if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                            self.repairList.append(repair!)
+                    
+                    } }
                 self.tableView.reloadData()
             }
             
@@ -60,9 +66,54 @@ class RepairsTableViewController: UITableViewController {
     
     func showTitle() {
         let title = UILabel()
-        title.text = "Repairs"
+        title.translatesAutoresizingMaskIntoConstraints = false
+        var sum = 0.0
+        title.text = "\(sum)"
         self.navigationItem.titleView = title
+        title.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        title.textAlignment = .center
         
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Repairs").observe(.childAdded, with: { (snapshot) in
+            
+            let repairObject = snapshot.value as? [String: AnyObject]
+            let repairCost = repairObject?["repairCost"] as! String?
+            let repairDate = repairObject?["repairDate"] as! String?
+            let rangeOfYear = repairDate?.suffix(4)
+            let yearStr = String(rangeOfYear!)
+            
+            if let numericalCost = Double(repairCost!) {
+                if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
+                    sum += numericalCost
+                }
+                print(numericalCost)
+                
+            }
+            
+            title.text = "\(sum)"
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.addTarget(self, action: #selector(filterData))
+        
+        title.isUserInteractionEnabled = true
+        title.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    @objc func filterData() {
+        let vc = FilterRepairViewController()
+        (vc as FilterRepairViewController).car = car
+        (vc as FilterRepairViewController).currentUser = currentUser
+        self.show(vc, sender: self)
+        vc.delegate = self
     }
     
     override func didReceiveMemoryWarning() {

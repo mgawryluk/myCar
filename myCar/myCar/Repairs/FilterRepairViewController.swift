@@ -1,39 +1,38 @@
 //
-//  FilterCostViewController.swift
+//  FilterRepairViewController.swift
 //  myCar
 //
-//  Created by Michał on 29/06/2018.
+//  Created by Michał on 11/07/2018.
 //  Copyright © 2018 Michał Gawryluk. All rights reserved.
 //
 
 import UIKit
 import Firebase
-protocol FilterCostViewControllerDelegate: class {
+protocol FilterRepairViewControllerDelegate: class {
     func didSelectYear(year: String?)
 }
 
-class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class FilterRepairViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+   
+    var delegate: FilterRepairViewControllerDelegate?
     
-    var delegate: FilterCostViewControllerDelegate?
-    
-    var refCosts: DatabaseReference!
+    var refRepairs: DatabaseReference!
     var currentUser: String?
     var car: Car?
-    var costs: Cost?
+    var repairs: Repair?
     var pickerData = [String]()
     let filterYearButton = UIButton()
     
     let filterDateTextField = UITextField()
     let filterDateView = UIPickerView()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         filterDateView.dataSource = self
         filterDateView.delegate = self
         
-        refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
+        refRepairs = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Repairs")
         
         
         filterDateTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +52,7 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         filterDateTextField.font = UIFont.systemFont(ofSize: 17)
         
         filterDateView.dataSource?.perform(#selector(showYear))
-
+        
         
         
         filterYearButton.topAnchor.constraint(equalTo: filterDateTextField.bottomAnchor, constant: 30).isActive = true
@@ -64,9 +63,6 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         filterYearButton.backgroundColor = UIColor.gray
         filterYearButton.setTitle("Select", for: .normal)
         filterYearButton.addTarget(self, action: #selector(filterYear), for: .touchUpInside)
-     
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,20 +75,20 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
         ref = Database.database().reference()
         self.pickerData.append("")
         
-        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs").observe(.childAdded, with: { (snapshot) in
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Repairs").observe(.childAdded, with: { (snapshot) in
             
-            let costObject = snapshot.value as? [String: AnyObject]
-            let costDate = costObject?["costDate"] as! String?
-            let rangeOfYear = costDate?.suffix(4)
+            let repairObject = snapshot.value as? [String: AnyObject]
+            let repairDate = repairObject?["repairDate"] as! String?
+            let rangeOfYear = repairDate?.suffix(4)
             let yearStr = String(rangeOfYear!)
             
             if !self.pickerData.contains(yearStr) {
                 self.pickerData.append(yearStr)
             }
         })
-
+        
     }
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -108,14 +104,14 @@ class FilterCostViewController: UIViewController, UITextFieldDelegate, UIPickerV
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.filterDateTextField.text = pickerData[row]
         self.view.endEditing(true)
-
+        
     }
     
     @objc func filterYear(sender: UIButton!) {
         
         delegate?.didSelectYear(year: filterDateTextField.text)
         navigationController?.popViewController(animated: true)
-
+        
     }
-    
+
 }
