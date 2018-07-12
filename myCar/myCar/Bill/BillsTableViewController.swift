@@ -21,7 +21,7 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
     var car: Car?
     var yearPicked: String?
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
      super.viewDidAppear(animated)
         showTitle()
         
@@ -66,17 +66,8 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-        
-    }
+  
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: - Table view data source
     
     func showTitle() {
         let title = UILabel()

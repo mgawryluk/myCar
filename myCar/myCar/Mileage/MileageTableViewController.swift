@@ -21,7 +21,7 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
     var car: Car?
     var yearPicked: String?
 
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showTitle()
         
@@ -113,12 +113,6 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
         vc.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-    
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
