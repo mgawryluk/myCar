@@ -9,6 +9,37 @@
 import UIKit
 import Firebase
 
+//extension UILabel {
+//
+//    func addImageWith(name: String, behindText: Bool) {
+//
+//        let attachment = NSTextAttachment()
+//        attachment.image = UIImage(named: name)
+//        let attachmentString = NSAttributedString(attachment: attachment)
+//
+//        guard let txt = self.text else {
+//            return
+//        }
+//
+//        if behindText {
+//            let strLabelText = NSMutableAttributedString(string: txt)
+//            strLabelText.append(attachmentString)
+//            self.attributedText = strLabelText
+//        } else {
+//            let strLabelText = NSAttributedString(string: txt)
+//            let mutableAttachmentString = NSMutableAttributedString(attributedString: attachmentString)
+//            mutableAttachmentString.append(strLabelText)
+//            self.attributedText = mutableAttachmentString
+//        }
+//    }
+//
+//    func removeImage() {
+//        let text = self.text
+//        self.attributedText = nil
+//        self.text = text
+//    }
+//}
+
 class CostsTableViewController: UITableViewController, FilterCostViewControllerDelegate {
     func didSelectYear(year: String?) {
         yearPicked = year
@@ -22,6 +53,8 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
     var car: Car?
     var costList = [Cost]()
     var yearPicked: String?
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -77,6 +110,8 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
         self.navigationItem.titleView = title
         title.widthAnchor.constraint(equalToConstant: 100).isActive = true
         title.textAlignment = .center
+//        title.addImageWith(name: "filter_off", behindText: false)
+        
         
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -166,8 +201,10 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
             
             let removeCost = costList[indexPath.row]
             refCosts.child(removeCost.carIdentifier).removeValue()
-            
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.costList.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }

@@ -130,10 +130,7 @@ class AddServiceViewController: UIViewController, UITextFieldDelegate {
                        "serviceCost": serviceCostTextField.text! as String]
         
         refServices.child(key).setValue(service)
-        navigationController?.popViewController(animated: true
-
-        
-        )
+        navigationController?.popViewController(animated: true)
         
     }
 }

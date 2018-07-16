@@ -160,8 +160,11 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
         if editingStyle == .delete {
             
             let removeRepair = repairList[indexPath.row]
-            
             refRepairs.child(removeRepair.carIdentifier).removeValue()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.repairList.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            
             
         } else if editingStyle == .insert {
             

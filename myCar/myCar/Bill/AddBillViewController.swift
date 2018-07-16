@@ -84,18 +84,6 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         
         refBills.child(key).setValue(bill)
         
-//        let billType = billTextField.text
-//        let billDate = billDateTextField.text
-//        let billCost = billCostTextField.text
-//
-//
-//        guard let bills = Bill(billType: billType, billCost: billCost, billDate: billDate, carIdentifier: car?.identifier)  else {
-//
-//            return
-//        }
-//
-//        BillRepository.instance.addBills(newBill: bills)
-//        BillRepository.instance.saveBills()
     
         navigationController?.popViewController(animated: true)
         

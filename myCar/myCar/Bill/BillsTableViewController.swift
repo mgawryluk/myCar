@@ -158,8 +158,10 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
             
             let removeBill = billList[indexPath.row]
             refBills.child(removeBill.carIdentifier).removeValue()
-            
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.billList.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }

@@ -67,7 +67,7 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
         
-//        tableView.register(ServiceTableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
+        tableView.register(ServiceTableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
         
       
 
@@ -175,8 +175,10 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
         if editingStyle == .delete {
             let removeService = serviceList[indexPath.row]
             refServices.child(removeService.carIdentifier).removeValue()
-            
+            self.serviceList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
+            
         } else if editingStyle == .insert {
             
         }
