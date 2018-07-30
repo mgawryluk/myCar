@@ -152,6 +152,17 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repair = repairList[indexPath.row]
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewRepair") as! AddRepairViewController
+        vc.currentUser = currentUser
+        vc.car = car
+        vc.repair = repair
+        self.show(vc, sender: self)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true

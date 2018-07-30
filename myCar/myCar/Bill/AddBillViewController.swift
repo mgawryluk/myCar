@@ -14,7 +14,9 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     var refBills: DatabaseReference!
     var currentUser: String?
     var car: Car?
+    var bill: Bill?
 
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var billDateTextField: UITextField!
     @IBOutlet weak var billCostTextField: UITextField!
@@ -36,6 +38,13 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         billCostTextField.delegate = self
         
         refBills = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Bills")
+        
+        if bill != nil {
+            billCostTextField.text = bill?.billCost
+            billDateTextField.text = bill?.billDate
+            billTextField.text = bill?.billType
+            editButton.setTitle("Edit", for: .normal)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,19 +84,30 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addBillButton(_ sender: Any) {
-        let key = refBills.childByAutoId().key
         
-        let bill = ["id": key,
-                    "billType": billTextField.text! as String,
-                    "billDate": billDateTextField.text! as String,
-                    "billCost": billCostTextField.text! as String]
+        if self.bill != nil {
+            let key = self.bill?.carIdentifier
         
-        refBills.child(key).setValue(bill)
+            let bill = ["id": key,
+                        "billType": billTextField.text! as String,
+                        "billDate": billDateTextField.text! as String,
+                        "billCost": billCostTextField.text! as String]
+            let childUpdates = ["\(key!)/": bill]
+            refBills.updateChildValues(childUpdates)
+            
+        } else {
+            let key = refBills.childByAutoId().key
+            let bill = ["id": key,
+                        "billType": billTextField.text! as String,
+                        "billDate": billDateTextField.text! as String,
+                        "billCost": billCostTextField.text! as String]
+            
+            refBills.child(key).setValue(bill)
+        }
         
-    
         navigationController?.popViewController(animated: true)
         
     }
         
-    }
+}
     

@@ -14,8 +14,10 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
     var refMileage: DatabaseReference!
     var currentUser: String?
     var car: Car?
+    var mileage: Mileage?
 
     
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var mileageYearTextField: UITextField!
     @IBOutlet weak var distanceTextField: UITextField!
     
@@ -31,6 +33,12 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         distanceTextField.delegate = self
         
         refMileage = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Mileage")
+        
+        if mileage != nil {
+            mileageYearTextField.text = mileage?.mileageYear
+            distanceTextField.text = mileage?.distance
+            editButton.setTitle("Edit", for: .normal)
+        }
         
     }
 
@@ -64,6 +72,15 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
     //MARK: Actions
     
     @IBAction func addDistanceButton(_ sender: UIButton) {
+        
+        if self.mileage != nil {
+            let key = self.mileage?.carIdentifier
+            let mileage = ["id": key,
+                           "mileageYear": mileageYearTextField.text! as String,
+                           "distance": distanceTextField.text! as String]
+            let childUpdates = ["\(key!)/": mileage]
+            refMileage.updateChildValues(childUpdates)
+        } else {
         let key = refMileage.childByAutoId().key
         let mileage = ["id": key,
                        "mileageYear": mileageYearTextField.text! as String,
@@ -71,16 +88,8 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         
         refMileage.child(key).setValue(mileage)
         
-//        let mileageYear = mileageYearTextField.text
-//        let distance = distanceTextField.text
-//
-//        guard let km = Mileage(mileageYear: mileageYear, distance: distance, carIdentifier: car?.identifier)  else {
-//            return
-//        }
-//
-//        MileageRepository.instance.addMileage(km: km)
-//        MileageRepository.instance.saveMileage()
-        
+
+        }
         navigationController?.popViewController(animated: true)
         
     

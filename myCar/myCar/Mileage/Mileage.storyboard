@@ -139,6 +139,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="distanceTextField" destination="e2i-hk-oX6" id="wKA-Ko-wbO"/>
+                        <outlet property="editButton" destination="O1v-89-zMg" id="gZH-iw-xFH"/>
                         <outlet property="mileageYearTextField" destination="LEM-Bf-zSL" id="k2P-1l-IKX"/>
                     </connections>
                 </viewController>

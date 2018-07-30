@@ -55,7 +55,6 @@
 		90C353D720F5B18200E6E0DA /* FilterServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C353D620F5B18200E6E0DA /* FilterServiceViewController.swift */; };
 		90D2BA25208E3E6100BA0ED7 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */; };
 		90D2BA27208E3E7800BA0ED7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D2BA26208E3E7800BA0ED7 /* WelcomeViewController.swift */; };
-		90D46BAD210EBB7700FB7D1C /* EditCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D46BAC210EBB7700FB7D1C /* EditCostViewController.swift */; };
 		90F2FE202053004A0022CBC6 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */; };
 		90F2FE22205301AB0022CBC6 /* AddMileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */; };
 		90FBFF2F206AA68900110FA0 /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FBFF2E206AA68900110FA0 /* Services.storyboard */; };
@@ -144,7 +143,6 @@
 		90C353D620F5B18200E6E0DA /* FilterServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterServiceViewController.swift; sourceTree = "<group>"; };
 		90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		90D2BA26208E3E7800BA0ED7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		90D46BAC210EBB7700FB7D1C /* EditCostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCostViewController.swift; sourceTree = "<group>"; };
 		90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMileageViewController.swift; sourceTree = "<group>"; };
 		90FBFF2E206AA68900110FA0 /* Services.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				90B7BDB62064B72B0030D398 /* Cost.swift */,
 				90B7BDB82064B8F40030D398 /* CostRepository.swift */,
 				90B7BDBA2064BCA70030D398 /* AddCostViewController.swift */,
-				90D46BAC210EBB7700FB7D1C /* EditCostViewController.swift */,
 				90B7BDBE2064C0240030D398 /* CostTableViewCell.swift */,
 				90B7BDBC2064BFEC0030D398 /* CostsTableViewController.swift */,
 				903B2F8720E5DE6200AD493C /* FilterCostViewController.swift */,
@@ -720,7 +717,6 @@
 				903022E620540545009CD7D5 /* MileageRepository.swift in Sources */,
 				90764BC72069EBF0005DF444 /* RepairRepository.swift in Sources */,
 				908D871A20432C0B0055EA0B /* CarRepositosory.swift in Sources */,
-				90D46BAD210EBB7700FB7D1C /* EditCostViewController.swift in Sources */,
 				903B2F8820E5DE6200AD493C /* FilterCostViewController.swift in Sources */,
 				903022EA20540A6E009CD7D5 /* Mileage.swift in Sources */,
 				901CD55620F6FE45009C87D4 /* FilterBillViewController.swift in Sources */,

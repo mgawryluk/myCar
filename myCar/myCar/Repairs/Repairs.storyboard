@@ -167,6 +167,7 @@
                         <viewLayoutGuide key="safeArea" id="K4t-OO-1F7"/>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="EDP-eS-6ei" id="1So-Bt-SOf"/>
                         <outlet property="repairCostTextField" destination="lRd-BL-r6d" id="mPI-yE-jWI"/>
                         <outlet property="repairDateTextField" destination="l2H-xQ-EUj" id="DXb-cZ-Upd"/>
                         <outlet property="repairTypeTextField" destination="wev-0b-rdA" id="z3P-k1-qYW"/>

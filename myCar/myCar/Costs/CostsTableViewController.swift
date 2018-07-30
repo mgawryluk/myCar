@@ -182,7 +182,7 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cost = costList[indexPath.row]
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditCost") as! EditCostViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewCost") as! AddCostViewController
         vc.currentUser = currentUser
         vc.car = car
         vc.cost = cost
@@ -195,9 +195,6 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
         if segue.identifier == "showAddCostSegue" {
             (segue.destination as? AddCostViewController)?.costs = selectedCost
 
-        } else if segue.identifier == "editCostSegue" {
-            
-                (segue.destination as? EditCostViewController)?.costs = self.selectedCost
             }
         }
     

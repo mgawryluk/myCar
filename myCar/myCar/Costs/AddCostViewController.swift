@@ -16,6 +16,7 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
     var car: Car?
     var cost: Cost?
 
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var costTypeTextField: UITextField!
     @IBOutlet weak var costDateTextField: UITextField!
     @IBOutlet weak var costAmountTextField: UITextField!
@@ -37,6 +38,13 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
         costAmountTextField.delegate = self
         
         refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Costs")
+        
+        if cost != nil {
+            costAmountTextField.text = cost?.costAmount
+            costDateTextField.text = cost?.costDate
+            costTypeTextField.text = cost?.costType
+            editButton.setTitle("Edit", for: .normal)
+        }
         
     }
 
@@ -77,13 +85,25 @@ class AddCostViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addCostButton(_ sender: UIButton) {
     
-            let key = refCosts.childByAutoId().key
-            
+        if self.cost != nil {
+            let key = self.cost?.carIdentifier
             let cost = ["id": key,
                         "costType": costTypeTextField.text! as String,
                         "costDate": costDateTextField.text! as String,
                         "costAmount": costAmountTextField.text! as String]
+            let childUpdates = ["\(key!)/": cost]
+            refCosts.updateChildValues(childUpdates)
+            
+        } else {
+            let key = refCosts.childByAutoId().key
+            let cost = ["id": key,
+                        "costType": costTypeTextField.text! as String,
+                        "costDate": costDateTextField.text! as String,
+                        "costAmount": costAmountTextField.text! as String]
+            
             refCosts.child(key).setValue(cost)
+        }
+        
         
         navigationController?.popViewController(animated: true)
             

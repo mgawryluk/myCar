@@ -15,7 +15,9 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
     var currentUser: String?
     var car: Car?
     let repairDatePickerView = UIDatePicker()
+    var repair: Repair?
     
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var repairTypeTextField: UITextField!
     @IBOutlet weak var repairDateTextField: UITextField!
     @IBOutlet weak var repairCostTextField: UITextField!
@@ -41,6 +43,12 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
         
         refRepairs = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Repairs")
         
+        if repair != nil {
+            repairCostTextField.text = repair?.repairCost
+            repairDateTextField.text = repair?.repairDate
+            repairTypeTextField.text = repair?.repairType
+            editButton.setTitle("Edit", for: .normal)
+        }
         
     }
     
@@ -83,32 +91,28 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func addRepairButton(_ sender: UIButton) {
-        let key = refRepairs.childByAutoId().key
         
-        let repair = ["id": key,
-                   "repairType": repairTypeTextField.text! as String,
-                   "repairDate": repairDateTextField.text! as String,
-                   "repairCost": repairCostTextField.text! as String]
+        if self.repair != nil {
+        let key = self.repair?.carIdentifier
+    
+            let repair = ["id": key,
+                      "repairType": repairTypeTextField.text! as String,
+                      "repairDate": repairDateTextField.text! as String,
+                      "repairCost": repairCostTextField.text! as String]
+            let childUpdates = ["\(key!)/": repair]
+            refRepairs.updateChildValues(childUpdates)
+            
+        } else {
+            let key = refRepairs.childByAutoId().key
+            
+            let repair = ["id": key,
+                          "repairType": repairTypeTextField.text! as String,
+                          "repairDate": repairDateTextField.text! as String,
+                          "repairCost": repairCostTextField.text! as String]
+            refRepairs.child(key).setValue(repair)
         
-        refRepairs.child(key).setValue(repair)
+        }
         navigationController?.popViewController(animated: true)
-        
-//        let repairType = repairTypeTextField.text
-//        let repairDate = repairDateTextField.text
-//        let repairCost = repairCostTextField.text
-//
-//
-//        guard let repairs = Repair(repairType: repairType, repairCost: repairCost, repairDate: repairDate, carIdentifier: car?.identifier)  else {
-//
-//            return
-//    }
-//
-//        RepairRepository.instance.addRepairs(newRepair: repairs)
-//        RepairRepository.instance.saveRepairs()
-//
-//
-//
-//        navigationController?.popViewController(animated: true)
         
     }
 

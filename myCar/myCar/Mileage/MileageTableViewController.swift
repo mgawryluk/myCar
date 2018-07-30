@@ -166,12 +166,16 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "showAddMileageSegue" {
-//            (segue.destination as? AddMileageViewController)?.car = car
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mileage = mileageList[indexPath.row]
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage") as! AddMileageViewController
+        vc.currentUser = currentUser
+        vc.car = car
+        vc.mileage = mileage
+        self.show(vc, sender: self)
+        
+    }
     
     @objc func addNewMileage() {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewMileage") as! AddMileageViewController

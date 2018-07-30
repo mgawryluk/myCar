@@ -149,6 +149,17 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let bill = billList[indexPath.row]
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewBill") as! AddBillViewController
+        vc.currentUser = currentUser
+        vc.car = car
+        vc.bill = bill
+        self.show(vc, sender: self)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
