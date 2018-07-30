@@ -77,6 +77,7 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
         self.navigationItem.titleView = title
         title.widthAnchor.constraint(equalToConstant: 100).isActive = true
         title.textAlignment = .center
+        self.setTitleWithValue(value: sum, title: title)
         
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -98,7 +99,7 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
                 
             }
             
-            title.text = "\(sum)"
+            self.setTitleWithValue(value: sum, title: title)
             
         }) { (error) in
             print(error.localizedDescription)
@@ -175,6 +176,16 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
         vc.car = car
         self.show(vc, sender: self)
       
+    }
+    
+    func setTitleWithValue(value: Double, title: UILabel) {
+        if yearPicked == nil || yearPicked == "" {
+            title.text = "\(value)"
+            title.addImageWith(name: "filter_off", behindText: true)
+        } else {
+            title.text = "\(value)"
+            title.addImageWith(name: "filter_on", behindText: true)
+        }
     }
 
 }

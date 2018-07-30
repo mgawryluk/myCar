@@ -14,7 +14,7 @@ class AddServiceViewController: UIViewController, UITextFieldDelegate {
     var refServices: DatabaseReference!
     var currentUser: String?
     var car: Car?
-    var services: Service?
+    var service: Service?
     
     let serviceDateTextField = UITextField()
     let serviceTypeTextField = UITextField()
@@ -89,7 +89,12 @@ class AddServiceViewController: UIViewController, UITextFieldDelegate {
         addServiceButton.setTitle("Add service", for: .normal)
         addServiceButton.addTarget(self, action: #selector(addService), for: .touchUpInside)
         
-        
+        if service != nil {
+            serviceCostTextField.text = service?.serviceCost
+            serviceDateTextField.text = service?.serviceDate
+            serviceTypeTextField.text = service?.serviceType
+            addServiceButton.setTitle("Edit", for: .normal)
+        }
         
         
         
@@ -122,15 +127,26 @@ class AddServiceViewController: UIViewController, UITextFieldDelegate {
     
     
     @objc func addService(sender: UIButton!) {
-        let key = refServices.childByAutoId().key
         
-        let service = ["id": key,
-                       "serviceType": serviceTypeTextField.text! as String,
-                       "serviceDate": serviceDateTextField.text! as String,
-                       "serviceCost": serviceCostTextField.text! as String]
-        
+        if self.service != nil {
+            let key = self.service?.carIdentifier
+            
+            let service = ["id": key!,
+                           "serviceType": serviceTypeTextField.text! as String,
+                           "serviceDate": serviceDateTextField.text! as String,
+                           "serviceCost": serviceCostTextField.text! as String]
+            let childUpdates = ["\(key!)/": service]
+            refServices.updateChildValues(childUpdates)
+        } else {
+            let key = refServices.childByAutoId().key
+            
+            let service = ["id": key,
+                           "serviceType": serviceTypeTextField.text! as String,
+                           "serviceDate": serviceDateTextField.text! as String,
+                           "serviceCost": serviceCostTextField.text! as String]
         refServices.child(key).setValue(service)
-        navigationController?.popViewController(animated: true)
         
+    }
+        navigationController?.popViewController(animated: true)
     }
 }

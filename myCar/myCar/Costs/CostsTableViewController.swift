@@ -9,37 +9,6 @@
 import UIKit
 import Firebase
 
-//extension UILabel {
-//
-//    func addImageWith(name: String, behindText: Bool) {
-//
-//        let attachment = NSTextAttachment()
-//        attachment.image = UIImage(named: name)
-//        let attachmentString = NSAttributedString(attachment: attachment)
-//
-//        guard let txt = self.text else {
-//            return
-//        }
-//
-//        if behindText {
-//            let strLabelText = NSMutableAttributedString(string: txt)
-//            strLabelText.append(attachmentString)
-//            self.attributedText = strLabelText
-//        } else {
-//            let strLabelText = NSAttributedString(string: txt)
-//            let mutableAttachmentString = NSMutableAttributedString(attributedString: attachmentString)
-//            mutableAttachmentString.append(strLabelText)
-//            self.attributedText = mutableAttachmentString
-//        }
-//    }
-//
-//    func removeImage() {
-//        let text = self.text
-//        self.attributedText = nil
-//        self.text = text
-//    }
-//}
-
 class CostsTableViewController: UITableViewController, FilterCostViewControllerDelegate {
     func didSelectYear(year: String?) {
         yearPicked = year
@@ -110,7 +79,7 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
         self.navigationItem.titleView = title
         title.widthAnchor.constraint(equalToConstant: 100).isActive = true
         title.textAlignment = .center
-//        title.addImageWith(name: "filter_off", behindText: false)
+        self.setTitleWithValue(value: sum, title: title)
         
         
         var ref: DatabaseReference!
@@ -133,7 +102,7 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
             
         }
         
-        title.text = "\(sum)"
+        self.setTitleWithValue(value: sum, title: title)
         
         }) { (error) in
             print(error.localizedDescription)
@@ -210,12 +179,27 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cost = costList[indexPath.row]
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditCost") as! EditCostViewController
+        vc.currentUser = currentUser
+        vc.car = car
+        vc.cost = cost
+        self.show(vc, sender: self)
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showAddCostSegue" {
             (segue.destination as? AddCostViewController)?.costs = selectedCost
+
+        } else if segue.identifier == "editCostSegue" {
+            
+                (segue.destination as? EditCostViewController)?.costs = self.selectedCost
+            }
         }
-    }
     
     @objc func addNewCost() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddNewCost") as! AddCostViewController
@@ -224,5 +208,14 @@ class CostsTableViewController: UITableViewController, FilterCostViewControllerD
         self.show(vc, sender: self)
         
     }
-
+    
+    func setTitleWithValue(value: Double, title: UILabel) {
+        if yearPicked == nil || yearPicked == "" {
+            title.text = "\(value)"
+            title.addImageWith(name: "filter_off", behindText: true)
+        } else {
+            title.text = "\(value)"
+            title.addImageWith(name: "filter_on", behindText: true)
+        }
+    }
 }
