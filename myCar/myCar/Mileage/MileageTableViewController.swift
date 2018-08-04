@@ -68,7 +68,7 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
         var sum = 0.0
         title.text = "\(sum)"
         self.navigationItem.titleView = title
-        title.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        title.widthAnchor.constraint(equalToConstant: 200).isActive = true
         title.textAlignment = .center
         self.setTitleWithValue(value: sum, title: title)
         
