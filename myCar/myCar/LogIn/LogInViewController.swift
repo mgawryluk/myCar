@@ -15,6 +15,7 @@ class LogInViewController: UIViewController {
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
     let loginButton = UIButton()
+    let newPasswordButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +24,12 @@ class LogInViewController: UIViewController {
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         loginButton.translatesAutoresizingMaskIntoConstraints = false
+        newPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(loginButton)
+        view.addSubview(newPasswordButton)
         
         
         emailTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120).isActive = true
@@ -38,6 +41,7 @@ class LogInViewController: UIViewController {
         emailTextField.borderStyle = .roundedRect
         emailTextField.placeholder = "Enter email"
         emailTextField.font = UIFont.systemFont(ofSize: 17)
+        emailTextField.autocapitalizationType = .none
         
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -48,6 +52,8 @@ class LogInViewController: UIViewController {
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.placeholder = "Enter password"
         passwordTextField.font = UIFont.systemFont(ofSize: 17)
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.isSecureTextEntry = true
         
         
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30).isActive = true
@@ -59,10 +65,17 @@ class LogInViewController: UIViewController {
         loginButton.setTitle("Log in", for: .normal)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         
-        passwordTextField.autocapitalizationType = .none
-        passwordTextField.isSecureTextEntry = true
+        newPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true
+        newPasswordButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70).isActive = true
+        newPasswordButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
+        newPasswordButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        emailTextField.autocapitalizationType = .none
+        newPasswordButton.backgroundColor = UIColor.white
+        newPasswordButton.setTitle("Forgot password?", for: .normal)
+        newPasswordButton.setTitleColor(UIColor.blue, for: .normal)
+        newPasswordButton.addTarget(self, action: #selector(newPassword), for: .touchUpInside)
+        
+        
 
         }
     
@@ -84,7 +97,29 @@ class LogInViewController: UIViewController {
             
         } 
         
-        
      }
+    
+    @objc func newPassword() {
+        let forgotPasswordAlert = UIAlertController(title: "Forgot password?", message: "Enter email address", preferredStyle: .alert)
+            forgotPasswordAlert.addTextField { (textField) in textField.placeholder = "Enter email address" }
+        
+        forgotPasswordAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        forgotPasswordAlert.addAction(UIAlertAction(title: "Reset Password", style: .default, handler: { (action) in
+            let resetEmail = forgotPasswordAlert.textFields?.first?.text
+            Auth.auth().sendPasswordReset(withEmail: resetEmail!, completion: { (error) in
+                if error != nil{
+                    let resetFailedAlert = UIAlertController(title: "Reset Failed", message: "Error: \(String(describing: error?.localizedDescription))", preferredStyle: .alert)
+                    resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(resetFailedAlert, animated: true, completion: nil)
+                }else {
+                    let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your email", preferredStyle: .alert)
+                    resetEmailSentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(resetEmailSentAlert, animated: true, completion: nil)
+                }
+            })
+        }))
+        
+        self.present(forgotPasswordAlert, animated: true, completion: nil)
+    }
     
 }
