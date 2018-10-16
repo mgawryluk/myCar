@@ -139,7 +139,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oud-JN-6wU">
                                         <rect key="frame" x="0.0" y="301.5" width="375" height="151"/>
                                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="repairs"/>
+                                        <state key="normal" image="repair"/>
                                         <connections>
                                             <segue destination="qgY-lv-76f" kind="show" identifier="showRepairsSegue" id="9oY-7F-tc1"/>
                                         </connections>
@@ -287,9 +287,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bills" width="64" height="64"/>
-        <image name="mileage" width="64" height="64"/>
-        <image name="repairs" width="64" height="64"/>
+        <image name="bills" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="mileage" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="repair" width="51.200000762939453" height="51.200000762939453"/>
         <image name="service" width="64" height="64"/>
     </resources>
 </document>
