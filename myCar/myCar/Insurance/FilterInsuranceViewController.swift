@@ -1,5 +1,5 @@
 //
-//  FilterServiceViewController.swift
+//  FilterInsuranceViewController.swift
 //  myCar
 //
 //  Created by Michał on 11/07/2018.
@@ -8,18 +8,18 @@
 
 import UIKit
 import Firebase
-protocol FilterServiceViewControllerDelegate: class {
+protocol FilterInsuranceViewControllerDelegate: class {
     func didSelectYear(year: String?)
 }
 
-class FilterServiceViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class FilterInsuranceViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var delegate: FilterServiceViewControllerDelegate?
+    var delegate: FilterInsuranceViewControllerDelegate?
     
     var refCosts: DatabaseReference!
     var currentUser: String?
     var car: Car?
-    var service: Service?
+    var insurance: Insurance?
     var pickerData = [String]()
     let filterYearButton = UIButton()
     
@@ -33,7 +33,7 @@ class FilterServiceViewController: UIViewController, UITextFieldDelegate, UIPick
         filterDateView.dataSource = self
         filterDateView.delegate = self
         
-        refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
+        refCosts = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Insurances")
         
         
         filterDateTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -79,11 +79,11 @@ class FilterServiceViewController: UIViewController, UITextFieldDelegate, UIPick
         ref = Database.database().reference()
         self.pickerData.append("")
         
-        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services").observe(.childAdded, with: { (snapshot) in
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Insurances").observe(.childAdded, with: { (snapshot) in
             
-            let serviceObject = snapshot.value as? [String: AnyObject]
-            let serviceDate = serviceObject?["serviceDate"] as! String?
-            let rangeOfYear = serviceDate?.suffix(4)
+            let insuranceObject = snapshot.value as? [String: AnyObject]
+            let insuranceDate = insuranceObject?["insuranceDate"] as! String?
+            let rangeOfYear = insuranceDate?.suffix(4)
             let yearStr = String(rangeOfYear!)
             
             if !self.pickerData.contains(yearStr) {

@@ -15,8 +15,8 @@
 		90080CF8208D8F75007A3904 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90080CF7208D8F75007A3904 /* LogInViewController.swift */; };
 		901CD55620F6FE45009C87D4 /* FilterBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CD55520F6FE45009C87D4 /* FilterBillViewController.swift */; };
 		901CD55820F70399009C87D4 /* FilterMileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901CD55720F70399009C87D4 /* FilterMileageViewController.swift */; };
-		902BE97E207B168E00418313 /* ServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97D207B168E00418313 /* ServiceRepository.swift */; };
-		902BE980207B16B900418313 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97F207B16B900418313 /* Service.swift */; };
+		902BE97E207B168E00418313 /* InsuranceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97D207B168E00418313 /* InsuranceRepository.swift */; };
+		902BE980207B16B900418313 /* Insurance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902BE97F207B16B900418313 /* Insurance.swift */; };
 		902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927A203AE69700DD7E0F /* AppDelegate.swift */; };
 		902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E927C203AE69700DD7E0F /* NewCarViewController.swift */; };
 		902E9280203AE69700DD7E0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902E927E203AE69700DD7E0F /* Main.storyboard */; };
@@ -41,17 +41,17 @@
 		90978A9A20732521000B3643 /* Mileage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90978A9920732521000B3643 /* Mileage.storyboard */; };
 		90978A9C20732678000B3643 /* Repairs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90978A9B20732678000B3643 /* Repairs.storyboard */; };
 		90978AA02073279D000B3643 /* Bills.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90978A9F2073279D000B3643 /* Bills.storyboard */; };
-		90A5E75D206CBBE3007A78BC /* AddServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5E75C206CBBE3007A78BC /* AddServiceViewController.swift */; };
+		90A5E75D206CBBE3007A78BC /* AddInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5E75C206CBBE3007A78BC /* AddInsuranceViewController.swift */; };
 		90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */; };
-		90B85FFE207C611D00F6707D /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B85FFD207C611D00F6707D /* ServiceTableViewCell.swift */; };
+		90B85FFE207C611D00F6707D /* InsuranceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B85FFD207C611D00F6707D /* InsuranceTableViewCell.swift */; };
 		90C353D520F5AE6200E6E0DA /* FilterRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C353D420F5AE6200E6E0DA /* FilterRepairViewController.swift */; };
-		90C353D720F5B18200E6E0DA /* FilterServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C353D620F5B18200E6E0DA /* FilterServiceViewController.swift */; };
+		90C353D720F5B18200E6E0DA /* FilterInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C353D620F5B18200E6E0DA /* FilterInsuranceViewController.swift */; };
 		90D2BA25208E3E6100BA0ED7 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */; };
 		90D2BA27208E3E7800BA0ED7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D2BA26208E3E7800BA0ED7 /* WelcomeViewController.swift */; };
 		90F2FE202053004A0022CBC6 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */; };
 		90F2FE22205301AB0022CBC6 /* AddMileageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */; };
-		90FBFF2F206AA68900110FA0 /* Services.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FBFF2E206AA68900110FA0 /* Services.storyboard */; };
-		90FBFF31206AA7C800110FA0 /* ServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBFF30206AA7C800110FA0 /* ServiceTableViewController.swift */; };
+		90FBFF2F206AA68900110FA0 /* Insurance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FBFF2E206AA68900110FA0 /* Insurance.storyboard */; };
+		90FBFF31206AA7C800110FA0 /* InsuranceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBFF30206AA7C800110FA0 /* InsuranceTableViewController.swift */; };
 		90FBFF34206AA8F300110FA0 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FBFF33206AA8F300110FA0 /* About.storyboard */; };
 		90FBFF36206AA98400110FA0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FBFF35206AA98400110FA0 /* AboutViewController.swift */; };
 		90FE9A3F205F6B3000874867 /* BillsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE9A3E205F6B3000874867 /* BillsTableViewController.swift */; };
@@ -94,8 +94,8 @@
 		90080CF7208D8F75007A3904 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		901CD55520F6FE45009C87D4 /* FilterBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBillViewController.swift; sourceTree = "<group>"; };
 		901CD55720F70399009C87D4 /* FilterMileageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMileageViewController.swift; sourceTree = "<group>"; };
-		902BE97D207B168E00418313 /* ServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRepository.swift; sourceTree = "<group>"; };
-		902BE97F207B16B900418313 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		902BE97D207B168E00418313 /* InsuranceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceRepository.swift; sourceTree = "<group>"; };
+		902BE97F207B16B900418313 /* Insurance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insurance.swift; sourceTree = "<group>"; };
 		902E9277203AE69700DD7E0F /* myCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		902E927A203AE69700DD7E0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		902E927C203AE69700DD7E0F /* NewCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarViewController.swift; sourceTree = "<group>"; };
@@ -122,17 +122,17 @@
 		90978A9920732521000B3643 /* Mileage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mileage.storyboard; sourceTree = "<group>"; };
 		90978A9B20732678000B3643 /* Repairs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repairs.storyboard; sourceTree = "<group>"; };
 		90978A9F2073279D000B3643 /* Bills.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bills.storyboard; sourceTree = "<group>"; };
-		90A5E75C206CBBE3007A78BC /* AddServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceViewController.swift; sourceTree = "<group>"; };
+		90A5E75C206CBBE3007A78BC /* AddInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInsuranceViewController.swift; sourceTree = "<group>"; };
 		90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
-		90B85FFD207C611D00F6707D /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		90B85FFD207C611D00F6707D /* InsuranceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceTableViewCell.swift; sourceTree = "<group>"; };
 		90C353D420F5AE6200E6E0DA /* FilterRepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRepairViewController.swift; sourceTree = "<group>"; };
-		90C353D620F5B18200E6E0DA /* FilterServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterServiceViewController.swift; sourceTree = "<group>"; };
+		90C353D620F5B18200E6E0DA /* FilterInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInsuranceViewController.swift; sourceTree = "<group>"; };
 		90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		90D2BA26208E3E7800BA0ED7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		90F2FE1F2053004A0022CBC6 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		90F2FE21205301AB0022CBC6 /* AddMileageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMileageViewController.swift; sourceTree = "<group>"; };
-		90FBFF2E206AA68900110FA0 /* Services.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Services.storyboard; sourceTree = "<group>"; };
-		90FBFF30206AA7C800110FA0 /* ServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewController.swift; sourceTree = "<group>"; };
+		90FBFF2E206AA68900110FA0 /* Insurance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Insurance.storyboard; sourceTree = "<group>"; };
+		90FBFF30206AA7C800110FA0 /* InsuranceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceTableViewController.swift; sourceTree = "<group>"; };
 		90FBFF33206AA8F300110FA0 /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		90FBFF35206AA98400110FA0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		90FE9A3E205F6B3000874867 /* BillsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsTableViewController.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 				90FBFF2B206AA2FD00110FA0 /* Car */,
 				9017AEF8206C91BD00C94F7E /* Repairs */,
 				90FBFF32206AA8E100110FA0 /* About */,
-				90FBFF2D206AA5F000110FA0 /* Service */,
+				90FBFF2D206AA5F000110FA0 /* Insurance */,
 				90FBFF2C206AA32500110FA0 /* Bill */,
 				90FBFF2A206AA2D300110FA0 /* Mileage */,
 				902E9281203AE69700DD7E0F /* Assets.xcassets */,
@@ -322,18 +322,18 @@
 			path = Bill;
 			sourceTree = "<group>";
 		};
-		90FBFF2D206AA5F000110FA0 /* Service */ = {
+		90FBFF2D206AA5F000110FA0 /* Insurance */ = {
 			isa = PBXGroup;
 			children = (
-				90FBFF2E206AA68900110FA0 /* Services.storyboard */,
-				902BE97F207B16B900418313 /* Service.swift */,
-				902BE97D207B168E00418313 /* ServiceRepository.swift */,
-				90A5E75C206CBBE3007A78BC /* AddServiceViewController.swift */,
-				90B85FFD207C611D00F6707D /* ServiceTableViewCell.swift */,
-				90FBFF30206AA7C800110FA0 /* ServiceTableViewController.swift */,
-				90C353D620F5B18200E6E0DA /* FilterServiceViewController.swift */,
+				90FBFF2E206AA68900110FA0 /* Insurance.storyboard */,
+				902BE97F207B16B900418313 /* Insurance.swift */,
+				902BE97D207B168E00418313 /* InsuranceRepository.swift */,
+				90A5E75C206CBBE3007A78BC /* AddInsuranceViewController.swift */,
+				90B85FFD207C611D00F6707D /* InsuranceTableViewCell.swift */,
+				90FBFF30206AA7C800110FA0 /* InsuranceTableViewController.swift */,
+				90C353D620F5B18200E6E0DA /* FilterInsuranceViewController.swift */,
 			);
-			path = Service;
+			path = Insurance;
 			sourceTree = "<group>";
 		};
 		90FBFF32206AA8E100110FA0 /* About */ = {
@@ -494,7 +494,7 @@
 				90080CF6208D8F61007A3904 /* LogIn.storyboard in Resources */,
 				90FBFF34206AA8F300110FA0 /* About.storyboard in Resources */,
 				902E9282203AE69700DD7E0F /* Assets.xcassets in Resources */,
-				90FBFF2F206AA68900110FA0 /* Services.storyboard in Resources */,
+				90FBFF2F206AA68900110FA0 /* Insurance.storyboard in Resources */,
 				90D2BA25208E3E6100BA0ED7 /* Welcome.storyboard in Resources */,
 				906EB7A92088455C00676053 /* GoogleService-Info.plist in Resources */,
 				90978A9C20732678000B3643 /* Repairs.storyboard in Resources */,
@@ -664,12 +664,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90FBFF31206AA7C800110FA0 /* ServiceTableViewController.swift in Sources */,
+				90FBFF31206AA7C800110FA0 /* InsuranceTableViewController.swift in Sources */,
 				90080CF8208D8F75007A3904 /* LogInViewController.swift in Sources */,
 				902E927D203AE69700DD7E0F /* NewCarViewController.swift in Sources */,
 				90080CF3208D8AE2007A3904 /* RegisterViewController.swift in Sources */,
 				90C353D520F5AE6200E6E0DA /* FilterRepairViewController.swift in Sources */,
-				90B85FFE207C611D00F6707D /* ServiceTableViewCell.swift in Sources */,
+				90B85FFE207C611D00F6707D /* InsuranceTableViewCell.swift in Sources */,
 				902E927B203AE69700DD7E0F /* AppDelegate.swift in Sources */,
 				90D2BA27208E3E7800BA0ED7 /* WelcomeViewController.swift in Sources */,
 				90438C562060C28200EBD20A /* BillRepository.swift in Sources */,
@@ -677,8 +677,8 @@
 				9079394D20620EDA009167ED /* AddBillViewController.swift in Sources */,
 				908AA2EC203DFDD000B102AE /* Car.swift in Sources */,
 				90764BC52069EA51005DF444 /* Repair.swift in Sources */,
-				90C353D720F5B18200E6E0DA /* FilterServiceViewController.swift in Sources */,
-				902BE97E207B168E00418313 /* ServiceRepository.swift in Sources */,
+				90C353D720F5B18200E6E0DA /* FilterInsuranceViewController.swift in Sources */,
+				902BE97E207B168E00418313 /* InsuranceRepository.swift in Sources */,
 				90FE9A41205F6EE500874867 /* BillsTableViewCell.swift in Sources */,
 				90764BC92069ED1C005DF444 /* AddRepairViewController.swift in Sources */,
 				903022E620540545009CD7D5 /* MileageRepository.swift in Sources */,
@@ -693,9 +693,9 @@
 				90FE9A47205F766300874867 /* Bill.swift in Sources */,
 				90764BCD2069EFD9005DF444 /* RepairsTableViewController.swift in Sources */,
 				909605A720528DF000754C2D /* MileageTableViewController.swift in Sources */,
-				902BE980207B16B900418313 /* Service.swift in Sources */,
+				902BE980207B16B900418313 /* Insurance.swift in Sources */,
 				90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */,
-				90A5E75D206CBBE3007A78BC /* AddServiceViewController.swift in Sources */,
+				90A5E75D206CBBE3007A78BC /* AddInsuranceViewController.swift in Sources */,
 				901CD55820F70399009C87D4 /* FilterMileageViewController.swift in Sources */,
 				90FBFF36206AA98400110FA0 /* AboutViewController.swift in Sources */,
 				90764BCB2069EF22005DF444 /* RepairTableViewCell.swift in Sources */,

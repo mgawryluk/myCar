@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="716" y="160.56971514242881"/>
         </scene>
-        <!--Services-->
+        <!--Insurance-->
         <scene sceneID="ebm-4k-7Nr">
             <objects>
-                <viewControllerPlaceholder storyboardName="Services" id="XFR-JV-ldi" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Insurance" id="XFR-JV-ldi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wW-m0-Dzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1294" y="808"/>
@@ -123,9 +123,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksB-hw-EXA">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="service"/>
+                                        <state key="normal" image="insurance"/>
                                         <connections>
-                                            <segue destination="XFR-JV-ldi" kind="show" identifier="showServicesSegue" id="41b-KG-b7k"/>
+                                            <segue destination="XFR-JV-ldi" kind="show" identifier="showInsuranceSegue" id="41b-KG-b7k"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-iv-3KG">
@@ -288,8 +288,8 @@
     </scenes>
     <resources>
         <image name="bills" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="insurance" width="51.200000762939453" height="51.200000762939453"/>
         <image name="mileage" width="51.200000762939453" height="51.200000762939453"/>
         <image name="repair" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="service" width="64" height="64"/>
     </resources>
 </document>

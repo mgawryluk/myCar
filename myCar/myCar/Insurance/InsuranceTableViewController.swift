@@ -1,5 +1,5 @@
 //
-//  ServiceTableViewController.swift
+//  InsuranceTableViewController.swift
 //  myCar
 //
 //  Created by Michał on 27/03/2018.
@@ -9,16 +9,16 @@
 import UIKit
 import Firebase
 
-class ServiceTableViewController: UITableViewController, FilterServiceViewControllerDelegate {
+class InsuranceTableViewController: UITableViewController, FilterInsuranceViewControllerDelegate {
     func didSelectYear(year: String?) {
         yearPicked = year
     }
     
-    var refServices: DatabaseReference!
-    var selectedService: Service?
+    var refInsurances: DatabaseReference!
+    var selectedInsurance: Insurance?
     var currentUser: String?
     var car: Car?
-    var serviceList = [Service]()
+    var insuranceList = [Insurance]()
     var yearPicked: String?
 
 
@@ -26,26 +26,26 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
         super.viewDidAppear(animated)
         showTitle()
         
-        refServices = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services")
+        refInsurances = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Insurances")
         
-        refServices.observe(DataEventType.value, with: { (snapshot) in
+        refInsurances.observe(DataEventType.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
-                self.serviceList.removeAll()
-                for services in snapshot.children.allObjects as! [DataSnapshot] {
-                    let serviceObject = services.value as? [String: AnyObject]
-                    let serviceType = serviceObject?["serviceType"]
-                    let serviceDate = serviceObject?["serviceDate"] as! String?
-                    let serviceCost = serviceObject?["serviceCost"]
-                    let serviceID = serviceObject?["id"]
+                self.insuranceList.removeAll()
+                for insurances in snapshot.children.allObjects as! [DataSnapshot] {
+                    let insuranceObject = insurances.value as? [String: AnyObject]
+                    let insuranceType = insuranceObject?["insuranceType"]
+                    let insuranceDate = insuranceObject?["insuranceDate"] as! String?
+                    let insuranceCost = insuranceObject?["insuranceCost"]
+                    let insuranceID = insuranceObject?["id"]
                     
-                    let service = Service(serviceType: serviceType as! String?, serviceCost: serviceCost as! String?, serviceDate: serviceDate as! String?, carIdentifier: serviceID as! String?)
+                    let insurance = Insurance(insuranceType: insuranceType as! String?, insuranceCost: insuranceCost as! String?, insuranceDate: insuranceDate as! String?, carIdentifier: insuranceID as! String?)
                     
                     
-                    let rangeOfYear = serviceDate?.suffix(4)
+                    let rangeOfYear = insuranceDate?.suffix(4)
                     let yearStr = String(rangeOfYear!)
                     
                     if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
-                    self.serviceList.append(service!)
+                    self.insuranceList.append(insurance!)
                     
                     }
                 }
@@ -63,11 +63,11 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
         self.navigationController?.isToolbarHidden = false
         var items =  [UIBarButtonItem]()
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
-        items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addService)))
+        items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addInsurance)))
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
         
-        tableView.register(ServiceTableViewCell.self, forCellReuseIdentifier: "ServiceTableViewCell")
+        tableView.register(InsuranceTableViewCell.self, forCellReuseIdentifier: "InsuranceTableViewCell")
         
       
 
@@ -94,15 +94,15 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
         ref = Database.database().reference()
         
         
-        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Services").observe(.childAdded, with: { (snapshot) in
+        ref.child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Insurances").observe(.childAdded, with: { (snapshot) in
             
-            let serviceObject = snapshot.value as? [String: AnyObject]
-            let serviceCost = serviceObject?["serviceCost"] as! String?
-            let serviceDate = serviceObject?["serviceDate"] as! String?
-            let rangeOfYear = serviceDate?.suffix(4)
+            let insuranceObject = snapshot.value as? [String: AnyObject]
+            let insuranceCost = insuranceObject?["insuranceCost"] as! String?
+            let insuranceDate = insuranceObject?["insuranceDate"] as! String?
+            let rangeOfYear = insuranceDate?.suffix(4)
             let yearStr = String(rangeOfYear!)
             
-            if let numericalCost = Double(serviceCost!) {
+            if let numericalCost = Double(insuranceCost!) {
                 if yearStr == self.yearPicked || self.yearPicked == nil || self.yearPicked == "" {
                     sum += numericalCost
                 }
@@ -126,9 +126,9 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
     }
     
     @objc func filterData() {
-        let vc = FilterServiceViewController()
-        (vc as FilterServiceViewController).car = car
-        (vc as FilterServiceViewController).currentUser = currentUser
+        let vc = FilterInsuranceViewController()
+        (vc as FilterInsuranceViewController).car = car
+        (vc as FilterInsuranceViewController).currentUser = currentUser
         self.show(vc, sender: self)
         vc.delegate = self
     }
@@ -144,33 +144,33 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return serviceList.count
+        return insuranceList.count
         
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "ServiceTableViewCell"
+        let cellIdentifier = "InsuranceTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ServiceTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? InsuranceTableViewCell else {
             fatalError("Error")
         }
         
-        let services = serviceList[indexPath.row]
+        let insurances = insuranceList[indexPath.row]
         
-        cell.serviceTypeLabel.text = services.serviceType
-        cell.serviceDateLabel.text = services.serviceDate
-        cell.serviceCostLabel.text = services.serviceCost
+        cell.insuranceTypeLabel.text = insurances.insuranceType
+        cell.insuranceDateLabel.text = insurances.insuranceDate
+        cell.insuranceCostLabel.text = insurances.insuranceCost
         
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let service = serviceList[indexPath.row]
+        let insurance = insuranceList[indexPath.row]
         
-        let vc = AddServiceViewController()
-        (vc as AddServiceViewController).car = car
-        (vc as AddServiceViewController).currentUser = currentUser
-        (vc as AddServiceViewController).service = service
+        let vc = AddInsuranceViewController()
+        (vc as AddInsuranceViewController).car = car
+        (vc as AddInsuranceViewController).currentUser = currentUser
+        (vc as AddInsuranceViewController).insurance = insurance
         self.show(vc, sender: self)
         
         
@@ -179,21 +179,21 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let removeService = serviceList[indexPath.row]
-            refServices.child(removeService.carIdentifier).removeValue()
-            self.serviceList.remove(at: indexPath.row)
+            let removeInsurance = insuranceList[indexPath.row]
+            refInsurances.child(removeInsurance.carIdentifier).removeValue()
+            self.insuranceList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
             
         } else if editingStyle == .insert {
     
-//            let key = refServices.childByAutoId().key
-//            let service = ["id": key,
-//                           "serviceType": serviceType,
-//                           "serviceCost": serviceCost,
-//                           "serviceDate": serviceDate]
-//            let childUpdates = ["/Services/\(key)/": service]
-//            refServices.updateChildValues(childUpdates)
+//            let key = refInsurances.childByAutoId().key
+//            let insurance = ["id": key,
+//                           "insuranceType": insuranceType,
+//                           "insuranceCost": insuranceCost,
+//                           "insuranceDate": insuranceDate]
+//            let childUpdates = ["/Insurances/\(key)/": insurance]
+//            refInsurances.updateChildValues(childUpdates)
         
         }
     }
@@ -224,11 +224,11 @@ class ServiceTableViewController: UITableViewController, FilterServiceViewContro
     }
     */
     
-    @objc func addService() {
+    @objc func addInsurance() {
         
-        let vc = AddServiceViewController()
-        (vc as AddServiceViewController).car = car
-        (vc as AddServiceViewController).currentUser = currentUser
+        let vc = AddInsuranceViewController()
+        (vc as AddInsuranceViewController).car = car
+        (vc as AddInsuranceViewController).currentUser = currentUser
         self.show(vc, sender: self)
         
         }

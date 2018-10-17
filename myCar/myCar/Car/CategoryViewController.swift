@@ -41,9 +41,9 @@ class CategoryViewController: UIViewController {
         } else if segue.identifier == "showRepairsSegue" {
             (segue.destination as? RepairsTableViewController)?.car = car
             (segue.destination as? RepairsTableViewController)?.currentUser = currentUser
-        } else if segue.identifier == "showServicesSegue" {
-            (segue.destination as? ServiceTableViewController)?.car = car
-            (segue.destination as? ServiceTableViewController)?.currentUser = currentUser
+        } else if segue.identifier == "showInsuranceSegue" {
+            (segue.destination as? InsuranceTableViewController)?.car = car
+            (segue.destination as? InsuranceTableViewController)?.currentUser = currentUser
         }
     }
     
