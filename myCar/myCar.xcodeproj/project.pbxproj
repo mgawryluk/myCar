@@ -44,6 +44,7 @@
 		90A5E75D206CBBE3007A78BC /* AddInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A5E75C206CBBE3007A78BC /* AddInsuranceViewController.swift */; };
 		90AF2E0F203B722B002D6B88 /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */; };
 		90B85FFE207C611D00F6707D /* InsuranceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B85FFD207C611D00F6707D /* InsuranceTableViewCell.swift */; };
+		90BF51112177C659003BC2CF /* UITextField+image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BF51102177C659003BC2CF /* UITextField+image.swift */; };
 		90C353D520F5AE6200E6E0DA /* FilterRepairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C353D420F5AE6200E6E0DA /* FilterRepairViewController.swift */; };
 		90C353D720F5B18200E6E0DA /* FilterInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C353D620F5B18200E6E0DA /* FilterInsuranceViewController.swift */; };
 		90D2BA25208E3E6100BA0ED7 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */; };
@@ -125,6 +126,7 @@
 		90A5E75C206CBBE3007A78BC /* AddInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInsuranceViewController.swift; sourceTree = "<group>"; };
 		90AF2E0E203B722B002D6B88 /* CarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
 		90B85FFD207C611D00F6707D /* InsuranceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceTableViewCell.swift; sourceTree = "<group>"; };
+		90BF51102177C659003BC2CF /* UITextField+image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+image.swift"; sourceTree = "<group>"; };
 		90C353D420F5AE6200E6E0DA /* FilterRepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRepairViewController.swift; sourceTree = "<group>"; };
 		90C353D620F5B18200E6E0DA /* FilterInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInsuranceViewController.swift; sourceTree = "<group>"; };
 		90D2BA24208E3E6100BA0ED7 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				902E9286203AE69700DD7E0F /* Info.plist */,
 				9095C8EE2088425700E27A6C /* GoogleService-Info.plist */,
 				904F3737210790C600A6A63F /* UILabel+Image.swift */,
+				90BF51102177C659003BC2CF /* UITextField+image.swift */,
 			);
 			path = myCar;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				90438C562060C28200EBD20A /* BillRepository.swift in Sources */,
 				908AA2EE203E092C00B102AE /* CarTableViewController.swift in Sources */,
 				9079394D20620EDA009167ED /* AddBillViewController.swift in Sources */,
+				90BF51112177C659003BC2CF /* UITextField+image.swift in Sources */,
 				908AA2EC203DFDD000B102AE /* Car.swift in Sources */,
 				90764BC52069EA51005DF444 /* Repair.swift in Sources */,
 				90C353D720F5B18200E6E0DA /* FilterInsuranceViewController.swift in Sources */,

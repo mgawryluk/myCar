@@ -42,6 +42,8 @@ class LogInViewController: UIViewController {
         emailTextField.placeholder = "Enter email"
         emailTextField.font = UIFont.systemFont(ofSize: 17)
         emailTextField.autocapitalizationType = .none
+        emailTextField.setIcon(name: "email2")
+        emailTextField.tintColor = UIColor.lightGray
         
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -54,6 +56,8 @@ class LogInViewController: UIViewController {
         passwordTextField.font = UIFont.systemFont(ofSize: 17)
         passwordTextField.autocapitalizationType = .none
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.setIcon(name: "password")
+        passwordTextField.tintColor = UIColor.lightGray
         
         
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30).isActive = true
@@ -72,7 +76,7 @@ class LogInViewController: UIViewController {
         
         newPasswordButton.backgroundColor = UIColor.white
         newPasswordButton.setTitle("Forgot password?", for: .normal)
-        newPasswordButton.setTitleColor(UIColor.blue, for: .normal)
+        newPasswordButton.setTitleColor(UIColor.gray, for: .normal)
         newPasswordButton.addTarget(self, action: #selector(newPassword), for: .touchUpInside)
         
         
