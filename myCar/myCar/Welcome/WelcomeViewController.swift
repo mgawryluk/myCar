@@ -13,6 +13,10 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background5.png")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
         
 
         let titleLabel = UILabel()
@@ -26,7 +30,8 @@ class WelcomeViewController: UIViewController {
         titleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 40)
+        titleLabel.textColor = UIColor.white
         
         let registerButton = UIButton()
         registerButton.setTitle("Sign Up", for: .normal)
@@ -37,8 +42,8 @@ class WelcomeViewController: UIViewController {
         registerButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         registerButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
-        registerButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        registerButton.backgroundColor = UIColor.gray
+        registerButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        registerButton.backgroundColor = UIColor.clear
         registerButton.addTarget(self, action: #selector(registerUser), for: .touchUpInside)
         
         let loginButton = UIButton()
@@ -50,8 +55,8 @@ class WelcomeViewController: UIViewController {
         loginButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20).isActive = true
         loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        loginButton.backgroundColor = UIColor.gray
+        loginButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        loginButton.backgroundColor = UIColor.clear
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         
         
