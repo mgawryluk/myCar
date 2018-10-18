@@ -39,11 +39,12 @@ class LogInViewController: UIViewController {
         
         emailTextField.textAlignment = .left
         emailTextField.borderStyle = .roundedRect
-        emailTextField.placeholder = "Enter email"
+//        emailTextField.placeholder = "Enter email"
         emailTextField.font = UIFont.systemFont(ofSize: 17)
         emailTextField.autocapitalizationType = .none
         emailTextField.setIcon(name: "email2")
         emailTextField.tintColor = UIColor.lightGray
+        emailTextField.setBottomBorder()
         
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -52,32 +53,35 @@ class LogInViewController: UIViewController {
         
         passwordTextField.textAlignment = .left
         passwordTextField.borderStyle = .roundedRect
-        passwordTextField.placeholder = "Enter password"
+//         passwordTextField.placeholder = "Enter password"
         passwordTextField.font = UIFont.systemFont(ofSize: 17)
         passwordTextField.autocapitalizationType = .none
         passwordTextField.isSecureTextEntry = true
         passwordTextField.setIcon(name: "password")
         passwordTextField.tintColor = UIColor.lightGray
+        passwordTextField.setBottomBorder()
         
         
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30).isActive = true
-        loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70).isActive = true
-        loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
+        loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 90).isActive = true
+        loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -90).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         loginButton.backgroundColor = UIColor.gray
-        loginButton.setTitle("Log in", for: .normal)
+        loginButton.setTitle("Sign In", for: .normal)
         loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         
         newPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true
-        newPasswordButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70).isActive = true
-        newPasswordButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
+        newPasswordButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 180).isActive = true
+        newPasswordButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         newPasswordButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         newPasswordButton.backgroundColor = UIColor.white
         newPasswordButton.setTitle("Forgot password?", for: .normal)
-        newPasswordButton.setTitleColor(UIColor.gray, for: .normal)
+        newPasswordButton.setTitleColor(UIColor.lightGray, for: .normal)
         newPasswordButton.addTarget(self, action: #selector(newPassword), for: .touchUpInside)
+        newPasswordButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.right
+        newPasswordButton.titleLabel?.font = UIFont(name: "System", size: 9)
         
         
 

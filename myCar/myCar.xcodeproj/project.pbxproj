@@ -25,6 +25,7 @@
 		903022E620540545009CD7D5 /* MileageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022E520540545009CD7D5 /* MileageRepository.swift */; };
 		903022EA20540A6E009CD7D5 /* Mileage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022E920540A6E009CD7D5 /* Mileage.swift */; };
 		903022EC2054121E009CD7D5 /* MileageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903022EB2054121E009CD7D5 /* MileageTableViewCell.swift */; };
+		9039BCF92179107700C21133 /* UITextFieldBottomLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9039BCF82179107700C21133 /* UITextFieldBottomLine.swift */; };
 		90438C562060C28200EBD20A /* BillRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90438C552060C28200EBD20A /* BillRepository.swift */; };
 		904F3738210790C600A6A63F /* UILabel+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904F3737210790C600A6A63F /* UILabel+Image.swift */; };
 		906EB7A92088455C00676053 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9095C8EE2088425700E27A6C /* GoogleService-Info.plist */; };
@@ -107,6 +108,7 @@
 		903022E520540545009CD7D5 /* MileageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageRepository.swift; sourceTree = "<group>"; };
 		903022E920540A6E009CD7D5 /* Mileage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mileage.swift; sourceTree = "<group>"; };
 		903022EB2054121E009CD7D5 /* MileageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileageTableViewCell.swift; sourceTree = "<group>"; };
+		9039BCF82179107700C21133 /* UITextFieldBottomLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldBottomLine.swift; sourceTree = "<group>"; };
 		90438C552060C28200EBD20A /* BillRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRepository.swift; sourceTree = "<group>"; };
 		904F3737210790C600A6A63F /* UILabel+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Image.swift"; sourceTree = "<group>"; };
 		90764BC42069EA51005DF444 /* Repair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repair.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				9095C8EE2088425700E27A6C /* GoogleService-Info.plist */,
 				904F3737210790C600A6A63F /* UILabel+Image.swift */,
 				90BF51102177C659003BC2CF /* UITextField+image.swift */,
+				9039BCF82179107700C21133 /* UITextFieldBottomLine.swift */,
 			);
 			path = myCar;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				902BE97E207B168E00418313 /* InsuranceRepository.swift in Sources */,
 				90FE9A41205F6EE500874867 /* BillsTableViewCell.swift in Sources */,
 				90764BC92069ED1C005DF444 /* AddRepairViewController.swift in Sources */,
+				9039BCF92179107700C21133 /* UITextFieldBottomLine.swift in Sources */,
 				903022E620540545009CD7D5 /* MileageRepository.swift in Sources */,
 				90764BC72069EBF0005DF444 /* RepairRepository.swift in Sources */,
 				908D871A20432C0B0055EA0B /* CarRepositosory.swift in Sources */,

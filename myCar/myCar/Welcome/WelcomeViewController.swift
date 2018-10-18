@@ -29,7 +29,7 @@ class WelcomeViewController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         
         let registerButton = UIButton()
-        registerButton.setTitle("Register", for: .normal)
+        registerButton.setTitle("Sign Up", for: .normal)
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(registerButton)
@@ -42,7 +42,7 @@ class WelcomeViewController: UIViewController {
         registerButton.addTarget(self, action: #selector(registerUser), for: .touchUpInside)
         
         let loginButton = UIButton()
-        loginButton.setTitle("Log In", for: .normal)
+        loginButton.setTitle("Sign In", for: .normal)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(loginButton)
