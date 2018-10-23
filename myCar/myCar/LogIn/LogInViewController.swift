@@ -50,6 +50,7 @@ class LogInViewController: UIViewController {
         emailTextField.tintColor = UIColor.darkGray
         emailTextField.setBottomBorder()
         emailTextField.alpha = 0.5
+    
         
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
         passwordTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -66,6 +67,7 @@ class LogInViewController: UIViewController {
         passwordTextField.tintColor = UIColor.darkGray
         passwordTextField.setBottomBorder()
         passwordTextField.alpha = 0.5
+        
         
         
         loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30).isActive = true

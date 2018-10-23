@@ -22,9 +22,11 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        
-        self.view.backgroundColor = UIColor.white
-        
+//        self.view.backgroundColor = UIColor.white
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background3.png")
+        backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
         
         
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +49,10 @@ class RegisterViewController: UIViewController {
         nameTextField.borderStyle = .roundedRect
         nameTextField.placeholder = "Enter name"
         nameTextField.font = UIFont.systemFont(ofSize: 17)
+        nameTextField.tintColor = UIColor.darkGray
+        nameTextField.setBottomBorder()
+        nameTextField.alpha = 0.5
+        nameTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0)
         
         emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20).isActive = true
         emailTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -57,6 +63,10 @@ class RegisterViewController: UIViewController {
         emailTextField.borderStyle = .roundedRect
         emailTextField.placeholder = "Enter email"
         emailTextField.font = UIFont.systemFont(ofSize: 17)
+        emailTextField.tintColor = UIColor.darkGray
+        emailTextField.setBottomBorder()
+        emailTextField.alpha = 0.5
+        emailTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0)
         
         
         
@@ -70,6 +80,11 @@ class RegisterViewController: UIViewController {
         passwordTextField.placeholder = "Password"
         passwordTextField.font = UIFont.systemFont(ofSize: 17)
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.tintColor = UIColor.darkGray
+        passwordTextField.setBottomBorder()
+        passwordTextField.alpha = 0.5
+        passwordTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0)
+        
         
         
         registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30).isActive = true
@@ -77,7 +92,7 @@ class RegisterViewController: UIViewController {
         registerButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
         registerButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        registerButton.backgroundColor = UIColor.gray
+        registerButton.backgroundColor = UIColor.clear
         registerButton.setTitle("Register", for: .normal)
         registerButton.addTarget(self, action: #selector(registerUser), for: .touchUpInside)
         

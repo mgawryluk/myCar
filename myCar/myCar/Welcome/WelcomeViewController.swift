@@ -20,7 +20,7 @@ class WelcomeViewController: UIViewController {
         
 
         let titleLabel = UILabel()
-        titleLabel.text = "MYCAR"
+        titleLabel.text = "myCar"
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
