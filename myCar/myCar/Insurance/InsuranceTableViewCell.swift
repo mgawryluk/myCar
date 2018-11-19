@@ -40,8 +40,8 @@ class InsuranceTableViewCell: UITableViewCell {
         insuranceDateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -130).isActive = true
 //        insuranceDateLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         insuranceDateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
-        insuranceDateLabel.textColor = UIColor.black
-        insuranceDateLabel.font = UIFont.systemFont(ofSize: 17)
+        insuranceDateLabel.textColor = UIColor.darkGray
+        insuranceDateLabel.font = UIFont.systemFont(ofSize: 15)
         insuranceDateLabel.textAlignment = .left
         insuranceDateLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,7 +50,7 @@ class InsuranceTableViewCell: UITableViewCell {
         insuranceCostLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0)
 //        insuranceCostLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         insuranceCostLabel.textColor = UIColor.black
-        insuranceCostLabel.font = UIFont.systemFont(ofSize: 17)
+        insuranceCostLabel.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
         insuranceCostLabel.textAlignment = .left
         insuranceCostLabel.translatesAutoresizingMaskIntoConstraints = false
         

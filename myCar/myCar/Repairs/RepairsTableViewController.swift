@@ -54,6 +54,7 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
         
         navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
         
         
         self.navigationController?.isToolbarHidden = false

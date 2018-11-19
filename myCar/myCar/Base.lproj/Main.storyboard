@@ -22,10 +22,11 @@
         <scene sceneID="s3V-V6-Nbz">
             <objects>
                 <tableViewController storyboardIdentifier="CarTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cHy-lx-Wym" customClass="CarTableViewController" customModule="myCar" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="500" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CzK-5c-Jk1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="500" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CzK-5c-Jk1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ike-bv-adT">
                             <rect key="frame" x="0.0" y="228" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XvV-dj-RUa" id="FT8-K9-fkp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4z1-rt-12r">
@@ -122,7 +123,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksB-hw-EXA">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="138"/>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="insurance"/>
                                         <connections>
                                             <segue destination="XFR-JV-ldi" kind="show" identifier="showInsuranceSegue" id="41b-KG-b7k"/>
@@ -130,7 +131,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-iv-3KG">
                                         <rect key="frame" x="0.0" y="148" width="355" height="138"/>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="bills"/>
                                         <connections>
                                             <segue destination="WKy-vc-rJJ" kind="show" identifier="showBillsSegue" id="Gwy-2S-Hmb"/>
@@ -138,7 +139,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oud-JN-6wU">
                                         <rect key="frame" x="0.0" y="296" width="355" height="138"/>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="repair"/>
                                         <connections>
                                             <segue destination="qgY-lv-76f" kind="show" identifier="showRepairsSegue" id="9oY-7F-tc1"/>
@@ -146,7 +147,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Un-vj1">
                                         <rect key="frame" x="0.0" y="444" width="355" height="138"/>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="mileage"/>
                                         <connections>
                                             <segue destination="zkB-di-Ops" kind="show" identifier="showMileageSegue" id="gQE-o9-I36"/>
@@ -156,7 +157,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xnw-CG-oSO" firstAttribute="leading" secondItem="xqQ-48-cOe" secondAttribute="leading" constant="10" id="WjG-GX-MRd"/>
                             <constraint firstItem="xqQ-48-cOe" firstAttribute="trailing" secondItem="Xnw-CG-oSO" secondAttribute="trailing" constant="10" id="t2u-EU-Khy"/>

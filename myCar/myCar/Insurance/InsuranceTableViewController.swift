@@ -54,8 +54,8 @@ class InsuranceTableViewController: UITableViewController, FilterInsuranceViewCo
             
         })
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 100
         
         navigationItem.rightBarButtonItem = editButtonItem
         self.tableView.tableFooterView = UIView()
@@ -161,6 +161,9 @@ class InsuranceTableViewController: UITableViewController, FilterInsuranceViewCo
         cell.insuranceDateLabel.text = insurances.insuranceDate
         cell.insuranceCostLabel.text = insurances.insuranceCost
         
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
 
@@ -197,7 +200,6 @@ class InsuranceTableViewController: UITableViewController, FilterInsuranceViewCo
         
         }
     }
-
 
     /*
     // Override to support rearranging the table view.

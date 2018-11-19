@@ -17,9 +17,10 @@ class CarTableViewController: UITableViewController {
     var identifier: String?
     var carList = [Car]()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         refCars = Database.database().reference().child("Users/\(currentUser!)/cars")
                                                         //("Users/(currentUser!)/cars/\(identifier)/Repairs")
@@ -97,9 +98,14 @@ class CarTableViewController: UITableViewController {
         
         cell.brandLabel.text = car.brand
         cell.modelLabel.text = car.model
+//        cell.backgroundColor = UIColor.white
+        
+        cell.layer.borderWidth = 10
+        cell.layer.borderColor = UIColor(red:220/235, green:220/235, blue:220/235, alpha:1).cgColor
         
         return cell
     }
+    
  
 
     
@@ -129,6 +135,8 @@ class CarTableViewController: UITableViewController {
         performSegue(withIdentifier: "showCategorySegue", sender: self)
         
     }
+    
+  
     
 
     /*
