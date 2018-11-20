@@ -30,7 +30,7 @@ class InsuranceTableViewCell: UITableViewCell {
         insuranceTypeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -130).isActive = true
 //        insuranceTypeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         insuranceTypeLabel.textColor = UIColor.black
-        insuranceTypeLabel.font = UIFont.systemFont(ofSize: 17)
+        insuranceTypeLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         insuranceTypeLabel.textAlignment = .left
         insuranceTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,7 +50,7 @@ class InsuranceTableViewCell: UITableViewCell {
         insuranceCostLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0)
 //        insuranceCostLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         insuranceCostLabel.textColor = UIColor.black
-        insuranceCostLabel.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
+        insuranceCostLabel.font = UIFont.systemFont(ofSize: 19, weight: .bold)
         insuranceCostLabel.textAlignment = .left
         insuranceCostLabel.translatesAutoresizingMaskIntoConstraints = false
         

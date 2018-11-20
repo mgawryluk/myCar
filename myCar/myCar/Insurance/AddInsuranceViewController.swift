@@ -20,7 +20,7 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
     let insuranceTypeTextField = UITextField()
     let insuranceCostTextField = UITextField()
     let insuranceDatePickerView = UIDatePicker()
-    let addInsuranceButton = UIButton()
+    let addInsuranceButton = UIButton(type: .custom)
     let background = UIImageView()
 
     override func viewDidLoad() {
@@ -81,12 +81,11 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
         
         
         addInsuranceButton.topAnchor.constraint(equalTo: insuranceCostTextField.bottomAnchor, constant: 30).isActive = true
-        addInsuranceButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70).isActive = true
-        addInsuranceButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -70).isActive = true
-        addInsuranceButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        addInsuranceButton.backgroundColor = UIColor.gray
-        addInsuranceButton.setTitle("Add insurance", for: .normal)
+        addInsuranceButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 167).isActive = true
+        addInsuranceButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -167).isActive = true
+        addInsuranceButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        addInsuranceButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        addInsuranceButton.setImage(UIImage(named:"addButton"), for: .normal)
         addInsuranceButton.addTarget(self, action: #selector(addInsurance), for: .touchUpInside)
         
         if insurance != nil {
