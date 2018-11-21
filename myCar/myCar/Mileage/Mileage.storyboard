@@ -111,7 +111,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1v-89-zMg">
-                                <rect key="frame" x="111.5" y="220" width="150" height="30"/>
+                                <rect key="frame" x="111.5" y="225" width="150" height="30"/>
                                 <color key="backgroundColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ZsV-C1-nPE"/>
@@ -132,7 +132,7 @@
                             <constraint firstItem="6Lq-rE-afM" firstAttribute="top" secondItem="dPl-7L-JtR" secondAttribute="top" constant="100" id="axZ-Au-wd4"/>
                             <constraint firstItem="dPl-7L-JtR" firstAttribute="trailing" secondItem="O1v-89-zMg" secondAttribute="trailing" constant="113.28" id="kZn-gG-ITb"/>
                             <constraint firstItem="dPl-7L-JtR" firstAttribute="trailing" secondItem="6Lq-rE-afM" secondAttribute="trailing" constant="50" id="rGk-ds-U9g"/>
-                            <constraint firstItem="O1v-89-zMg" firstAttribute="top" secondItem="6Lq-rE-afM" secondAttribute="bottom" constant="20" id="sOt-JH-Lvu"/>
+                            <constraint firstItem="O1v-89-zMg" firstAttribute="top" secondItem="6Lq-rE-afM" secondAttribute="bottom" constant="25" id="sOt-JH-Lvu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dPl-7L-JtR"/>
                     </view>
