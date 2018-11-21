@@ -81,10 +81,11 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
         
         
         addInsuranceButton.topAnchor.constraint(equalTo: insuranceCostTextField.bottomAnchor, constant: 30).isActive = true
-        addInsuranceButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 167).isActive = true
-        addInsuranceButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -167).isActive = true
-        addInsuranceButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        addInsuranceButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        addInsuranceButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 112.39).isActive = true
+        addInsuranceButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -112.61).isActive = true
+        addInsuranceButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        addInsuranceButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        addInsuranceButton.backgroundColor = UIColor.lightGray
         addInsuranceButton.setImage(UIImage(named:"addButton"), for: .normal)
         addInsuranceButton.addTarget(self, action: #selector(addInsurance), for: .touchUpInside)
         

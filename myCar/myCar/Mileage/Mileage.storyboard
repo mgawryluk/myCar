@@ -110,11 +110,14 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1v-89-zMg">
-                                <rect key="frame" x="70" y="220" width="235" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1v-89-zMg">
+                                <rect key="frame" x="111.5" y="220" width="150" height="30"/>
                                 <color key="backgroundColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Add">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZsV-C1-nPE"/>
+                                    <constraint firstAttribute="width" constant="150" id="rKd-pV-AHu"/>
+                                </constraints>
+                                <state key="normal" image="addButton">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -124,10 +127,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="O1v-89-zMg" firstAttribute="leading" secondItem="dPl-7L-JtR" secondAttribute="leading" constant="70" id="Fnq-qX-NfX"/>
+                            <constraint firstItem="O1v-89-zMg" firstAttribute="leading" secondItem="dPl-7L-JtR" secondAttribute="leading" constant="111.72" id="Fdw-gi-S7o"/>
                             <constraint firstItem="6Lq-rE-afM" firstAttribute="leading" secondItem="dPl-7L-JtR" secondAttribute="leading" constant="50" id="J94-ge-BnA"/>
-                            <constraint firstItem="dPl-7L-JtR" firstAttribute="trailing" secondItem="O1v-89-zMg" secondAttribute="trailing" constant="70" id="OcD-hI-mUh"/>
                             <constraint firstItem="6Lq-rE-afM" firstAttribute="top" secondItem="dPl-7L-JtR" secondAttribute="top" constant="100" id="axZ-Au-wd4"/>
+                            <constraint firstItem="dPl-7L-JtR" firstAttribute="trailing" secondItem="O1v-89-zMg" secondAttribute="trailing" constant="113.28" id="kZn-gG-ITb"/>
                             <constraint firstItem="dPl-7L-JtR" firstAttribute="trailing" secondItem="6Lq-rE-afM" secondAttribute="trailing" constant="50" id="rGk-ds-U9g"/>
                             <constraint firstItem="O1v-89-zMg" firstAttribute="top" secondItem="6Lq-rE-afM" secondAttribute="bottom" constant="20" id="sOt-JH-Lvu"/>
                         </constraints>
@@ -147,4 +150,7 @@
             <point key="canvasLocation" x="2454" y="845"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addButton" width="12.800000190734863" height="12.800000190734863"/>
+    </resources>
 </document>
