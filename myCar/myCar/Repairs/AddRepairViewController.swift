@@ -36,6 +36,10 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
         
         repairDateTextField.inputView = datePicker
         
+        repairCostTextField.setBottomBorder()
+        repairDateTextField.setBottomBorder()
+        repairTypeTextField.setBottomBorder()
+        
         
         repairTypeTextField.delegate = self
         repairDateTextField.delegate = self

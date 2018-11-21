@@ -28,6 +28,8 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mileageYearTextField.setBottomBorder()
+        distanceTextField.setBottomBorder()
         
         mileageYearTextField.delegate = self
         distanceTextField.delegate = self

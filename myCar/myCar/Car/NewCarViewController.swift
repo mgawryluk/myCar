@@ -34,6 +34,10 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
         productionYearTextField.delegate = self
         
         refCars = Database.database().reference().child("Users/\(currentUser!)/cars")
+        
+        brandTextField.setBottomBorder()
+        modelTextField.setBottomBorder()
+        productionYearTextField.setBottomBorder()
     
         
     }

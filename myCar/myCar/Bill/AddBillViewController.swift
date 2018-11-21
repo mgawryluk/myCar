@@ -33,6 +33,10 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         
         billDateTextField.inputView = datePicker
         
+        billTextField.setBottomBorder()
+        billCostTextField.setBottomBorder()
+        billDateTextField.setBottomBorder()
+        
         billTextField.delegate = self
         billDateTextField.delegate = self
         billCostTextField.delegate = self

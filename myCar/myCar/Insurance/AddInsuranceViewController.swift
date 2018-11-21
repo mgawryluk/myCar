@@ -50,6 +50,7 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
         insuranceTypeTextField.borderStyle = .roundedRect
         insuranceTypeTextField.placeholder = "Insurance type"
         insuranceTypeTextField.font = UIFont.systemFont(ofSize: 17)
+        insuranceTypeTextField.setBottomBorder()
         
         insuranceDateTextField.topAnchor.constraint(equalTo: insuranceTypeTextField.bottomAnchor, constant: 20).isActive = true
         insuranceDateTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
@@ -64,6 +65,7 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
         insuranceDateTextField.placeholder = "Insurance date"
         insuranceDateTextField.inputView = insuranceDatePickerView
         insuranceDateTextField.font = UIFont.systemFont(ofSize: 17)
+        insuranceDateTextField.setBottomBorder()
         
         
     
@@ -76,6 +78,7 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
         insuranceCostTextField.borderStyle = .roundedRect
         insuranceCostTextField.placeholder = "Insurance cost"
         insuranceCostTextField.font = UIFont.systemFont(ofSize: 17)
+        insuranceCostTextField.setBottomBorder()
         self.insuranceCostTextField.keyboardType = .decimalPad
         
         
