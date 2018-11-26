@@ -131,6 +131,14 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
     
     @objc func addInsurance(sender: UIButton!) {
         
+        if insuranceTypeTextField.text?.isEmpty ?? true || insuranceDateTextField.text?.isEmpty ?? true || insuranceCostTextField.text?.isEmpty ?? true {
+            let emptyTextFieldAlert = UIAlertController(title: "Ooops!", message: "It seems you've left some empty fields.", preferredStyle: .alert)
+            emptyTextFieldAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            present(emptyTextFieldAlert, animated: true)
+            
+        } else {
+        
         if self.insurance != nil {
             let key = self.insurance?.carIdentifier
             
@@ -149,7 +157,10 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
                            "insuranceCost": insuranceCostTextField.text! as String]
         refInsurances.child(key).setValue(insurance)
         
-    }
+            }
+            
+        }
+        
         navigationController?.popViewController(animated: true)
     }
 }

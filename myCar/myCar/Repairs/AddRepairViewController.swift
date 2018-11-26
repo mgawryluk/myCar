@@ -96,6 +96,14 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addRepairButton(_ sender: UIButton) {
         
+        if repairTypeTextField.text?.isEmpty ?? true || repairDateTextField.text?.isEmpty ?? true || repairCostTextField.text?.isEmpty ?? true {
+            let emptyTextFieldAlert = UIAlertController(title: "Ooops!", message: "It seems you've left some empty fields.", preferredStyle: .alert)
+            emptyTextFieldAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            present(emptyTextFieldAlert, animated: true)
+            
+        } else {
+        
         if self.repair != nil {
         let key = self.repair?.carIdentifier
     
@@ -115,10 +123,12 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
                           "repairCost": repairCostTextField.text! as String]
             refRepairs.child(key).setValue(repair)
         
+            }
         }
+        
         navigationController?.popViewController(animated: true)
         
+        }
+
+
     }
-
-
-}

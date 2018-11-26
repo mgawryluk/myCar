@@ -88,6 +88,15 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
     }
     
     func addNewCar() {
+        
+        if brandTextField.text?.isEmpty ?? true || modelTextField.text?.isEmpty ?? true || productionYearTextField.text?.isEmpty ?? true {
+            let emptyTextFieldAlert = UIAlertController(title: "Ooops!", message: "It seems you've left some empty fields.", preferredStyle: .alert)
+            emptyTextFieldAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            present(emptyTextFieldAlert, animated: true)
+            
+        } else {
+            
         let key = refCars.childByAutoId().key
         
         let car = ["id": key,
@@ -100,7 +109,7 @@ class NewCarViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
+    }
     
     
 }

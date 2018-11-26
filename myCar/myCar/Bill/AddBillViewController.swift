@@ -89,6 +89,15 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addBillButton(_ sender: Any) {
         
+        if billTextField.text?.isEmpty ?? true || billDateTextField.text?.isEmpty ?? true || billCostTextField.text?.isEmpty ?? true {
+            let emptyTextFieldAlert = UIAlertController(title: "Ooops!", message: "It seems you've left some empty fields.", preferredStyle: .alert)
+            emptyTextFieldAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            present(emptyTextFieldAlert, animated: true)
+            
+        } else {
+        
+        
         if self.bill != nil {
             let key = self.bill?.carIdentifier
         
@@ -109,6 +118,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
             refBills.child(key).setValue(bill)
         }
         
+    }
         navigationController?.popViewController(animated: true)
         
     }

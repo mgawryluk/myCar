@@ -75,6 +75,14 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addDistanceButton(_ sender: UIButton) {
         
+        if mileageYearTextField.text?.isEmpty ?? true || distanceTextField.text?.isEmpty ?? true {
+            let emptyTextFieldAlert = UIAlertController(title: "Ooops!", message: "It seems you've left some empty fields.", preferredStyle: .alert)
+            emptyTextFieldAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            present(emptyTextFieldAlert, animated: true)
+            
+        } else {
+        
         if self.mileage != nil {
             let key = self.mileage?.carIdentifier
             let mileage = ["id": key,
@@ -92,6 +100,8 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         
 
         }
+        
+    }
         navigationController?.popViewController(animated: true)
         
     
