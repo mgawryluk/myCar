@@ -170,8 +170,8 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
             
             let removeBill = billList[indexPath.row]
             refBills.child(removeBill.carIdentifier).removeValue()
-            tableView.deleteRows(at: [indexPath], with: .fade)
             self.billList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
             
         } else if editingStyle == .insert {

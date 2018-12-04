@@ -157,8 +157,8 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
         if editingStyle == .delete {
            let removeMileage = mileageList[indexPath.row]
             refMileage.child(removeMileage.carIdentifier).removeValue()
-            tableView.deleteRows(at: [indexPath], with: .fade)
             self.mileageList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
             
         } else if editingStyle == .insert {

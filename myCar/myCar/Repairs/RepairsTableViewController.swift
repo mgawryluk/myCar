@@ -174,8 +174,8 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
             
             let removeRepair = repairList[indexPath.row]
             refRepairs.child(removeRepair.carIdentifier).removeValue()
-            tableView.deleteRows(at: [indexPath], with: .fade)
             self.repairList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
             
             
