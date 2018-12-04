@@ -29,6 +29,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
         let datePicker = UIDatePicker()
         
         datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.backgroundColor = UIColor.white
         datePicker.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: UIControlEvents.valueChanged)
         
         billDateTextField.inputView = datePicker
@@ -47,7 +48,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
             billCostTextField.text = bill?.billCost
             billDateTextField.text = bill?.billDate
             billTextField.text = bill?.billType
-            editButton.setTitle("Edit", for: .normal)
+//            editButton.setTitle("Edit", for: .normal)
         }
     }
     
@@ -60,7 +61,7 @@ class AddBillViewController: UIViewController, UITextFieldDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .medium
             dateFormatter.timeStyle = .none
-            
+    
             billDateTextField.text = dateFormatter.string(from: datePicker.date)
             
     }

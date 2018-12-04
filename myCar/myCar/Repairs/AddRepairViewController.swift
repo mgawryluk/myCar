@@ -32,6 +32,7 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
         let datePicker = UIDatePicker()
         
         datePicker.datePickerMode = UIDatePickerMode.date
+        datePicker.backgroundColor = UIColor.white
         datePicker.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: UIControlEvents.valueChanged)
         
         repairDateTextField.inputView = datePicker
@@ -51,7 +52,7 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
             repairCostTextField.text = repair?.repairCost
             repairDateTextField.text = repair?.repairDate
             repairTypeTextField.text = repair?.repairType
-            editButton.setTitle("Edit", for: .normal)
+//            editButton.setTitle("Edit", for: .normal)
         }
         
     }

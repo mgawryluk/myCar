@@ -58,6 +58,7 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
         insuranceDateTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         insuranceDatePickerView.datePickerMode = .date
+        insuranceDatePickerView.backgroundColor = UIColor.white
         insuranceDatePickerView.addTarget(self, action: #selector(self.datePickerValueChanged(datePicker:)), for: .valueChanged)
         
         insuranceDateTextField.textAlignment = .left
@@ -96,7 +97,7 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
             insuranceCostTextField.text = insurance?.insuranceCost
             insuranceDateTextField.text = insurance?.insuranceDate
             insuranceTypeTextField.text = insurance?.insuranceType
-            addInsuranceButton.setTitle("Edit", for: .normal)
+//            addInsuranceButton.setTitle("Edit", for: .normal)
         }
         
         
