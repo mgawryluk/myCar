@@ -10,13 +10,17 @@ import UIKit
 import Firebase
 
 class AboutViewController: UIViewController {
+    
+    let logoutButton = UIButton()
+    let infoLabel = UILabel()
+    let titleLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         showTitle()
 
-        let titleLabel = UILabel()
-        titleLabel.text = "myCar"
+        
+        titleLabel.text = "myCar 1.0"
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(titleLabel)
@@ -29,8 +33,8 @@ class AboutViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         
-        let infoLabel = UILabel()
-        infoLabel.text = "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+        
+        infoLabel.text = "I really hope you like it. It's my first app and I'll do my best to improve it over time. \nIf you have any suggestions, drop me a message at mg@michalgawryluk.com or catch me up on Twitter at @michalgawryluk."
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(infoLabel)
@@ -39,17 +43,22 @@ class AboutViewController: UIViewController {
         infoLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
         infoLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
         infoLabel.numberOfLines = 0
+        infoLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
         
-        let logoutButton = UIButton()
+        
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logoutButton)
         
-        logoutButton.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 20).isActive = true
-        logoutButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50).isActive = true
-        logoutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50).isActive = true
-        logoutButton.backgroundColor = UIColor.gray
+        logoutButton.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 25).isActive = true
+        logoutButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 112.39).isActive = true
+        logoutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -112.61).isActive = true
+        logoutButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        logoutButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        logoutButton.backgroundColor = UIColor.lightGray
         logoutButton.setTitle("Log out", for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutUser), for: .touchUpInside)
+        
+        
         
     
         
