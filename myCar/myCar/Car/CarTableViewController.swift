@@ -18,6 +18,7 @@ class CarTableViewController: UITableViewController {
     var carList = [Car]()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,7 +86,7 @@ class CarTableViewController: UITableViewController {
         
         return carList.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "CarTableViewCell"
@@ -100,8 +101,10 @@ class CarTableViewController: UITableViewController {
         cell.modelLabel.text = car.model
 //        cell.backgroundColor = UIColor.white
         
-        cell.layer.borderWidth = 10
-        cell.layer.borderColor = UIColor(red:220/235, green:220/235, blue:220/235, alpha:1).cgColor
+//        cell.layer.borderWidth = 10
+//        cell.layer.borderColor = UIColor(red:220/235, green:220/235, blue:220/235, alpha:1).cgColor
+        
+        
         
         return cell
     }
@@ -114,6 +117,7 @@ class CarTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
+    
     
 
     
