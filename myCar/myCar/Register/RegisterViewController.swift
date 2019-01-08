@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
         ref = Database.database().reference()
 //        self.view.backgroundColor = UIColor.white
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "background3.png")
+        backgroundImage.image = UIImage(named: "login_background.png")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
