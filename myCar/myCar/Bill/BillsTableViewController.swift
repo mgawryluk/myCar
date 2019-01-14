@@ -146,6 +146,10 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
         cell.dateLabel.text = bills.billDate
         cell.costLabel.text = bills.billCost
         
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
     

@@ -108,18 +108,12 @@ class CarTableViewController: UITableViewController {
         
         cell.brandLabel.text = car.brand
         cell.modelLabel.text = car.model
-//        cell.backgroundColor = UIColor.white
         
-//        cell.layer.borderWidth = 10
-//        cell.layer.borderColor = UIColor(red:220/235, green:220/235, blue:220/235, alpha:1).cgColor
-        
-        
+       
         
         return cell
+        
     }
-    
- 
-
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

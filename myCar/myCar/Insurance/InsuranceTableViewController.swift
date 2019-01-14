@@ -73,6 +73,7 @@ class InsuranceTableViewController: UITableViewController, FilterInsuranceViewCo
 
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         tableView.reloadData()

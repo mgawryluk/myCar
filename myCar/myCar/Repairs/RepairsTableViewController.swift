@@ -150,6 +150,10 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
         cell.repairDateLabel.text = repairs.repairDate
         cell.repairCostLabel.text = repairs.repairCost
         
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
     

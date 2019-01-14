@@ -145,6 +145,10 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
         cell.mileageYearLabel.text = km.mileageYear
         cell.distanceTextLabel.text = km.distance
         
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
     
