@@ -22,8 +22,8 @@ class InsuranceTableViewController: UITableViewController, FilterInsuranceViewCo
     var yearPicked: String?
 
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showTitle()
         
         refInsurances = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Insurances")
@@ -38,7 +38,7 @@ class InsuranceTableViewController: UITableViewController, FilterInsuranceViewCo
                     let insuranceCost = insuranceObject?["insuranceCost"]
                     let insuranceID = insuranceObject?["id"]
                     
-                    let insurance = Insurance(insuranceType: insuranceType as! String?, insuranceCost: insuranceCost as! String?, insuranceDate: insuranceDate as! String?, carIdentifier: insuranceID as! String?)
+                    let insurance = Insurance(insuranceType: insuranceType as! String?, insuranceCost: insuranceCost as! String?, insuranceDate: insuranceDate, carIdentifier: insuranceID as! String?)
                     
                     
                     let rangeOfYear = insuranceDate?.suffix(4)
@@ -163,7 +163,7 @@ class InsuranceTableViewController: UITableViewController, FilterInsuranceViewCo
         cell.insuranceCostLabel.text = insurances.insuranceCost
         
         cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
+    
         
         return cell
     }

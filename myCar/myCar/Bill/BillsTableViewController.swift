@@ -21,8 +21,8 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
     var car: Car?
     var yearPicked: String?
     
-    override func viewDidAppear(_ animated: Bool) {
-     super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+     super.viewWillAppear(animated)
         showTitle()
         
         refBills = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Bills")
@@ -37,7 +37,7 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
                     let billCost = billObject?["billCost"]
                     let billID = billObject?["id"]
                     
-                    let bill = Bill(billType: billType as! String?, billCost: billCost as! String?, billDate: billDate as! String?, carIdentifier: billID as! String?)
+                    let bill = Bill(billType: billType as! String?, billCost: billCost as! String?, billDate: billDate, carIdentifier: billID as! String?)
                     
                     let rangeOfYear = billDate?.suffix(4)
                     let yearStr = String(rangeOfYear!)
@@ -146,9 +146,7 @@ class BillsTableViewController: UITableViewController, FilterBillViewControllerD
         cell.dateLabel.text = bills.billDate
         cell.costLabel.text = bills.billCost
         
-        cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
         
         return cell
     }

@@ -26,7 +26,6 @@ class CarTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         
-        
         refCars = Database.database().reference().child("Users/\(currentUser!)/cars")
                                                         //("Users/(currentUser!)/cars/\(identifier)/Repairs")
         refCars.observe(DataEventType.value, with: { (snapshot) in

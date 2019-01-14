@@ -21,10 +21,9 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
     var car: Car?
     var yearPicked: String?
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showTitle()
-
         
         refRepairs = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Repairs")
         
@@ -38,7 +37,7 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
                     let repairCost = repairObject?["repairCost"]
                     let repairID = repairObject?["id"]
                     
-                    let repair = Repair(repairType: repairType as! String?, repairCost: repairCost as! String?, repairDate: repairDate as! String?, carIdentifier: repairID as! String?)
+                    let repair = Repair(repairType: repairType as! String?, repairCost: repairCost as! String?, repairDate: repairDate, carIdentifier: repairID as! String?)
                     
                     let rangeOfYear = repairDate?.suffix(4)
                     let yearStr = String(rangeOfYear!)
@@ -150,9 +149,8 @@ class RepairsTableViewController: UITableViewController, FilterRepairViewControl
         cell.repairDateLabel.text = repairs.repairDate
         cell.repairCostLabel.text = repairs.repairCost
         
-        cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
+        
         
         return cell
     }

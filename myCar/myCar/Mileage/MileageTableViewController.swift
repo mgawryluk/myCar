@@ -21,8 +21,8 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
     var car: Car?
     var yearPicked: String?
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showTitle()
         
         refMileage = Database.database().reference().child("Users/\(currentUser!)/cars/\((car?.identifier)!)/Mileage")
@@ -36,7 +36,7 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
                     let distance = mileageObject?["distance"]
                     let mileageID = mileageObject?["id"]
                     
-                    let mileage = Mileage(mileageYear: mileageYear as! String?, distance: distance as! String?, carIdentifier: mileageID as! String?)
+                    let mileage = Mileage(mileageYear: mileageYear, distance: distance as! String?, carIdentifier: mileageID as! String?)
                     
 //                    let rangeOfYear = mileageYear
                     let yearStr = String(mileageYear!)
@@ -145,9 +145,8 @@ class MileageTableViewController: UITableViewController, FilterMileageViewContro
         cell.mileageYearLabel.text = km.mileageYear
         cell.distanceTextLabel.text = km.distance
         
-        cell.preservesSuperviewLayoutMargins = false
         cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
+    
         
         return cell
     }
