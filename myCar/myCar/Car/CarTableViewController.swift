@@ -29,22 +29,22 @@ class CarTableViewController: UITableViewController {
         refCars = Database.database().reference().child("Users/\(currentUser!)/cars")
                                                         //("Users/(currentUser!)/cars/\(identifier)/Repairs")
         refCars.observe(DataEventType.value, with: { (snapshot) in
+            self.carList.removeAll()
             if snapshot.childrenCount > 0 {
-                self.carList.removeAll()
                 for cars in snapshot.children.allObjects as! [DataSnapshot] {
                     let carObject = cars.value as? [String: AnyObject]
-                    let carBrand = carObject?["carBrand"]
-                    let carModel = carObject?["carModel"]
-                    let carYear = carObject?["carYear"]
-                    let carID = carObject?["id"]
+                    let carBrand = carObject?["carBrand"] as? String
+                    let carModel = carObject?["carModel"] as? String
+                    let carYear = carObject?["carYear"] as? String
+                    let carID = carObject?["id"] as? String
                     
-                    let car = Car(brand: carBrand as! String?, model: carModel as! String?, productionYear: carYear as! String?, identifier: carID as! String?)
-                    
-                    self.carList.append(car!)
-                
+                    // safely try to create Car object - if it fails, nothing is added to the list
+                    if let car = Car(brand: carBrand, model: carModel, productionYear: carYear, identifier: carID) {
+                        self.carList.append(car)
+                    }
+                }
             }
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
 
     })
         
