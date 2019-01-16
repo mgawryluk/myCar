@@ -21,6 +21,7 @@ class CarTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -130,10 +131,12 @@ class CarTableViewController: UITableViewController {
             let removeCar = carList[indexPath.row]
             
             refCars.child(removeCar.identifier).removeValue()
+            tableView.reloadData()
             
         } else if editingStyle == .insert {
         
-        }    
+        }
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
