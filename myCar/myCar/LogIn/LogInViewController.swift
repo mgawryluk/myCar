@@ -101,6 +101,10 @@ class LogInViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
+                SVProgressHUD.dismiss()
+                let loginFailedAlert = UIAlertController(title: "Ooops!", message: "Wrong email or password", preferredStyle: .alert)
+                loginFailedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(loginFailedAlert, animated: true, completion: nil)
                 print(error!)
             } else {
                 let userID: String = user!.uid
@@ -110,7 +114,6 @@ class LogInViewController: UIViewController {
                 vc.currentUser = userID
                 self.show(vc, sender: self)
             }
-            
         } 
         
      }
@@ -128,7 +131,7 @@ class LogInViewController: UIViewController {
                     resetFailedAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(resetFailedAlert, animated: true, completion: nil)
                 }else {
-                    let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your email", preferredStyle: .alert)
+                    let resetEmailSentAlert = UIAlertController(title: "Reset email sent successfully", message: "Check your mailbox", preferredStyle: .alert)
                     resetEmailSentAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self.present(resetEmailSentAlert, animated: true, completion: nil)
                 }

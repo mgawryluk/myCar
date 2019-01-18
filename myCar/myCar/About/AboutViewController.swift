@@ -34,7 +34,7 @@ class AboutViewController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         
         
-        infoLabel.text = "I really hope you like it. It's my first app and I'll do my best to improve it over time. \nIf you have any suggestions, drop me a message at mg@michalgawryluk.com or catch me up on Twitter at @michalgawryluk."
+        infoLabel.text = "I really hope you like it. It's my first app and I'll do my best to improve it over time. \nIf you have any suggestions, catch me up on Twitter at @michalgawryluk."
         infoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(infoLabel)
