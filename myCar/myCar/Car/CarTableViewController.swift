@@ -24,8 +24,9 @@ class CarTableViewController: UITableViewController {
         tableView.reloadData()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.view.backgroundColor = UIColor.clear
+        self.navigationController?.hidesBarsOnSwipe = false
         
         refCars = Database.database().reference().child("Users/\(currentUser!)/cars")
                                                         //("Users/(currentUser!)/cars/\(identifier)/Repairs")
@@ -62,6 +63,7 @@ class CarTableViewController: UITableViewController {
         items.append(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewCar)))
         items.append(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil))
         self.toolbarItems = items
+        self.navigationController?.toolbar.isTranslucent = false
         
         self.navigationController?.toolbar.setBackgroundImage(UIImage(), forToolbarPosition: UIBarPosition.any, barMetrics: UIBarMetrics.default)
         self.navigationController?.toolbar.setShadowImage(UIImage(), forToolbarPosition: UIBarPosition.any)
@@ -73,7 +75,7 @@ class CarTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController?.isToolbarHidden = false
+//        self.navigationController?.isToolbarHidden = false
         tableView.reloadData()
         // New data added to Car array
         

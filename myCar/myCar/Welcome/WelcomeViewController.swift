@@ -78,7 +78,17 @@ class WelcomeViewController: UIViewController {
             vc.currentUser = Auth.auth().currentUser?.uid
             self.show(vc, sender: self)
             
+            self.navigationController?.navigationBar.isTranslucent = true
+            self.navigationController?.view.backgroundColor = UIColor.clear
+            self.navigationController?.toolbar.isTranslucent = true
+            
             }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        self.navigationController?.toolbar.isTranslucent = true
     }
     
 
