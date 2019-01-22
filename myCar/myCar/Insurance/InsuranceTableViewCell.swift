@@ -30,7 +30,7 @@ class InsuranceTableViewCell: UITableViewCell {
         insuranceTypeLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -130).isActive = true
 //        insuranceTypeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         insuranceTypeLabel.textColor = UIColor.black
-        insuranceTypeLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        insuranceTypeLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         insuranceTypeLabel.textAlignment = .left
         insuranceTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         

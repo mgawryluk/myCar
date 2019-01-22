@@ -52,7 +52,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="E4q-IW-OyQ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -61,7 +61,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="Z7w-bv-r12"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -122,37 +122,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-CG-oSO">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xnw-CG-oSO">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksB-hw-EXA">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="insurance"/>
+                                        <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
+                                        <state key="normal" title="Insurance">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="XFR-JV-ldi" kind="show" identifier="showInsuranceSegue" id="41b-KG-b7k"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMT-iv-3KG">
-                                        <rect key="frame" x="0.0" y="163" width="375" height="158"/>
+                                        <rect key="frame" x="0.0" y="162" width="375" height="161"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="bills"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="Bills">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="WKy-vc-rJJ" kind="show" identifier="showBillsSegue" id="Gwy-2S-Hmb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oud-JN-6wU">
-                                        <rect key="frame" x="0.0" y="326" width="375" height="158"/>
+                                    <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oud-JN-6wU">
+                                        <rect key="frame" x="0.0" y="324" width="375" height="161"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="repair"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="Repairs">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <segue destination="qgY-lv-76f" kind="show" identifier="showRepairsSegue" id="9oY-7F-tc1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Un-vj1">
-                                        <rect key="frame" x="0.0" y="489" width="375" height="158"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9a-Un-vj1">
+                                        <rect key="frame" x="0.0" y="486" width="375" height="161"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="mileage"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Mileage">
+                                                    <attributes>
+                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <font key="NSFont" metaFont="system" size="20"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <segue destination="zkB-di-Ops" kind="show" identifier="showMileageSegue" id="gQE-o9-I36"/>
                                         </connections>
@@ -251,9 +270,7 @@
                                     <constraint firstAttribute="width" constant="150" id="Acf-bY-J9g"/>
                                     <constraint firstAttribute="height" constant="30" id="Kj4-tT-NWa"/>
                                 </constraints>
-                                <state key="normal" image="addButton">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                                <state key="normal" image="addButton"/>
                                 <connections>
                                     <action selector="addCar:" destination="JGr-qO-sPO" eventType="touchUpInside" id="YLW-cC-1Tu"/>
                                 </connections>
@@ -306,9 +323,5 @@
     </scenes>
     <resources>
         <image name="addButton" width="12.800000190734863" height="12.800000190734863"/>
-        <image name="bills" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="insurance" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="mileage" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="repair" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>
