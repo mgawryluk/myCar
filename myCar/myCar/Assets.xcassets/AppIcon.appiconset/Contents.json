@@ -60,8 +60,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "myCar_appIcon-20@2x-1.png",
       "scale" : "2x"
     },
     {
@@ -70,8 +71,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "myCar_appIcon-29@2x-1.png",
       "scale" : "2x"
     },
     {
@@ -80,8 +82,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "myCar_appIcon-40@2x-1.png",
       "scale" : "2x"
     },
     {
@@ -90,8 +93,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "myCar_appIcon-76@2x-1.png",
       "scale" : "2x"
     },
     {
@@ -100,43 +104,10 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "ios-marketing",
       "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "myCar_appIcon-1024.png-1.png",
       "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "myCar_appIcon-1024.png",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "myCar_appIcon-76@2x.png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "myCar_appIcon-20.png",
-      "unassigned" : true,
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "myCar_appIcon-40.png",
-      "unassigned" : true,
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "myCar_appIcon-76.png",
-      "unassigned" : true,
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "myCar_appIcon-83.5@2x.png",
-      "unassigned" : true,
-      "scale" : "2x"
     }
   ],
   "info" : {
