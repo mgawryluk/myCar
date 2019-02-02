@@ -39,7 +39,7 @@ class AddMileageViewController: UIViewController, UITextFieldDelegate {
         if mileage != nil {
             mileageYearTextField.text = mileage?.mileageYear
             distanceTextField.text = mileage?.distance
-//            editButton.setTitle("Edit", for: .normal)
+
         }
         
     }

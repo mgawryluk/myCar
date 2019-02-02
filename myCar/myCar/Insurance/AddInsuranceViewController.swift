@@ -97,7 +97,7 @@ class AddInsuranceViewController: UIViewController, UITextFieldDelegate {
             insuranceCostTextField.text = insurance?.insuranceCost
             insuranceDateTextField.text = insurance?.insuranceDate
             insuranceTypeTextField.text = insurance?.insuranceType
-//            addInsuranceButton.setTitle("Edit", for: .normal)
+
         }
         
         

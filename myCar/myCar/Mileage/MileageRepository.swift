@@ -27,15 +27,6 @@ class MileageRepository {
         
         return mileage.filter {$0.carIdentifier == carIdentifier}
         
-//        var filteredMileages = [Mileage]()
-//        for item in mileage {
-//            if item.carIdentifier == carIdentifier {
-//                filteredMileages.append(item)
-//            }
-//
-//        }
-//
-//        return filteredMileages
     }
     
     func getAllMileage() -> [Mileage] {

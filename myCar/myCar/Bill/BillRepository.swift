@@ -28,15 +28,6 @@ class BillRepository {
         return bills.filter {$0.carIdentifier == carIdentifier}
         
         
-//                var filteredBills = [Bill]()
-//                for item in bills {
-//                    if item.carIdentifier == carIdentifier {
-//                        filteredBills.append(item)
-//                    }
-//
-//                }
-//
-//                return filteredBills
     }
     
     func getAllBills() -> [Bill] {

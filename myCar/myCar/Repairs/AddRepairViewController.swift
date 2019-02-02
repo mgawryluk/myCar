@@ -52,7 +52,7 @@ class AddRepairViewController: UIViewController, UITextFieldDelegate {
             repairCostTextField.text = repair?.repairCost
             repairDateTextField.text = repair?.repairDate
             repairTypeTextField.text = repair?.repairType
-//            editButton.setTitle("Edit", for: .normal)
+            
         }
         
     }

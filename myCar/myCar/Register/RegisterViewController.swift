@@ -22,7 +22,6 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-//        self.view.backgroundColor = UIColor.white
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "login_background.png")
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
