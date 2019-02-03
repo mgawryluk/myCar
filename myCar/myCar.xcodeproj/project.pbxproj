@@ -116,6 +116,7 @@
 		90764BC82069ED1C005DF444 /* AddRepairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRepairViewController.swift; sourceTree = "<group>"; };
 		90764BCA2069EF22005DF444 /* RepairTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairTableViewCell.swift; sourceTree = "<group>"; };
 		90764BCC2069EFD9005DF444 /* RepairsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepairsTableViewController.swift; sourceTree = "<group>"; };
+		90782B3B22063FD600ABB38A /* myCar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myCar.entitlements; sourceTree = "<group>"; };
 		9079394C20620EDA009167ED /* AddBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillViewController.swift; sourceTree = "<group>"; };
 		908AA2EB203DFDD000B102AE /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		908AA2ED203E092C00B102AE /* CarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +257,7 @@
 		902E9279203AE69700DD7E0F /* myCar */ = {
 			isa = PBXGroup;
 			children = (
+				90782B3B22063FD600ABB38A /* myCar.entitlements */,
 				90D2BA23208E3E5200BA0ED7 /* Welcome */,
 				90080CF4208D8F50007A3904 /* LogIn */,
 				90080CEF208D89F2007A3904 /* Register */,
@@ -455,6 +457,11 @@
 					902E9276203AE69700DD7E0F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					BC9DE5BF20BC58A90038BB05 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -874,6 +881,7 @@
 			baseConfigurationReference = F849E9D894DEF20FFA9DB1F3 /* Pods-myCar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = myCar/myCar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26TNT78XP5;
 				INFOPLIST_FILE = myCar/Info.plist;
@@ -890,6 +898,7 @@
 			baseConfigurationReference = E2815FB90F25F58DEB88E13C /* Pods-myCar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = myCar/myCar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26TNT78XP5;
 				INFOPLIST_FILE = myCar/Info.plist;
